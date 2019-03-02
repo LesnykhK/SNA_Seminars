@@ -1,0 +1,208 @@
+---
+title: "Seminar 4"
+author: "Lesnykh Kirill"
+date: "February 9, 2019"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage[english, russian]{babel}
+- \usepackage[T1, OT2]{fontenc}
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+wd<-getwd()
+```
+
+```{r}
+SWFile <- "/SouthernWomen/SouthernWomen.tsv"
+SWFilePath <- paste(wd, SWFile, sep = "")
+```
+
+```{r}
+SWrawdata <- read.table(SWFilePath, sep = "\t", header = TRUE, row.names = 1)
+SWrawdata
+```
+
+Assignment task. In your Seminar 4 folder, there is another file with data, HiTech. Create the code that
+will do the following:
+??? Create a directory that will consist of a working directory name and the HiTech folder name, so that it
+opens the HiTech folder.
+??? Create file paths to separate data files "GivesAdviceTo," "IsFriendOf," "ReportsTo," and "HiTechAtt.""
+
+```{r}
+HiTechFolder <- paste(wd, "/HiTech/", sep = "")
+HiTechFolder
+```
+
+```{r}
+GivesAdviceToPath <- paste(HiTechFolder, "HiTech - GivesAdviceTo.tsv", sep="")
+
+ReportsToPath <- paste(HiTechFolder, "HiTech - ReportsTo.tsv", sep="")
+
+HiTechAttPath <- paste(HiTechFolder, "HiTech - HiTechAtt.tsv", sep="")
+
+IsFriendsOfPath <- paste(HiTechFolder, "HiTech - IsFriendsOf.tsv", sep="")
+```
+
+```{r}
+library(igraph)
+
+SWnet<-graph_from_incidence_matrix(SWrawdata)
+
+par(mar=c(0,0,0,0))
+plot(SWnet)
+```
+
+```{r}
+library(RColorBrewer)
+colors<-brewer.pal(8, 'Accent')
+```
+
+```{r}
+V(SWnet)$color <- c(colors[1],colors[6])[V(SWnet)$type+1]
+V(SWnet)$shape <- c("square", "circle")[V(SWnet)$type+1]
+V(SWnet)$label.color<-c("black","white")[V(SWnet)$type+1]
+V(SWnet)$label.cex<-c(0.5, 0.7)[V(SWnet)$type+1]
+V(SWnet)$label.font=2
+
+V(SWnet)$indegree <- degree(SWnet, mode = "in")
+
+V(SWnet)$size<-ifelse(V(SWnet)$type==TRUE,V(SWnet)$indegree*3,15)
+
+par(mar=c(0,0,0,0))
+plot(SWnet)
+```
+
+```{r}
+par(mar=c(0,0,0,0))
+plot(SWnet, layout=layout.bipartite)
+```
+
+```{r}
+V(SWnet)$shape='none'
+V(SWnet)$label.color<-c("black",colors[6])[V(SWnet)$type+1]
+V(SWnet)$label.cex<-ifelse(V(SWnet)$type==TRUE,0.25+V(SWnet)$indegree/10,0.5)
+
+par(mar=c(0,0,0,0))
+plot(SWnet, layout=layout.bipartite)
+```
+
+Assignment task. Apparently, creating such graph is not as easy as it looks! You give it a try. Using
+the plotting function in igraph, improve my graph for the SouthernWomen data by changing at least three
+characteristics of the graph.
+
+```{r}
+V(SWnet)$shape='none'
+V(SWnet)$label.color<-c("black",colors[5])[V(SWnet)$type+1]
+V(SWnet)$label.cex<-ifelse(V(SWnet)$type==TRUE,.2+V(SWnet)$indegree/15,0.6)
+
+par(mar=c(0,0,0,0))
+plot(SWnet, layout=layout_as_tree)
+```
+
+I have tried to depict the graph in some other and better way. I have changed the type of layout (the chosen type allows to cluster the data in some way), the color of labels and the size of it, so is is more readable. Unfortunatly, I was't able to change the labels of nodes for Women, so that they would be more visible.
+
+```{r}
+Women.only<-as.matrix(SWrawdata)%*%t(as.matrix(SWrawdata)) # Matrix of women only
+Events.only<-t(as.matrix(SWrawdata))%*%as.matrix(SWrawdata) # Matrix of events only
+
+Women.only
+Events.only
+```
+
+Assignment task. Display the contents of the Women.only and Events.only matrices we created above.
+??? Explain what data in these matrices mean.
+??? What are the benefits and problems with separating incidence matrices and creating adjacency matrices out of them?
+
+```{r}
+Women.only1 <-graph.adjacency(Women.only,
+mode=c("undirected"),
+weighted=TRUE,
+diag=FALSE)
+
+Events.only1 <-graph.adjacency(Events.only,
+mode=c("undirected"),
+weighted=TRUE,
+diag=FALSE)
+
+par(mar=c(0,0,0,0), mfrow=c(1,2))
+plot(Events.only1, 
+     edge.width=Events.only, 
+     vertex.size=diag(Events.only)*2)
+plot(Women.only1, 
+     edge.width=Women.only, 
+     vertex.size=diag(Women.only)*3.5)
+```
+
+The data in those matrices indeicate the following: in Women.only - how many parties are have been visited by each woman (the size of the vertex on the graph Women.only1), and how many times women have visited the same party for each couple of women (the wildth of each edge in Women.only1).
+
+In Events.only - how many women from the poll have visited the party (the size of the vertex on the graph Events.only1), and how many the same women have visited the same party for each couple (the wildth of each edge in Events.only1).
+
+The benefits with separating incidence matrices and creating adjacency matrices is that it is not a difficult way of researching the ties between the nodes of one type with relation to the other. For instance, I have accomplished to gather information on how many parties have been visited by each woman and how mant party they have visited together. So, I can tell which women attend parties more often and who they have met. The same is for the parties also. Also, by creating adjacency matrices it possible to look on the data from another anlge and to conduct a deeper research.
+
+As for the problems of such action, it have to understood that such method can't always be applicable to the data. In the case with women and parties, it is possible to interpret and analyze the adjacency matrices we created. But it is not such an universal rule. Not all cases could be examined with that method. The other problem is that still it isn't allways possible to examine the data on a more individual level.
+
+```{r}
+SWnet.sep<-bipartite.projection(SWnet)
+
+par(mar=c(0,0,0,0), mfrow=c(1,2))
+plot(SWnet.sep$proj1)
+plot(SWnet.sep$proj2)
+```
+
+Assignment task. For the network SouthernWomen, please calculate the following network characteristics
+and briefl explain what they mean:
+??? Indegree, outdegree, total degree;
+??? Centrality: degree, betweenness, closeness, eigenvector, page rank; correlations between these measures.
+??? Transitivity.
+
+```{r}
+V(SWnet)$shape='none'
+V(SWnet)$label.color<-c("black",colors[5])[V(SWnet)$type+1]
+V(SWnet)$label.cex<-ifelse(V(SWnet)$type==TRUE,.2+V(SWnet)$indegree/15,0.6)
+
+par(mar=c(0,0,0,0))
+plot(SWnet, layout=layout_as_tree)
+```
+
+```{r}
+degree <- centralization.degree(SWnet, normalized = TRUE)
+
+betweenness <- centralization.betweenness(SWnet)
+
+closeness <- centralization.closeness(SWnet)
+
+evcent <- centralization.evcent(SWnet)
+
+PR <- page_rank(SWnet)
+```
+
+```{r}
+degree
+```
+```{r}
+betweenness
+```
+```{r}
+closeness
+```
+```{r}
+evcent
+```
+```{r}
+PR
+```
+
+
+```{r}
+transitivity(SWnet)
+```
+
+Based on the calculated above measures we can make the following conclusions: the gotten bipartiate network is not that tight and complex, it is far from all nodes being connected to all others. But the closeness and betweenness rates tells us, that nodes are not that close to each other based on geodesic distance.

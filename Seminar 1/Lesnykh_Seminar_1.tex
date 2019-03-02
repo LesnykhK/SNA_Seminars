@@ -1,0 +1,465 @@
+\documentclass[12pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+    \setmainfont[]{Times New Roman}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Seminar 1},
+            pdfauthor={Lesnykh Kirill, BSC-153},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Seminar 1}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Lesnykh Kirill, BSC-153}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{18 01 2019}
+
+\newfontfamily{\cyrillicfonttt}{Times New Roman}
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\NormalTok{opts_chunk}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{echo =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{Sys.setlocale}\NormalTok{(}\DataTypeTok{locale =} \StringTok{"en_US.UTF-8"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/C"
+\end{verbatim}
+
+Seminar Assignments
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"D"}\NormalTok{,}\StringTok{"F"}\NormalTok{,}\StringTok{"I"}\NormalTok{,}\StringTok{"A"}\NormalTok{,}\StringTok{"F"}\NormalTok{,}\StringTok{"F"}\NormalTok{,}\StringTok{"D"}\NormalTok{,}\StringTok{"B"}\NormalTok{,}\StringTok{"SLO"}\NormalTok{,}\StringTok{"I"}\NormalTok{,}\StringTok{"F"}\NormalTok{,}\StringTok{"GB"}\NormalTok{,}\StringTok{"B"}\NormalTok{)}
+\DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{T <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(t)}
+\NormalTok{t}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "F"   "D"   "F"   "I"   "A"   "F"   "F"   "D"   "B"   "SLO" "I"  
+## [12] "F"   "GB"  "B"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(t)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(t)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## t
+##          A          B          D          F         GB          I 
+## 0.07142857 0.14285714 0.14285714 0.35714286 0.07142857 0.14285714 
+##        SLO 
+## 0.07142857
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cumsum}\NormalTok{(}\KeywordTok{table}\NormalTok{(t))}\OperatorTok{/}\KeywordTok{length}\NormalTok{(t)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          A          B          D          F         GB          I 
+## 0.07142857 0.21428571 0.35714286 0.71428571 0.78571429 0.92857143 
+##        SLO 
+## 1.00000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{L <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"unsatisfactory"}\NormalTok{,}\StringTok{"poor"}\NormalTok{,}\StringTok{"average"}\NormalTok{,}\StringTok{"good"}\NormalTok{,}\StringTok{"excellent"}\NormalTok{)}
+
+\NormalTok{L <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Не удовлетворен"}\NormalTok{, }\StringTok{"Плохо"}\NormalTok{, }\StringTok{"Средне"}\NormalTok{, }\StringTok{"Хорошо"}\NormalTok{, }\StringTok{"Отлично"}\NormalTok{)}
+\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Не удовлетворен" "Плохо"           "Средне"          "Хорошо"         
+## [5] "Отлично"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{attributes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Income"}\NormalTok{, }\StringTok{"Age"}\NormalTok{, }\StringTok{"Number of Kids"}\NormalTok{, }\StringTok{"Education"}\NormalTok{)}
+\NormalTok{Alex <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2000}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\NormalTok{Vlado <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{16}\NormalTok{)}
+\NormalTok{name <-}\StringTok{ }\KeywordTok{c}\NormalTok{(Alex, Vlado)}
+\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(Alex, Vlado, }\DataTypeTok{row.names =}\NormalTok{ attributes)}
+\NormalTok{df <-}\StringTok{ }\KeywordTok{t}\NormalTok{(df)}
+\NormalTok{df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Income Age Number of Kids Education
+## Alex    2000  50              2        12
+## Vlado   1000  25              1        16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3 2 5
+\end{verbatim}
+
+The command creates the vector ``x''``, that contains following numeric
+elements: 3, 2, 5.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A1 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\NormalTok{A1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    5    4
+## [2,]    3    2    6
+\end{verbatim}
+
+The command creates the matrix ``A1'' with 2 rows and 3 columns, that
+contains the numeric elements of the vector c(1, 3, 5, 2, 4, 6). The
+elements in the matrix are placed firstly for each row, than for each
+column.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{6}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\NormalTok{A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+\end{verbatim}
+
+The command creates the matrix ``A'' with 2 rows and 3 columns, that
+contains the numeric elements of the vector c(1, 4, 2, 5, 3, 6). The
+elements in the matrix are placed firstly for each row, than for each
+column. So the numbers in matrix are placed raising in amount firstly by
+column, and than by row.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{3}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\NormalTok{B}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    4    5    6
+## [2,]    1    2    3
+\end{verbatim}
+
+The command creates the matrix ``B'' with 2 rows and 3 columns, that
+contains the numeric elements of the vector c(4, 1, 5, 2, 6, 3). The
+elements in the matrix are placed firstly for each row, than for each
+column.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X1<-A}\OperatorTok{%*%}\KeywordTok{t}\NormalTok{(B)}
+\NormalTok{X1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]   32   14
+## [2,]   77   32
+\end{verbatim}
+
+The command generates the correct multiplication of the matrixes ``A''
+and ``B'' that equals to the object ``X1''. The command ``t()''
+transponts the matrix ``B''. The element ``\%*\%" makes the correct
+multiplication of the matrixes row by columns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X2<-B}\OperatorTok{%*%}\KeywordTok{t}\NormalTok{(A)}
+\NormalTok{X2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]   32   77
+## [2,]   14   32
+\end{verbatim}
+
+The command generates the correct multiplication of the matrixes ``A''
+and ``B'' that equals to the object ``X2''. The command ``t()''
+transponts the matrix ``B''. The element ``\%*\%" makes the correct
+multiplication of the matrixes row by columns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X3<-}\KeywordTok{t}\NormalTok{(A)}\OperatorTok{%*%}\NormalTok{B}
+\NormalTok{X3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    8   13   18
+## [2,]   13   20   27
+## [3,]   18   27   36
+\end{verbatim}
+
+The command generates the correct multiplication of the matrixes ``A''
+and ``B'' that equals to the object ``X3''. The command ``t()''
+transponts the matrix ``A''. The element ``\%*\%" makes the correct
+multiplication of the matrixes row by columns. Due to the another order
+of the matrixes in the equation, transpoted matrix ``A'' stands before
+matrix ``B'', the results would be different from the object ``X1''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X4<-}\KeywordTok{t}\NormalTok{(B)}\OperatorTok{%*%}\NormalTok{A}
+\NormalTok{X4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    8   13   18
+## [2,]   13   20   27
+## [3,]   18   27   36
+\end{verbatim}
+
+The command generates the correct multiplication of the matrixes ``A''
+and ``B'' that equals to the object ``X4''. The command ``t()''
+transponts the matrix ``B''. The element ``\%*\%" makes the correct
+multiplication of the matrixes row by columns. Due to the another order
+of the matrixes in the equation, transpoted matrix ``B'' stands before
+matrix ``A'', the results would be different from the object ``X2''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d<-}\KeywordTok{diag}\NormalTok{(A}\OperatorTok{%*%}\KeywordTok{t}\NormalTok{(B))}
+\NormalTok{d}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 32 32
+\end{verbatim}
+
+The command generates the object ``b'' which contains the results of the
+summary of the A and transpotted B and after that (due to the dial()
+function) deletes all other numbers exceot for the ones from the
+diagonal. So, in the output we have only the numbers from the diagonal
+of the generated matrix.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{s<-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{diag}\NormalTok{(A}\OperatorTok{%*%}\KeywordTok{t}\NormalTok{(B)))}
+\NormalTok{s}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 64
+\end{verbatim}
+
+The command generates the object ``s'' which contains the sum of the
+results of the previouos line: it generates the diagonal numbers of the
+sum of the matrixes A and transpoted B. So, the generated number in the
+output is the sum of the diagonal numbers of the sum of the matrixes A
+and transpoted B.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Y<-}\KeywordTok{solve}\NormalTok{(A}\OperatorTok{%*%}\KeywordTok{t}\NormalTok{(B))}
+\NormalTok{A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t}\NormalTok{(B)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    4    1
+## [2,]    5    2
+## [3,]    6    3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            [,1]       [,2]
+## [1,] -0.5925926  0.2592593
+## [2,]  1.4259259 -0.5925926
+\end{verbatim}
+
+The command generates the object ``Y'' which generates the matrix. If
+the matrix ``X1'', the result of the correct multipication of the A and
+transpoted B, would be multiplied by the matrix ``Y'', the result would
+be the identity matrix. That is what the function ``solve'' does: it
+gives the matrix, multiplication by which of the given matrix will equal
+unity matrix.
+
+
+\end{document}

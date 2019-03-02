@@ -1,0 +1,143 @@
+---
+pdf_document:
+  keep_tex: yes
+  latex_engine: xelatex
+author: "Lesnykh Kirill, BSC-153"
+date: "18 01 2019"
+output:
+  pdf_document: 
+    keep_tex: yes
+    latex_engine:  xelatex
+header-includes:
+  - \newfontfamily{\cyrillicfonttt}{Times New Roman}
+  - \usepackage[utf8]{inputenc} 
+  - \usepackage{fontspec}
+  - \usepackage{polyglossia}
+  - \setmainlanguage{russian} 
+  - \setotherlanguage{english}
+mainfont: Times New Roman
+title: "Seminar 1"
+fontsize: 12pt
+---
+
+```{r Knittr, echo=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Rus, echo=TRUE}
+Sys.setlocale(locale = "en_US.UTF-8")
+```
+
+Seminar Assignments
+
+```{r SA 1.1, echo=TRUE}
+t <- c("F","D","F","I","A","F","F","D","B","SLO","I","F","GB","B")
+10
+T <- factor(t)
+t
+
+table(t)/length(t)
+
+cumsum(table(t))/length(t)
+```
+
+
+
+
+```{r SA 1.2, echo=TRUE}
+L <- c("unsatisfactory","poor","average","good","excellent")
+
+L <- c("Не удовлетворен", "Плохо", "Средне", "Хорошо", "Отлично")
+L
+```
+
+```{r SA 2.1, echo=TRUE}
+
+attributes <- c("Income", "Age", "Number of Kids", "Education")
+Alex <- c(2000, 50, 2, 12)
+Vlado <- c(1000, 25, 1, 16)
+name <- c(Alex, Vlado)
+df <- data.frame(Alex, Vlado, row.names = attributes)
+df <- t(df)
+df
+```
+
+```{r x, echo=TRUE}
+x <- c(3,2,5)
+x
+```
+
+The command creates the vector "x"", that contains following numeric elements: 3, 2, 5.
+
+```{r A1, echo=TRUE}
+A1 <- matrix(c(1,3,5,2,4,6),2,3)
+A1
+```
+
+The command creates the matrix "A1" with 2 rows and 3 columns, that contains the numeric elements of the vector c(1, 3, 5, 2, 4, 6). The elements in the matrix are placed firstly for each row, than for each column.
+
+```{r A, echo=TRUE}
+A <- matrix(c(1,4,2,5,3,6),2,3)
+A
+```
+
+The command creates the matrix "A" with 2 rows and 3 columns, that contains the numeric elements of the vector c(1, 4, 2, 5, 3, 6). The elements in the matrix are placed firstly for each row, than for each column.
+So the numbers in matrix are placed raising in amount firstly by column, and than by row.
+
+```{r B, echo=TRUE}
+B <- matrix(c(4,1,5,2,6,3),2,3)
+B
+```
+
+The command creates the matrix "B" with 2 rows and 3 columns, that contains the numeric elements of the vector c(4, 1, 5, 2, 6, 3). The elements in the matrix are placed firstly for each row, than for each column.
+
+```{r X1, echo=TRUE}
+X1<-A%*%t(B)
+X1
+```
+
+The command generates the correct multiplication of the matrixes "A" and "B" that equals to the object "X1". The command "t()" transponts the matrix "B". The element "%*%" makes the correct multiplication of the matrixes row by columns.
+
+```{r X2, echo=TRUE}
+X2<-B%*%t(A)
+X2
+```
+
+The command generates the correct multiplication of the matrixes "A" and "B" that equals to the object "X2". The command "t()" transponts the matrix "B". The element "%*%" makes the correct multiplication of the matrixes row by columns.
+
+```{r X3, echo=TRUE}
+X3<-t(A)%*%B
+X3
+```
+
+The command generates the correct multiplication of the matrixes "A" and "B" that equals to the object "X3". The command "t()" transponts the matrix "A". The element "%*%" makes the correct multiplication of the matrixes row by columns. Due to the another order of the matrixes in the equation, transpoted matrix "A" stands before matrix "B", the results would be different from the object "X1".
+
+```{r X4, echo=TRUE}
+X4<-t(B)%*%A
+X4
+```
+
+The command generates the correct multiplication of the matrixes "A" and "B" that equals to the object "X4". The command "t()" transponts the matrix "B". The element "%*%" makes the correct multiplication of the matrixes row by columns. Due to the another order of the matrixes in the equation, transpoted matrix "B" stands before matrix "A", the results would be different from the object "X2".
+
+```{r d, echo=TRUE}
+d<-diag(A%*%t(B))
+d
+```
+
+The command generates the object "b" which contains the results of the summary of the A and transpotted B and after that (due to the dial() function) deletes all other numbers exceot for the ones from the diagonal. So, in the output we have only the numbers from the diagonal of the generated matrix.
+
+
+```{r s, echo=TRUE}
+s<-sum(diag(A%*%t(B)))
+s
+```
+The command generates the object "s" which contains the sum of the results of the previouos line: it generates the diagonal numbers of the sum of the matrixes A and transpoted B. So, the generated number in the output is the sum of the diagonal numbers of the sum of the matrixes A and transpoted B.
+
+
+```{r Y, echo=TRUE}
+Y<-solve(A%*%t(B))
+A
+t(B)
+Y
+```
+The command generates the object "Y" which generates the matrix. If the matrix "X1", the result of the correct multipication of the A and transpoted B, would be multiplied by the matrix "Y", the result would be the identity matrix. That is what the function "solve" does: it gives the matrix, multiplication by which of the given matrix will equal unity matrix. 

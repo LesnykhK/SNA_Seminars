@@ -1,0 +1,218 @@
+---
+title: "Seminar 2"
+author: "Kirill Lesnykh"
+date: "January 28, 2019"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage[english, russian]{babel}
+- \usepackage[T1, OT2]{fontenc}
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r SC1}
+library("network")
+
+num_nodes <- 15
+
+my_matrix<-matrix(round(runif(num_nodes*num_nodes)),
+nrow = num_nodes,
+ncol = num_nodes)
+
+
+diag(my_matrix) <- 0
+
+dim(my_matrix)
+
+my_network<-as.network(x = my_matrix,
+directed = TRUE,
+loops = FALSE,
+matrix.type = "adjacency" 
+)
+
+network.size(my_network)
+
+summary(my_network)
+
+par(mar=c(0,0,0,0))
+
+plot(my_network)
+
+library(foreign)
+drugpaj <- read.paj('drugnet2.paj')
+names(drugpaj)
+
+names(drugpaj$networks)
+
+names(drugpaj$partitions)
+
+drug <- drugpaj$networks[[1]]
+class(drug)
+
+drug
+
+plot(drug)
+
+
+```
+
+The network above displays the referals of drug users. The one strange thing about that network is that a lot of people (units) are not connected at all. That might be explained by the hypothesis that a plenty of drug users come to using them not exactly from other drug users. The other interesting thing is that the most complex relations in many cases a one-way directed, moreover, that can happen through not only one unit, but through the line of them. That means, that there are might be some kind of hierarchy among drug users. But that is just a hypothesis.
+
+```{r SC2}
+network.size(drug)
+
+network.edgecount(drug)
+
+network.dyadcount(drug)
+```
+
+The numbers above represent some characteristics of the size of the network.
+
+The first number (293) represent the total amount of the nodes. Nodes represent the units of the network, base on the connections between which the model is built. That means that there are 293 units in the sample.
+
+The second number (337) represent the total amount of the edges in the model. Edges represent the connections between the units of the model. That means that there are 337 connections in the model.
+
+The third number (85556) represent the total amount of all possible dyads the model. Dyad is the pair between two units. That means that the maximum amount of the dyads in the model is 85556.
+
+```{r SC3}
+names(drugpaj$partitions)
+
+gender <- drugpaj$partitions[[1]]
+gender
+
+table(gender)
+
+female <- ifelse(gender == 2, 1,
+ifelse(gender == 1, 0, NA))
+female
+
+drug <- set.vertex.attribute(drug, 'female', value=c(female))
+ethnicity <- drugpaj$partitions[[2]]
+table(ethnicity)
+drug <- set.vertex.attribute(drug, 'ethnicity', value=c(ethnicity))
+plot(drug)
+```
+
+```{r Florentine Family}
+load('flo.Rdata')
+
+flo.marriage <- as.network(as.matrix(flo.marriage), directed=FALSE)
+flo.biz <- as.network(as.matrix(flo.biz), directed=FALSE)
+# Add attributes
+set.vertex.attribute(flo.marriage, 'wealth', flo.att[,2])
+set.vertex.attribute(flo.biz,'wealth', flo.att[,2])
+# Simple plots:
+par(mar=c(0,0,0,0))
+plot(flo.marriage)
+
+plot(flo.biz)
+
+par(mar=c(0,0,0,0))
+plot(flo.marriage,
+vertex.cex=(get.vertex.attribute(flo.marriage, 'wealth')/25+.4),
+displaylabels=TRUE,
+label.cex=.5,
+label.pos=0,
+coord=plot(flo.marriage))
+```
+
+```{r Biz Plot}
+par(mar=c(0,0,0,0))
+plot(flo.biz,
+vertex.cex=(get.vertex.attribute(flo.biz, 'wealth')/25+.4),
+displaylabels=TRUE,
+label.cex=.5,
+label.pos=0,
+coord=plot(flo.biz))
+```
+
+```{r UCINet}
+flo.names <- scan('padgett.dat', what='character', skip=4, nlines=16)
+flos <- read.table('padgett.dat', skip=41, col.names=flo.names)
+flo.att <- read.table('padgw.dat',
+col.names =c('WEALTH','NUM.PRIORS','NUM.TIES'), skip=25)
+flo.att
+
+flo.att <-cbind(flo.names,flo.att)
+head(flo.att)
+
+flo.marriage <-flos[1:16,]
+dim(flo.marriage)
+
+row.names(flo.marriage) <-flo.names
+flo.biz <- flos[17:32,]
+row.names(flo.biz) <-flo.names
+dim(flo.biz)
+
+flo.marriage[1:2,1:2]
+
+flo.marriage[15:16,15:16]
+
+flo.biz[1:2,1:2]
+
+flo.biz[15:16,15:16]
+
+flo.marriage <- as.network(as.matrix(flo.marriage),directed=FALSE)
+flo.biz <- as.network(as.matrix(flo.biz),directed=FALSE)
+## add attributes
+set.vertex.attribute(flo.marriage, 'wealth', flo.att[,2])
+set.vertex.attribute(flo.biz,'wealth', flo.att[,2])
+
+par(mar=c(1,1,1,1))
+plot(flo.marriage,
+vertex.cex=(get.vertex.attribute(flo.marriage, 'wealth')/25+.4),
+displaylabels=TRUE,
+label.cex=.5,
+label.pos=0,
+coord=plot(flo.marriage))
+
+par(mar=c(1,1,1,1))
+plot(flo.biz,
+     vertex.cex=(get.vertex.attribute(flo.biz, 'wealth')/25+.4),
+     displaylabels=TRUE,
+     label.cex=.5,
+     label.pos=0,
+     coord=plot(flo.biz))
+```
+
+```{r Saving}
+
+save(flo.marriage, flo.biz, file='floNets.Rdata')
+
+drug.edges <- as.matrix(drug, matrix.type='edgelist')
+write.csv(drug.edges, file='drugsEdgelist.csv',row.names=FALSE)
+```
+
+```{r Drug Network by Gender}
+par(mar=c(0,0,0,0))
+plot(drug,
+     vertex.col=(female),
+     displaylabels=FALSE,
+     coord=plot(drug))
+
+legend('topleft', legend = (sort(unique(female))), fill=(sort(unique(female))))
+
+```
+
+The network above represent the connections between drug users and includes their gender as atribute. Besides the face that drug users are male, we can't make any releant conclusions.
+
+
+```{r Drug Network by Ethnicity}
+par(mar=c(0,0,0,0))
+plot(drug,
+     vertex.col=(get.vertex.attribute(drug, "ethnicity")),
+     displaylabels=FALSE,
+     coord=plot(drug))
+
+legend('topleft', legend = (sort(unique((get.vertex.attribute(drug, "ethnicity"))))), fill=(sort(unique((get.vertex.attribute(drug, "ethnicity"))))))
+```
+
+The network above represent the connections between drug users and includes their ethnicity as atribute. Based on that network, we can tell that there is positive tendency between drug users of the same race, their ties are more close. I don't have the labels of the nodes, but I can suggest that the drug users might belong to the same either negroid or latinos ethnicity. 
+
+

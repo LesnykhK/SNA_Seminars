@@ -1,0 +1,85 @@
+---
+title: "Homework 1"
+author: "Kirill Lesnykh"
+date: "January 19, 2019"
+output:
+  pdf_document: 
+    keep_tex: yes
+    latex_engine:  xelatex
+header-includes:
+  - \newfontfamily{\cyrillicfonttt}{Times New Roman}
+  - \usepackage[utf8]{inputenc} 
+  - \usepackage{fontspec}
+  - \usepackage{polyglossia}
+  - \setmainlanguage{russian} 
+  - \setotherlanguage{english}
+mainfont: Times New Roman
+fontsize: 12pt
+---
+
+
+```{r setup, include=FALSE}
+Sys.setlocale(locale = "en_RU.UTF-8")
+```
+
+```{r setup1, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Importing the dataset
+
+```{r import, echo=TRUE}
+df <- read.csv("carprice.csv")
+df
+```
+
+Creating the vectors "x" and "y"
+
+```{r Vectors, echo=TRUE}
+x <- c(df$Age)
+x
+
+y <- c(df$Price)
+y
+```
+
+Conducting a linear regression
+
+```{r Linear regression, echo=TRUE}
+lm1 <- lm(y ~ x)
+summary(lm1)
+```
+
+Conducting ANOVA test
+
+```{r ANOVA, echo=TRUE}
+ANOVA <- aov(y ~ x, df)
+summary(ANOVA)
+```
+
+Due to the results of the ANOVA test, on the confidence level 95% the P-value is significant. So, there is significant difference betwen the Age and the Price of cars.
+
+Runing the given code (constructing the Sum Sq manually)
+
+```{r Running the code, echo=TRUE}
+n <- 11
+
+X <- cbind(1,x)
+
+H <- X%*%solve(t(X)%*%X)%*%t(X)
+
+J <- matrix(1,n,n)
+
+In <- diag(n)
+
+SStotal <- t(y)%*%(In-1/n*J)%*%y
+
+SSreg <-  t(y)%*%(H-1/n*J)%*%y
+
+SSres <- t(y)%*%(In-H)%*%y
+
+SSreg; SSreg
+```
+
+Based on the comparing with the results of the ANOVA test, the code that just was run, it calculates the Sum of the Squares of the linear regression model

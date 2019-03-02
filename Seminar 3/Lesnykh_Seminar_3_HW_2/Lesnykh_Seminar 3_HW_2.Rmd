@@ -1,0 +1,654 @@
+---
+title: "Seminar 3 and HW 2"
+author: "Lesnykh Kirill"
+date: "February 1, 2019"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage[english, russian]{babel}
+- \usepackage[T1, OT2]{fontenc}
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r SC}
+library(network)
+library(sna)
+
+load('madmen.Rdata')
+
+dim(mad.att)
+
+head(mad.att)
+
+mad.matrix[1:6,1:2]
+
+sum(as.character(mad.att[,1]) == colnames(mad.matrix))
+
+```
+
+```{r}
+mad.net <- as.network(mad.matrix, directed=FALSE)
+
+mad.att
+
+set.vertex.attribute(mad.net, attrname='female', value=mad.att[,2])
+
+mad.net
+```
+
+Assignment question: Why did we use option FALSE for command ???directed??? above, when creating a
+network?
+
+We used option FALSE because the matrix don't have the directed ties, it contains undirected ones - the edges. Sexual contact is the type of the connection that is not directed.
+
+```{r}
+par(mar=c(1,1,1,1))
+plot(mad.net)
+```
+
+```{r}
+colors <- ifelse(mad.att$Female == 1, 'indianred', 'cadetblue')
+par(mar=c(0,0.5,0,0.5),mfrow=c(1,2))
+plot(mad.net, vertex.col = colors,coord=plot(mad.net))
+```
+
+```{r}
+#pdf('myplot.pdf', width=4, height=4) # width and height are in inches
+par(mar=c(0,0,0,0))
+plot(mad.net, vertex.col = colors, mode = 'fruchtermanreingold' )
+dev.off()
+```
+
+```{r}
+#png('myplot.png')
+par(mar=c(0,0,0,0))
+plot(mad.net, vertex.col = colors)
+dev.off()
+```
+
+```{r}
+par(mar=c(0,0,0,0))
+plot(mad.net, vertex.col = colors, mode = 'circle')
+plot(mad.net, vertex.col = colors, mode = 'fruchtermanreingold')
+plot(mad.net, vertex.col = colors, mode = 'kamadakawai')
+```
+
+```{r}
+library(RColorBrewer)
+par(mar=c(2,2,2,2))
+display.brewer.pal(12, 'Paired')
+```
+
+```{r}
+par(mar=c(1,1,1,1),mfrow=c(2,3))
+```
+
+```{r}
+display.brewer.pal(5, 'Accent')
+display.brewer.pal(5, 'Dark2')
+display.brewer.pal(5, 'Pastel1')
+display.brewer.pal(5, 'Set1')
+display.brewer.pal(5, 'Set2')
+display.brewer.pal(5, 'Set3')
+```
+
+```{r}
+col1 <- brewer.pal(5, 'Set1')
+colPastel<-brewer.pal(5, 'Pastel1')
+
+colors <- ifelse(mad.att$Female == 1, col1[3], colPastel[5])
+par(mar=c(0,0,0,0))
+plot(mad.net, vertex.col = colors )
+```
+
+Assignment task: Please examine the options in the ???network.layout???" command and perform the following:
+
+1. Create the madmen.net with labels.
+2. Experiment with options by adding attributes, changing vertex or edge colors, finding the best position
+for labels. While this task may take a while, it will count as complete if you generate at least one graph
+that is different from the graphs I???ve shown you in this assignment. The more different graphs with
+options you generate, the better - extra-credit never hurts anyone.
+
+```{r}
+par(mar=c(1,1,1,1))
+plot(mad.net, 
+     vertex.col = colors, 
+     displaylabels=TRUE, 
+     label.cex=.7, 
+     label.pos=0,
+     mode ='fruchtermanreingold')
+```
+
+```{r}
+par(mar=c(1,1,1,1))
+plot(mad.net, 
+     vertex.col = (ifelse(mad.att$Female == 1, (brewer.pal(5, 'Set3'))[4], (brewer.pal(5, 'Set2')[3]))), 
+     displaylabels=TRUE, 
+     label.cex=.7, 
+     label.pos=0,
+     mode ='fruchtermanreingold')
+```
+
+I have generated two different graphs of mad.net with labels. There is not a lot variations to build a new graphs, because there is only one possible attribute to add to the network.
+
+```{r}
+load('flo.Rdata')
+flo.marriage<-as.network(flo.marriage)
+library('sna')
+network.dyadcount(flo.marriage)
+dyad.census(flo.marriage)
+network.edgecount(flo.marriage)
+network.density(flo.marriage)
+triad.census(flo.marriage)
+gtrans(flo.marriage, measure='weak')
+kpath.census(flo.marriage, mode = "digraph",
+  tabulate.by.vertex = FALSE, path.comembership = "none",
+  dyadic.tabulation = "none")
+kcycle.census(flo.marriage, maxlen = 4, mode = "digraph",
+  tabulate.by.vertex = FALSE, cycle.comembership = "none")
+```
+
+```{r}
+geo.dist<-geodist(flo.marriage)
+class(geo.dist)
+
+summary(geo.dist)
+
+summary(geo.dist$counts)
+
+summary(geo.dist$gdist)
+
+summary(geo.dist$counts[,3])
+
+summary(geo.dist$counts[3,])
+```
+
+Assignment question: What can you say about the last two commands? Why is the result what it is?
+
+The result of those two lines contains the information about the Vertex 3 of the network Flo.marriage.. The information contains some indicators about the amount of the ties that concreate vertice has. So, that means, that some vertex 3 has minimum 0 ties with any other vertex, has maximum 3 ties with any other vertex, the median amount of the amount of ties equals 1, and the mean amount of all the ties equals 1.125. I suppose, that those indicators might contain a more usefeul and interesting information if the network model would have much more nodes and ties and in general would be more complex. 
+
+Howework 2
+
+```{r, Testing the matrixes}
+load('trade.Rdata')
+dim(crude)
+dim(diplomacy)
+dim(food)
+dim(manufacture)
+dim(minerals)
+dim(trade.all)
+dim(trade.att)
+
+sum(colnames(trade.all) == rownames(trade.att))
+```
+
+1. Are the matrices symmetric?
+2. What does that mean for resulting networks? Would they be directed or undirected?
+
+The matrices have been checked with the commands "dim" and summing the amont of the rows and columns. There is an equal amount of rows and columns in all the matrices, so we can be sure that they are symmetric
+
+We have to be sure about it, because otherwisw we won't be able to build the network models properly. Also, that means that the ties between the nodes might be undirected as well as undirected. For some models there might be built only undirected ties. Except for the "trade.all". If we are going to use atributes, it is possible that the ties would be durected.
+
+```{r}
+class(trade.all)
+
+trade.all<-as.matrix(trade.all)
+
+trade.any <- ifelse(trade.all > 0, 1, 0)
+
+trade.2 <- ifelse(trade.all > 1, 1, 0)
+
+trade.max <- ifelse(trade.all == 5, 1, 0)
+```
+
+1. How would you justify any of these choices? Please refer to specific social theories to make your answer
+more legitimate.
+2. What are the impirical implication of these choices?
+
+1. In the code above we recoded the matrix, to the 3 other ones. There are 3 matrices now: containing the any relations between countries as ties, containing more than 1 types of relations as ties, and containing all 5 types of relations as ties. That means each other network contains the ties of a rising power. I mean, the more types of political relations countries have, the stronger theier political connection is. In general it is possible to characterise the given relations between countries with the classic theory of realism in international relations. Some of the following characteristcis are followed: countries are independent players, there is no any type of rule above them, so they co-exist in the terms of anarchy. Also, all countries tend to collect resources and exchange them in the way they see as more profitable. I suppose, relating to the theory of realsim of international relations is appropriate in that case.
+
+2. The impirical implication of choices to sum different types of economic and polytical relations is the way to measure the power of different ties between countries. In that way, it is possible to see, which countries collaborate with each other in a more closer way.
+
+
+```{r}
+detach(package:sna)
+detach(package:network)
+library(igraph)
+
+tradegraph.any <-graph.adjacency(trade.any,
+mode=c("directed"),
+weighted=NULL,
+diag=FALSE)
+
+tradegraph.2 <-graph.adjacency(trade.2,
+mode=c("directed"),
+weighted=NULL,
+diag=FALSE)
+
+tradegraph.5 <-graph.adjacency(trade.max,
+mode=c("directed"),
+weighted=NULL,
+diag=FALSE)
+
+par(mar=c(0,0,0,0))
+
+plot(tradegraph.any,
+  vertex.size = 8,
+  edge.arrow.size = .2,
+  vertex.label.cex = .5,
+  vertex.color = 'aquamarine4',
+  edge.color='red',
+  vertex.shape = 'square',
+  vertex.label.dist = .5,
+  vertex.label.color = 'black')
+```
+
+```{r}
+par(mar=c(0,0,0,0))
+plot(tradegraph.2,
+  vertex.size = 10,
+  edge.arrow.size = .2,
+  vertex.label.cex = .5,
+  vertex.color = 'red',
+  edge.color='black',
+  vertex.shape = 'circle',
+  vertex.label.dist = .5,
+  vertex.label.color = 'black')
+```
+
+```{r}
+par(mar=c(0,0,0,0))
+plot(tradegraph.5,
+  vertex.size = 6,
+  edge.arrow.size = .3,
+  edge.color='gray',
+  vertex.label.cex = .5,
+  vertex.color = 'yellow',
+  vertex.shape = 'crectangle',
+  vertex.frame.color = 'green',
+  vertex.label.dist = .5,
+  vertex.label.color = 'black')
+```
+
+1. What differences do you observe between the graphs where the cutpoint is any tie, at least two ties,
+and all ties present?
+2. What information can you gather from these observed differences to help you expand on your earlier
+theoretical justification of ties? Alternatively, does your theoretical justification seem reasonable in
+light of new information obtained from these graphs?
+
+1. It is possible to observe, that with the rise of the meaning of cutpoint, the amount of edges drop. It is reasonable, the types of international relations have different grades. Moreover, it is interesting, that with the rise of meaning of cutpoint, the amount of directed links rise. It is possible to see, that developed countries have more one-way pointed ties. We can prove, that countiries with more different resources try to help a less developed ones.
+
+2. From the analysis of that graphs I can tell, that the theoretical justification is not too perfect for the ties. The theory can't completely explain why stronger countries help less developed ones. We can suppose that in that way they somehow collect any type of symbolic resource or gain power over other countris. In that way, I think, it is possible to expand the earlier theoretical frames.
+
+
+```{r}
+detach(package:igraph)
+library(network)
+
+tradenet.sym.2<- network(trade.2, directed=FALSE)
+plot(tradenet.sym.2,
+displaylabels=TRUE,
+label.cex =.5,
+edge.col = 'gray60')
+```
+
+```{r}
+tradenet2 <- network(trade.2)
+plot(tradenet2,
+displaylabels=TRUE,
+label.cex =.5,
+edge.col = 'gray60')
+```
+```{r}
+tradenet.any<-as.network(trade.any)
+
+network.density(tradenet.any)
+
+network.density(tradenet.sym.2)
+
+network.density(tradenet2)
+
+library(igraph)
+graph.density(tradegraph.5)
+
+
+diameter(tradegraph.any)
+
+diameter(tradegraph.2)
+
+diameter(tradegraph.5)
+```
+
+Assignment question. Of course, there are differences between directed and undirected networks on the
+graph and with stats. Please answer the following questions:
+1. What are the differences in graphs and how would you interpret them?
+2. What are the differences in centrality?
+3. What is the diameter and how do you expect it to wary?
+
+1. The same results have been made earlier. With the rise of meaning of cutpoint, the amount of ties drops. That is why the measure of density also drops. To the amount of possible ties, the amount of all real ties decreases and the amount of nodes stays the same. It tells us, that not all the relations between the countries are strong, some connections are weaker, and if we take them of the network, the network will have only the strongest ones.
+
+2. The difference in centrality means, that with the reductions of ties in the network, the amount of all connections slowly falls, so the network gets less complex. The more ties the network has, the more complex and more "compleate" it is.
+
+3. The diameter is the largest geodesic within the graph between any pair of nodes. It can indicate how large and tight the network is. So, it is natural, that the value of diameter rises: the amount of ties shortens, so the lenghts of geodesics rises.
+
+```{r}
+detach(package:igraph)
+library(sna)
+
+tradenet5 <- network(trade.max)
+
+components(tradenet.any)
+
+components(tradenet2)
+
+components(tradenet5)
+```
+
+Assignment question. What are the differences between the three networks? How would you explain them
+from the theoretical level?
+
+The differences between the networks are, as told above, that the networks with the stronger ties with the same amount of nodes have less edges at all. Also, the third network lets us see, that there are a lot of directed ties from developed countries to the all other ones. That can be interpreted as strong countries bring help to the less developed ones. As interpreted earlier, it in some way responds to the theory: stronger countries try to establish power over the weaker countries.
+
+```{r}
+geo.dist <-geodist(tradenet.sym.2)
+geo.dist.dir <-geodist(tradenet2)
+summary(geo.dist.dir)
+
+summary(geo.dist)
+```
+
+```{r}
+tradenet.valued <- as.network(trade.all,directed=TRUE)
+trade.att.valued <- trade.att
+
+indegree <- degree(tradenet.valued,
+gmode = 'digraph',
+
+diag = FALSE,
+cmode = 'indegree',
+rescale = FALSE,
+ignore.eval = FALSE)
+
+indegree2 <- degree(tradenet.valued,
+gmode = 'digraph',
+diag = FALSE,
+cmode = 'indegree',
+rescale = FALSE,
+ignore.eval = TRUE)
+
+par(mar=c(2,2,1,1),mfrow=c(1,2))
+hist(indegree)
+hist(indegree2)
+```
+
+Assignment question. Is there a difference between valued data and non-valued data for degree centrality?
+Why?
+
+There is no difference for degree centrality because the degree is just the amount of ties the nodes have. They are not related in any way to the types of the edges or nodes: degree only shows the amount of the ties.
+
+```{r}
+outdegree <- degree(tradenet.valued,
+gmode = 'digraph',
+diag = FALSE,
+cmode = 'outdegree',
+rescale = FALSE)
+
+# Freeman's degree (in + out):
+degree.f <- degree(tradenet.valued,
+gmode = 'digraph',
+diag = FALSE,
+cmode = 'freeman',
+rescale = FALSE)
+
+between <- betweenness(tradenet.valued,
+gmode = 'digraph',
+diag = FALSE,
+cmode = 'directed')
+
+between.u <- betweenness(tradenet.valued,
+gmode = 'digraph',
+diag = FALSE,
+cmode = 'undirected')
+
+between.end <- betweenness(tradenet.valued,
+gmode = 'digraph',
+diag = FALSE,
+cmode = 'endpoints')
+
+between.proxi <- betweenness(tradenet.valued,
+gmode = 'digraph',
+diag = FALSE,
+cmode = 'proximalsrc')
+par(mar=c(2,2,2,1),mfrow=c(2,2)) # Create a 2x2 matrix of plots
+
+hist(degree.f)
+hist(between)
+hist(between.u)
+hist(between.end)
+```
+
+```{r}
+# Closeness
+close <- closeness(tradenet.valued,
+gmode = 'digraph',
+# gmode ='graph',
+diag = FALSE,
+cmode = 'directed',
+rescale = FALSE)
+
+#Eigenvalue
+eigen <- evcent(tradenet.valued,
+gmode = 'digraph',
+diag = FALSE,
+rescale = FALSE)
+par(mar=c(2,2,2,2),mfrow=c(1,2))
+hist(close)
+hist(eigen)
+```
+
+Assignment question. Why do some of centrality histograms look the same while others look so different?
+What do they each show us?
+
+The centralities histograms are different because all of them are based on the different ways of calculating measure.
+The histograms show the distribution of values of centralities for each node. Some centralities, like degree and  closeness, are dependant on the measure of how tight the nodes are connected. While the centralities of betweenes and Eigenvalue are dependent to the how far from each other the nodes are. That is why those measures are lower.
+
+Based on that measures we can say that the network is a tight one, that is why degree and  closeness are higher in general than betweenes and Eigenvalue.
+
+
+
+```{r}
+trade.att.valued <- cbind(trade.att.valued, indegree, outdegree, degree.f, between, close, eigen)
+class(trade.att.valued)
+
+names(trade.att.valued)
+```
+
+```{r}
+centralization(tradenet.valued, FUN ='degree',
+normalize = TRUE)
+```
+
+```{r}
+centralization(tradenet.valued, FUN ='betweenness',
+normalize = TRUE)
+```
+
+```{r}
+centralization(tradenet.valued, FUN ='closeness',
+normalize = TRUE)
+```
+
+```{r}
+centralization(tradenet.valued, FUN ='evcent',
+normalize = TRUE)
+```
+
+Assignment question. What do indexes above mean? What do they tell us about our network?
+
+The indexes above are the different measures for calculating a centralization for the network "tradenet.valued".
+The each measure might tell us about the variuos charachteristics of the network
+
+The degree centralization measure is based on the amount of ties each node has. It is the highest measure of centralization of all above, so we can tell, that all the nodes have a lot of connections with each other.
+
+The closeness centralization  measure is based on the lenhts of geodesics each node has. Based on this measure, the network is a really tight one: all the nodes are relatively close to each other.
+
+The betweenness centralization  measure is based on the amount of nodes of geodesics each node has, less amount - more measure. Based on this measure, the network is a actually a close one: all the nodes are close to each other.
+
+The evcent centralization  measure is based on the proportion of own centrality of the node to the centralities of other nodes. Thsi measure proves the result of the other measures: all the nodes are close to each other.
+
+
+
+
+Final assignment task. There are several networks in the ???trade.Rdata??? file, described above. We have
+fully explored the ???trade.all??? network. Now, select one of the individual trade networks (manufacture, food,
+crude, etc.) and show me everything you???ve learned in this class so far. At the very minimum, please do the
+following:
+1. Create an appropriate graph with all possible options.
+2. Generate all possible network measures.
+3. Tell me what inferences you can make about your selected network based on the information you???ve
+obtained. Supplement your arguments with logic and theory.
+
+
+
+```{r}
+
+minerals <- network(minerals, directed=TRUE)
+
+set.vertex.attribute(minerals, attrname='Energy', value=trade.att[,4])
+set.vertex.attribute(minerals, attrname='GNP', value=trade.att[,2])
+
+
+par(mar=c(0,0,0,0))
+plot(minerals,
+    displaylabels=TRUE,
+    label.cex =.7,
+    edge.col = '#00A784',
+    vertex.col = "#A72C00",
+    arrowhead.cex = 0.7,
+    vertex.cex = (get.vertex.attribute(minerals, 'Energy')/2500+0.3),
+    boxed.labels =TRUE,
+    mode = 'circle')
+
+par(mar=c(0,0,0,0))
+plot(minerals,
+    displaylabels=TRUE,
+    label.cex =.7,
+    edge.col = '#00A784',
+    vertex.col = "#A72C00",
+    arrowhead.cex = 0.7,
+    vertex.cex = (get.vertex.attribute(minerals, 'Energy')/2500+0.3),
+    boxed.labels =TRUE,
+    mode = 'kamadakawai')
+
+par(mar=c(0,0,0,0))
+plot(minerals,
+    displaylabels=TRUE,
+    label.cex =.7,
+    edge.col = '#A74B7D',
+    vertex.col = "#62F35E",
+    arrowhead.cex = 0.7,
+    vertex.cex = (get.vertex.attribute(minerals, 'GNP')/1.5),
+    boxed.labels =TRUE,
+    mode = 'circle')
+
+par(mar=c(0,0,0,0))
+plot(minerals,
+    displaylabels=TRUE,
+    label.cex =.7,
+    edge.col = '#A74B7D',
+    vertex.col = "#62F35E",
+    arrowhead.cex = 0.7,
+    vertex.cex = (get.vertex.attribute(minerals, 'GNP')/1.5),
+    boxed.labels =TRUE,
+    mode = 'kamadakawai')
+```
+
+
+```{r}
+network.dyadcount(minerals)
+```
+
+```{r}
+network.edgecount(minerals)
+```
+
+```{r}
+network.density(minerals)
+```
+
+
+```{r}
+components(minerals)
+```
+
+
+
+```{r}
+indegree <- degree(minerals,
+  gmode = 'digraph',
+  diag = FALSE,
+  cmode = 'indegree',
+  rescale = FALSE,
+  ignore.eval = FALSE)
+
+outdegree <- degree(minerals,
+  gmode = 'digraph',
+  diag = FALSE,
+  cmode = 'outdegree',
+  rescale = FALSE)
+
+# Freeman's degree (in + out):
+degree.f <- degree(minerals,
+  gmode = 'digraph',
+  diag = FALSE,
+  cmode = 'freeman',
+  rescale = FALSE)
+
+between <- betweenness(minerals,
+  gmode = 'digraph',
+  diag = FALSE,
+  cmode = 'directed')
+
+par(mar=c(2,2,3,3),mfrow=c(2,2))
+hist(indegree)
+hist(outdegree)
+hist(degree.f)
+hist(between)
+```
+
+```{r}
+centralization(minerals, FUN ='degree',
+  normalize = TRUE)
+```
+
+```{r}
+library(network)
+centralization(minerals, FUN ='betweenness',
+  normalize = TRUE)
+```
+
+```{r}
+centralization(minerals, FUN ='closeness',
+  normalize = TRUE)
+```
+
+```{r}
+centralization(minerals, FUN ='evcent',
+  normalize = TRUE)
+```
+
+For the Final assignment task I have built various graphs of the netwotk "minerals", that contains the information about the trading relations of energetic resources. I have built 4 graphs: two, including attribute of energy potential of each country and two including attribute of GNP of each country. Those graphs lets us make some interesting conclusions.
+
+It is possible to see that the countries with the larger amount of energy sell it to the weaker countries. It can be concluded that cuontries try to exchange the resources they contain for some other resources and that is quite a rational practice. Moreover, it can be observed, and the most amount of ties have countries like USA and The UK, those are countries with the most energy and they sell to the other ones.
+
+The one more thing that can be told is that the energy in those countries might be coming to the rising temps of national economics. In less developed countries the level of GNP is much higher that of the developed countries.
+
+What for all the measures that have been built, that can tell us, that the network has quite high level ties, the measures of centralization of closeness and degree are about 0.5. That means that in general all nodes are conected to each other on a quite medium level.
+
+In conclusion, that graphs of network, that have been built allow us to make some assumptions on the way the global world operates. The developed countries sell the energe to the less developed ones, and partly thanks to that, they are able to achive high levels of GNP and rise the levels of national economy.

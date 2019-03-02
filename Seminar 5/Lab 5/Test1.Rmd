@@ -1,0 +1,335 @@
+---
+title: "Lab 5. Networks on Texts"
+author: "Dmitry Zaytsev"
+date: "February 11, 2019"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage[english, russian]{babel}
+- \usepackage[T1, OT2]{fontenc}
+fontsize: 12pt
+---
+
+\begin{center}
+National Research University Higher School of Economics,  
+Faculty of Social Sciences
+
+
+{\Large Introduction to Network Analysis, Spring 2019 \par}
+
+
+\large \textbf{Seminar 5, 15/02/2019}
+
+Dmitry Zaytsev, PhD and Valentina Kuskova, PhD 
+
+\small{(with deep appreciation to all used sources; references available in text and upon request)}
+
+\end{center}
+
+*****
+
+Welcome to the fifth seminar! As the main problem to start using network analysis is to formulate network-related research question, and collect network data, we will focus today on the one of the most developing area of network analysis - networks on texts.
+
+Contents of today's seminar:
+
+The idea is to collect text data about anything, and prepare text data for network analysis.
+A possible research task can be to understand alternative discources about a topic.
+
+First, we will try to scrap GOOGLE. But you can produce XML files for further text mining using other search engines (YANDEX) and codes (Rcrawler). Also, it is possible to do everything in Piton.
+
+Your assignment is due on Friday, February 22, at 23.59.
+
+#1. Parsing and Text Mining for Russian texts: example of the USE:
+##1.1. Web scrapping:
+To recieve html pages we dicided to use scrapping, not crawling. Rcrawler (https://github.com/salimk/Rcrawler) is a very usefull tool to recieve html pages and files recorded in the working directory. But for Google search results it is not very usefull because it is crawl forever :). I decided to use scraping. For GOOGLE, better to search in **News** folder, and to put in the Google search settings display by 100 results to get first 100 links similteneously:
+
+```{r}
+#install.packages("rvest")
+library(rvest)
+page_use <- read_html("https://www.google.com/search?q=%22%D0%B5%D0%B4%D0%B8%D0%BD%D1%8B%D0%B9+%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9+%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%22&num=100&newwindow=1&rlz=1C1CHBD_ruRU822RU822&source=lnms&tbm=nws&sa=X&ved=0ahUKEwiB04KH_7PgAhVBxaYKHa2aDnwQ_AUIDigB&biw=1440&bih=790")
+links <- page_use %>% html_nodes(xpath='//h3/a') %>% html_attr('href')
+gsub('/url\\?q=','',sapply(strsplit(links[as.vector(grep('url',links))],split='&'),'[',1))
+```
+
+## 1.2. Saving scraped multiple html links into the html files in R:
+Let's create the vector of first 10 scraped web pages about **единый государственный экзамен**:
+```{r}
+links <- c(
+"https://regnum.ru/news/2569977.html",
+"http://www.ugorizont.ru/2019/02/07/okolo-90-tyisyach-shkolnikov-sdadut-edinyiy-gosudarstvennyiy-ekzamen-v-2019-godu/",
+"https://vm.ru/news/590807.html",
+"https://www.mos.ru/news/item/50942073/",
+"https://spbvedomosti.ru/news/country_and_world/nazvan_samyy_populyarnyy_predmet_dlya_sdachi_na_ege/",
+"http://zyuzinomedia.ru/news/moskovskie-novosti/pochti-300-chelovek-sdadut-edinyy-gosudarstvennyy-ekzamen-po-kitayskomu-yazyku/",
+"https://korolevriamo.ru/article/237934/glavnoe-shkolnoe-ispytanie-sem-mifov-o-ege-i-novovvedeniya-2019-goda.xl",
+"https://life.ru/t/%25D0%25BD%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2581%25D1%2582%25D0%25B8/1192329/shkolniki_moghut_poluchit_vozmozhnost_sdavat_ieghe_na_kompiutierie",
+"http://vechorka.ru/article/poznakomimsya-s-raspisaniem-ege-2019/",
+"https://dostup1.ru/interview/Elena-Tyurina-EGE--eto-po-bolshomu-schetu-sudba-cheloveka_113563.html")
+```
+
+Using vector links we now can save html.files of our scraped data into the working directory:
+```{r}
+#sw()
+for(i in 1:length(links)){
+  html_object  <- read_html(links[i])
+  somefilename <- paste0("filename_", i, ".html")
+  write_xml(html_object, file = somefilename)
+}
+```
+
+## 1.3. Create a Corpus from many html files in R:
+### 1.3.1. First variant, using htmlToText function:
+```{r}
+#setwd() # this folder has your HTML files
+html <- list.files(pattern="\\.(htm|html)$") # get just .htm and .html files
+```
+```{r}
+# load packages
+library(tm)
+library(RCurl)
+library(XML)
+```
+
+```{r}
+# get some code from github to convert HTML to text
+#writeChar(con="htmlToText.R", (getURL(ssl.verifypeer = FALSE, "https://raw.github.com/tonybreyal/Blog-Reference-Functions/master/R/htmlToText/htmlToText.R")))
+#source("htmlToText.R")
+```
+
+```{r}
+htmlToText <- function(input, ...) {
+  ###---PACKAGES ---###
+  require(RCurl)
+  require(XML)
+  
+  
+  ###--- LOCAL FUNCTIONS ---###
+  # Determine how to grab html for a single input element
+  evaluate_input <- function(input) {    
+    # if input is a .html file
+    if(file.exists(input)) {
+      char.vec <- readLines(input, warn = FALSE)
+      return(paste(char.vec, collapse = ""))
+    }
+    
+    # if input is html text
+    if(grepl("</html>", input, fixed = TRUE)) return(input)
+    
+    # if input is a URL, probably should use a regex here instead?
+    if(!grepl(" ", input)) {
+      # downolad SSL certificate in case of https problem
+      if(!file.exists("cacert.perm")) download.file(url="http://curl.haxx.se/ca/cacert.pem", destfile="cacert.perm")
+      return(getURL(input, followlocation = TRUE, cainfo = "cacert.perm"))
+    }
+    
+    # return NULL if none of the conditions above apply
+    return(NULL)
+  }
+  
+  # convert HTML to plain text
+  convert_html_to_text <- function(html) {
+    doc <- htmlParse(html, asText = TRUE)
+    text <- xpathSApply(doc, "//text()[not(ancestor::script)][not(ancestor::style)][not(ancestor::noscript)][not(ancestor::form)]", xmlValue)
+    return(text)
+  }
+  
+  # format text vector into one character string
+  collapse_text <- function(txt) {
+    return(paste(txt, collapse = " "))
+  }
+  
+  ###--- MAIN ---###
+  # STEP 1: Evaluate input
+  html.list <- lapply(input, evaluate_input)
+  
+  # STEP 2: Extract text from HTML
+  text.list <- lapply(html.list, convert_html_to_text)
+  
+  # STEP 3: Return text
+  text.vector <- sapply(text.list, collapse_text)
+  return(text.vector)
+}
+```
+
+```{r}
+# convert HTML to text
+html2txt <- lapply(html, htmlToText)
+```
+
+```{r}
+# clean out non-ASCII characters
+html2txtclean <- sapply(html2txt, function(x) iconv(x, "latin1", "ASCII", sub=""))
+```
+
+```{r}
+# make corpus for text mining
+corpus <- Corpus(VectorSource(html2txtclean))
+```
+
+Let's check the corpus we recived:
+```{r}
+dtm_matrix<-DocumentTermMatrix(corpus)
+use_dtm<-as.matrix(dtm_matrix)
+```
+
+It happenes that this **htmlToText** function produce not enouth clean results. with a lot of unreadable symbols, that prevent R from reading cyrilics. That is why I found other codes, that produce more clean data.
+
+### 1.3.2. Second variant, using htmlToText function:
+
+```{r}
+setwd("C:/Users/Dmitry/Dropbox/TEACHING/SNA/Lab 5/Lab 5")
+doc.html = htmlTreeParse("filename_1.html", useInternal = TRUE)
+doc.text = unlist(xpathApply(doc.html, '//p', xmlValue))
+doc.text = gsub('\\n', ' ', doc.text)
+doc.text = paste(doc.text, collapse = ' ')
+doc.text
+```
+
+```{r}
+doc.html = htmlTreeParse("filename_1.html", useInternal = TRUE)
+doc.text = unlist(xpathApply(doc.html, '//p', xmlValue))
+doc.text = gsub('\\n', ' ', doc.text)
+doc.text = paste(doc.text, collapse = ' ')
+write.csv (doc.text, file="1.csv")
+```
+
+To make this process automatically let's write the loop:
+```{r}
+for (i in 1:10){
+setwd("C:/Users/Dmitry/Dropbox/TEACHING/SNA/Lab 5/Lab 5")
+fl1<-paste("filename_",i,".html", sep="")
+doc.html = htmlTreeParse(fl1, useInternal = TRUE)
+doc.text = unlist(xpathApply(doc.html, '//p', xmlValue))
+doc.text = gsub('\\n', ' ', doc.text)
+doc.text = paste(doc.text, collapse = ' ')
+fl<-paste(i,".csv")
+write.csv (doc.text, fl)  
+}
+
+```
+
+This loop may not work in RMarkdown, because it change the working directory, so, run it in RScript.
+
+Now, we have to join all csv.files into one:
+```{r}
+library(data.table)
+filenames <- list.files("C:/Users/Dmitry/Dropbox/TEACHING/SNA/Lab 5/Lab 5", pattern="*.csv", full.names=TRUE)
+data <- rbindlist(lapply(filenames,fread))
+write.csv(data, file="1_10.csv")
+```
+
+Let's open the file **1_10.csv**. It is consist of non-Russian latters. 
+To correct the problem we have to change the code:
+```{r}
+encoding = "utf-8"
+Sys.setlocale("LC_CTYPE", "russian")
+write.csv(data, file="1_10.csv")
+```
+
+In the file **1_10.csv** Data, From File, From Text/CSV; Import the File again; In File Origin choose **1251: Cyrilic (Windows), press Edit; Keep; Save. May be you need to Save as the file as separate one, and delete needless rows and columns.
+
+## 1.4. Mining opertions:
+### First, we create corpus:
+```{r}
+library(readxl)
+encoding = "utf-8"
+Sys.setlocale("LC_CTYPE", "russian")
+use <- read_excel("1_10_f.xlsx")
+```
+```{r}
+use_text<-use$Text
+library("tm")
+library("NLP")
+use_vec<-VectorSource(use_text)
+use_corpus<-VCorpus(use_vec)
+```
+### Second, we create DocumentToTerm and TermToDocument matrices:
+```{r}
+dtm_matrix<-DocumentTermMatrix(use_corpus)
+use_dtm<-as.matrix(dtm_matrix)
+tdm_matrix<-TermDocumentMatrix(use_corpus)
+use_tdm<-as.matrix(tdm_matrix)
+```
+Let's check the matrices:
+```{r}
+head(use_tdm)
+dim(use_tdm)
+dim(use_dtm)
+```
+Our matrix consist of 2572 terms in 10 documents. It is happened that we have a lot of non-Russian, and non-words symbols, as stopwards, and punctuation, etc. You can clean them up, using different comands in R. 
+
+### Third, Data cleaning:
+Let's first have a look on the most frequent words:
+```{r}
+term_frequency <- colSums(use_dtm)
+term_frequency <- sort(term_frequency, decreasing = TRUE)
+term_frequency[1:20]
+```
+Then, let's write function to remove whitespaces, punctuation, numbers, stopwords, and tolower:
+```{r}
+clean_corpus <- function(corpus){
+    corpus <- tm_map(corpus, stripWhitespace)
+    corpus <- tm_map(corpus, removePunctuation)
+    corpus <- tm_map(corpus, content_transformer(tolower))
+    corpus <- tm_map(corpus, removeNumbers)
+    corpus <- tm_map(corpus, removeWords, c(stopwords("ru")))
+    return(corpus)
+}
+clean_corp <- clean_corpus(use_corpus)
+dtm_matrix_cl2<-DocumentTermMatrix(clean_corp)
+use_dtm_cl2<-as.matrix(dtm_matrix_cl2)
+tdm_matrix_cl2<-TermDocumentMatrix(clean_corp)
+use_tdm_cl2<-as.matrix(tdm_matrix_cl2)
+head(use_tdm_cl2)
+dim(use_tdm_cl2)
+dim(use_dtm_cl2)
+term_frequency_cl2 <- colSums(use_dtm_cl2)
+term_frequency_cl2 <- sort(term_frequency, decreasing = TRUE)
+term_frequency_cl2[1:20]
+
+```
+It seems that there are a lot of cleaning things are remaining to do, but I will leave this up to you to find appropriate methods. Feel free to use GOOGLE.
+
+### Fourth, we also can make n-grams for our text analysis:
+```{r}
+#install.packages("RWeka")
+library("RWeka") # for this library you nedd earliest version of 64-bit Java version
+tokenizer<-function(x)
+NGramTokenizer(x, Weka_control(min=2, max=2))
+bigram_tdm<-TermDocumentMatrix(clean_corp,control=list(tokenize=tokenizer))
+use_tdm_bi<-as.matrix(bigram_tdm)
+bigram_dtm<-DocumentTermMatrix(clean_corp,control=list(tokenize=tokenizer))
+use_dtm_bi<-as.matrix(bigram_dtm)
+```
+
+## 1.5. Network Analysis of Text Data:
+```{r}
+c<-use_tdm_cl2 %*% use_dtm_cl2
+#dim(c)
+#library(igraph)
+#NET <- graph_from_adjacency_matrix(c)
+#par(mar=c(0,0,0,0))
+#plot(NET)
+```
+It takes a lot of time for R to produce the plot. So better to use Pajek.
+```{r}
+encoding = "utf-8"
+Sys.setlocale("LC_CTYPE", "russian")
+write.csv(x=c, file="c.csv")
+```
+Use .csv file to create .net file for Pajek.
+Network - Create new network - Transform - Remove - Loops, Lines with value.
+Experiment with partitions: Network - Create partition - k-Core, etc.
+Draw - Network+Partition. Experiment with Layouts.
+
+
+
+
+
+
+
+
+
+

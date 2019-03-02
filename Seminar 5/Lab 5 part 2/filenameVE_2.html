@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<!--
+EVENT ID : 676228
+STORY ID : 3664770
+
+HOUSENUMBER : 190212_NWSU_6623806
+--><html class="no-js" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+    !function e(t,r,n){function u(i,a){if(!r[i]){if(!t[i]){var f="function"==typeof require&&require;if(!a&&f)return f(i,!0);if(o)return o(i,!0);var l=new Error("Cannot find module '"+i+"'");throw l.code="MODULE_NOT_FOUND",l}var c=r[i]={exports:{}};t[i][0].call(c.exports,function(e){var r=t[i][1][e];return u(r?r:e)},c,c.exports,e,t,r,n)}return r[i].exports}for(var o="function"==typeof require&&require,i=0;i<n.length;i++)u(n[i]);return u}({1:[function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}function u(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(r,"__esModule",{value:!0});var o=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),i=e("./GlobalStore/KeyValues"),a=n(i),f=function(){function e(){u(this,e)}return o(e,[{key:"build",value:function(e){for(var t in e)this._createProperty(t,e[t])}},{key:"_createProperty",value:function(e,t){switch(e){case"keyValues":this.keyValues=new a.default(t);break;default:this[e]=t}}}]),e}();r.default=f},{"./GlobalStore/KeyValues":2}],2:[function(e,t,r){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(r,"__esModule",{value:!0});var u=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),o=function(){function e(t){n(this,e),this.keyValues=t}return u(e,[{key:"isFeatureActive",value:function(e,t){return!!this.keyValues.hasOwnProperty("feature_flipping")&&(!!this.keyValues.feature_flipping.hasOwnProperty(e)&&(!!t&&!!this.keyValues.feature_flipping[e][t]))}}]),e}();r.default=o},{}],3:[function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}var u=e("./entity/GlobalStore"),o=n(u);window.GlobalStore=new o.default},{"./entity/GlobalStore":1}]},{},[3]);
+    window.GlobalStore.build(JSON.parse('{"keyValues":{"feature_flipping":{"pfp":{"en":true,"fr":true,"de":true,"pt":true,"it":true,"es":true,"ru":true,"ar":true,"tr":true,"fa":false,"ua":true,"el":true,"hu":true},"amp_taboola_organic":{"en":false,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":false},"amp_taboola_ads":{"en":true,"fr":true,"de":true,"pt":true,"it":true,"es":true,"ru":true,"ar":true,"tr":true,"fa":true,"ua":true,"el":true,"hu":true},"amp_comscore":{"en":true,"fr":true,"de":true,"pt":true,"it":true,"es":true,"ru":true,"ar":true,"tr":true,"fa":true,"ua":true,"el":true,"hu":true},"amp_adobeanalytics":{"en":true,"fr":true,"de":true,"pt":true,"it":true,"es":true,"ru":true,"ar":true,"tr":true,"fa":true,"ua":true,"el":true,"hu":true},"amp_lotame":{"en":true,"fr":true,"de":true,"pt":true,"it":true,"es":true,"ru":true,"ar":true,"tr":true,"fa":true,"ua":true,"el":true,"hu":true},"flights_euronews":{"en":false,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":false},"spotim":{"en":true,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":true,"ar":true,"tr":false,"fa":true,"ua":false,"el":false,"hu":false},"https":{"en":true,"fr":true,"de":true,"pt":true,"it":true,"es":true,"ru":true,"ar":true,"tr":true,"fa":true,"ua":true,"el":true,"hu":true,"uk":true},"stickySecondsLdbIsActive":{"en":false,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":false,"uk":false},"marfeel":{"en":false,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":true,"tr":false,"fa":true,"ua":false,"gr":false,"hu":false,"uk":false},"marfeel_meta":{"en":true,"fr":true,"de":true,"pt":true,"it":true,"es":true,"ru":true,"ar":true,"tr":false,"fa":true,"ua":true,"gr":true,"hu":true,"uk":true},"streamAMP":{"en":false,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":false,"uk":false},"minutely":{"en":true,"fr":true,"de":true,"pt":false,"it":false,"es":false,"ru":true,"ar":true,"tr":true,"fa":true,"ua":false,"gr":false,"hu":false,"uk":false},"taboola_feed":{"en":true,"fr":true,"de":true,"pt":true,"it":true,"es":true,"ru":true,"ar":true,"tr":true,"fa":true,"ua":true,"el":true,"hu":true,"uk":true},"googleOptimize":{"en":false,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":false,"uk":false},"allViews":{"en":true,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":false,"uk":false},"survey_popup":{"en":false,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":false,"uk":false},"mediego":{"en":true,"fr":true,"de":true,"pt":false,"it":true,"es":true,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":false,"uk":false},"mailmunch":{"en":true,"fr":true,"de":true,"pt":true,"it":true,"es":true,"ru":true,"ar":true,"tr":true,"fa":true,"ua":true,"el":true,"hu":true,"uk":true},"stickyvideo":{"en":false,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":true,"uk":false},"lazyblock":{"en":false,"fr":false,"de":false,"pt":false,"it":false,"es":false,"ru":false,"ar":false,"tr":false,"fa":false,"ua":false,"el":false,"hu":true,"uk":false}}},"locale":"ru","googleOptimizeId":null}'))
+  </script><meta charset="UTF-8">
+<title>Демонстрации в поддержку двух президентов Венесуэлы | Euronews</title>
+<meta name="description" content="В Каракасе одновременно прошли акции сторонников действующего и самопровозглашенного президентов страны Николаса Мадуро и Хауана Гуайдо">
+<meta name="keywords" content="Венесуэла,Николас Мадуро,Хуан Гуайдо,Оппозиция,демонстрация,Гуманитарная помощь">
+<meta name="date.created" content="2019-02-12 22:29:19">
+<meta name="date.available" content="2019-02-12 22:29:19">
+<meta name="date.updated" content="2019-02-13 12:41:26">
+<meta name="date.modified" content="2019-02-13 12:41:26">
+<meta name="article:theme" content="news">
+<meta name="program.url" content="world">
+<meta name="news_keywords" content="Венесуэла,Николас Мадуро,Хуан Гуайдо,Оппозиция,демонстрация,Гуманитарная помощь">
+<link rel="canonical" href="https://ru.euronews.com/2019/02/12/ru-venezuela-protests">
+<link rel="alternate" hreflang="fr" href="//fr.euronews.com/2019/02/12/venezuela-le-face-a-face-guaido-maduro-se-poursuit">
+<link rel="alternate" hreflang="de" href="//de.euronews.com/2019/02/12/guaido-hilfslieferungen-starten-am-23-februar">
+<link rel="alternate" hreflang="es" href="//es.euronews.com/2019/02/12/guaido-la-ayuda-humanitaria-entrara-en-venezuela-el-23-de-febrero">
+<link rel="alternate" hreflang="pt" href="//pt.euronews.com/2019/02/12/manifestacoes-pro-e-contra-maduro-voltam-as-ruas">
+<link rel="alternate" hreflang="ru" href="//ru.euronews.com/2019/02/12/ru-venezuela-protests">
+<link rel="alternate" hreflang="el" href="//gr.euronews.com/2019/02/12/xouan-guaido-stis-23-febrouariou-ftanei-h-anthropistikh-bohtheia">
+<link rel="alternate" hreflang="x-default" href="//fr.euronews.com/2019/02/12/venezuela-le-face-a-face-guaido-maduro-se-poursuit">
+<meta property="og:locale" content="ru">
+<meta property="og:page_id" content="191185974309157">
+<meta property="og:pages" content="191185974309157">
+<meta property="og:site_name" content="euronews">
+<meta property="og:title" content="Демонстрации в поддержку двух президентов Венесуэлы">
+<meta property="og:description" content="В Каракасе одновременно прошли акции сторонников действующего и самопровозглашенного президентов страны Николаса Мадуро и Хауана Гуайдо">
+<meta property="og:type" content="article">
+<meta property="og:article:publisher" content="euronews">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="563">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image" content="https://static.euronews.com/articles/stories/03/66/47/66/1000x563_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg">
+<meta property="article:published_time" content="2019-02-12 22:29:19">
+<meta property="article:modified_time" content="2019-02-13 12:41:26">
+<meta property="article:section" content="news_news">
+<meta property="article:author" content="Ольга Кепински">
+<meta property="og:video" content="https://video.euronews.com/mp4/EN/NW/SU/19/02/12/ru/190212_NWSU_6623806_6625936_71000_222512_ru.mp4">
+<meta name="twitter:site" content="@euronews">
+<meta name="twitter:title" content="Демонстрации в поддержку двух президентов Венесуэлы">
+<meta name="twitter:description" content="В Каракасе одновременно прошли акции сторонников действующего и самопровозглашенного президентов страны Николаса Мадуро и Хауана Гуайдо">
+<meta name="twitter:image" content="https://static.euronews.com/articles/stories/03/66/47/66/1000x563_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg">
+<meta name="twitter:image:alt" content="Демонстрации в поддержку двух президентов Венесуэлы">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="fb:pages" content="191185974309157">
+<link rel="amphtml" href="/amp/2019/02/12/ru-venezuela-protests">
+<meta name="sponsored" content="no">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"/><![endif]--><link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#003865">
+<meta name="msapplication-TileColor" content="#003865">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="no">
+<meta name="apple-mobile-web-app-title" content="Euronews.com">
+<meta name="application-name" content="Euronews.com">
+<meta name="msapplication-config" content="browserconfig.xml">
+<meta name="msapplication-tooltip" content="Euronews.com">
+<meta name="msapplication-window" content="width=1280;height=1024">
+<meta name="msapplication-navbutton-color" content="#003865">
+<meta name="msapplication-starturl" content="./">
+<meta name="msapplication-square70x70logo" content="/mstile-small.jpg">
+<meta name="msapplication-square150x150logo" content="/mstile-medium.jpg">
+<meta name="msapplication-wide310x150logo" content="/mstile-wide.jpg">
+<meta name="msapplication-square310x310logo" content="/mstile-large.jpg">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+<meta name="mobile-web-app-capable" content="no">
+<meta name="yandex-verification" content="a717c2973670e35c">
+<link rel="home" href="/" title="homepage">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css" media="none" onload="if(media!='all')media='all'">
+<link href="/css/app-694fda611a.css" media="all" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Merriweather:400,700i" rel="stylesheet" type="text/css" media="none" onload="if(media!='all')media='all'">
+<meta id="js-marfeel-meta" name="mrf-extractable" content="false">
+<script data-item="top">
+            try {
+        var dfpData = '{"adUnit":"programs-news\/world","keyValues":{"lng":"ru","page":"article","tags":"humanitarian-aid,demonstration,venezuela,nicolas-maduro,opposition,juan-guaido","nws_id":"676228","nwsctr_id":"3664770","themes":"news","video":"true","source":"euronews"},"level1":"euronews_new","wallpaperInLeaderboard":1,"IASPubId":927718,"mpuLimit":3,"useGrapeshot":true,"useLazyLoading":true,"lazyLoadingOffset":"100"}';
+      } catch (e) {
+        if (console) {
+          console.error("dfp definition failure");
+        }
+      }
+      
+    </script><link rel="preload" as="script" href="/js/app-6f39d14cd7.js">
+<link rel="preload" as="script" href="//assets.adobedtm.com/f67419acc9b12918acb1885b9386ab3910b11c5d/satelliteLib-cc41ae5f3e64efecef040b7672bd47d7bdcf6c3e.js">
+<link rel="preload" as="script" href="/js/sticky-kit-836c5df735.min.js">
+<!--[if lte IE 9]><script src="/js/ielt9polyfills.js"></script><![endif]--><script> var digitalData = JSON.parse('{\"site\":{\"platform\":\"\",\"language\":\"ru\",\"primarylanguage\":\"\",\"secondarylanguage\":\"\",\"environment\":\"production\",\"brand\":\"euronews\",\"servicetype\":\"web\",\"version\":{\"versions\":{\"date\":20190208133235,\"revision\":\"2.140.4\",\"assets\":{\"js\":\"2b5cc25420343680084a0b89258f8446\",\"css\":\"510b25c4160484f1ca88eb7f81be9eb0\"}}}},\"page\":{\"pagename\":\"euronews.news.news.world.676228.ru-venezuela-protests\",\"pagehasad\":\"\",\"pagenumads\":\"\",\"sitesection\":\"\",\"sitesubsection1\":\"\",\"sitesubsection2\":\"\",\"pagetype\":\"article\",\"pageurl\":\"ru.euronews.com\\/2019\\/02\\/12\\/ru-venezuela-protests\",\"pagedownloadtime\":\"\",\"vertical\":\"news\",\"theme\":\"news\",\"program\":\"world\",\"contenttype\":\"txt\",\"menustatus\":\"\",\"pagereload\":\"\",\"pagedisplaybreakpoint\":\"\",\"displaybreakingnewsbar\":false},\"user\":{\"userid\":\"\",\"connectionstatus\":\"\",\"weathervertical\":\"\",\"gender\":\"\",\"age\":\"\",\"affinities\":\"\"},\"search\":{\"keyword\":\"\",\"searchresult\":\"\"},\"article\":{\"eventid\":\"676228\",\"storyid\":\"3664770\",\"updatedate\":\"13\\/02\\/2019\",\"title\":\"демонстрации в поддержку двух президентов венесуэлы\",\"format\":\"standard\",\"nbdayssincepublication\":3,\"articlepromotedtobcs\":\"\",\"articlepromotedtohp\":\"\"},\"video\":{\"videoid\":\"676228\",\"housenumbervidid\":\"190212_NWSU_6623806_6625936_71000_222512\",\"name\":\"ru-venezuela-protests\",\"publicationdate\":\"12\\/02\\/2019\",\"type\":\"vod\",\"duration\":71,\"isinplaylist\":\"none\",\"playlistname\":\"none\",\"haspreview\":\"none\",\"viewmode\":\"none\",\"playername\":\"pfp\",\"playlistnumitems\":\"none\",\"playlistposition\":\"none\",\"playerversion\":\"v1.0.0\",\"soundstatus\":\"none\",\"videosticky\":0.10000000000000001},\"component\":{\"name\":\"\",\"type\":\"\",\"action\":\"\",\"pagename\":\"\",\"actiondetail\":\"\"},\"newsletter\":{\"name\":\"\",\"location\":\"\"},\"thirdPartiesDisabled\":[],\"scribbleId\":2818513}');</script><script data-item="top">
+        try {
+        var currentLanguage = 'ru';
+          } catch (e) {
+        if (console) {
+            console.error("language redirection failure");
+        }
+    }
+    
+    try {
+      !function t(e,n,r){function o(c,s){if(!n[c]){if(!e[c]){var u="function"==typeof require&&require;if(!s&&u)return u(c,!0);if(i)return i(c,!0);var a=new Error("Cannot find module '"+c+"'");throw a.code="MODULE_NOT_FOUND",a}var f=n[c]={exports:{}};e[c][0].call(f.exports,function(t){var n=e[c][1][t];return o(n?n:t)},f,f.exports,t,e,n,r)}return n[c].exports}for(var i="function"==typeof require&&require,c=0;c<r.length;c++)o(r[c]);return o}({1:[function(t,e,n){"use strict";"undefined"==typeof Promise&&t("core-js/es6/promise"),function(t){if(navigator&&navigator.userAgent){var e=document.documentElement;e.setAttribute("data-useragent",navigator.userAgent)}t.loadJSStack=[],t.loadJS=function(e,n){t.loadJSStack.push({uri:e,cb:n})},t.isIe=function(){var t=navigator.userAgent,e=/MSIE/.test(t);return e},t.isIe()&&t.loadJS("/js/console-polyfills.js")}(window)},{"core-js/es6/promise":2}],2:[function(t,e,n){t("../modules/es6.string.iterator"),t("../modules/web.dom.iterable"),t("../modules/es6.promise"),e.exports=t("../modules/$").core.Promise},{"../modules/$":11,"../modules/es6.promise":19,"../modules/es6.string.iterator":20,"../modules/web.dom.iterable":21}],3:[function(t,e,n){function r(t,e,n){if(!t)throw TypeError(n?e+n:e)}var o=t("./$");r.def=o.assertDefined,r.fn=function(t){if(!o.isFunction(t))throw TypeError(t+" is not a function!");return t},r.obj=function(t){if(!o.isObject(t))throw TypeError(t+" is not an object!");return t},r.inst=function(t,e,n){if(!(t instanceof e))throw TypeError(n+": use the 'new' operator!");return t},e.exports=r},{"./$":11}],4:[function(t,e,n){function r(t){return c.call(t).slice(8,-1)}var o=t("./$"),i=t("./$.wks")("toStringTag"),c={}.toString;r.classof=function(t){var e,n;return void 0==t?void 0===t?"Undefined":"Null":"string"==typeof(n=(e=Object(t))[i])?n:r(e)},r.set=function(t,e,n){t&&!o.has(t=n?t:t.prototype,i)&&o.hide(t,i,e)},e.exports=r},{"./$":11,"./$.wks":17}],5:[function(t,e,n){var r=t("./$.assert").fn;e.exports=function(t,e,n){if(r(t),~n&&void 0===e)return t;switch(n){case 1:return function(n){return t.call(e,n)};case 2:return function(n,r){return t.call(e,n,r)};case 3:return function(n,r,o){return t.call(e,n,r,o)}}return function(){return t.apply(e,arguments)}}},{"./$.assert":3}],6:[function(t,e,n){function r(t,e){return function(){return t.apply(e,arguments)}}function o(t,e,n){var a,f,l,d,p=t&o.G,h=p?c:t&o.S?c[e]:(c[e]||{}).prototype,v=p?s:s[e]||(s[e]={});p&&(n=e);for(a in n)f=!(t&o.F)&&h&&a in h,l=(f?h:n)[a],d=t&o.B&&f?r(l,c):t&o.P&&u(l)?r(Function.call,l):l,h&&!f&&(p?h[a]=l:delete h[a]&&i.hide(h,a,l)),v[a]!=l&&i.hide(v,a,d)}var i=t("./$"),c=i.g,s=i.core,u=i.isFunction;c.core=s,o.F=1,o.G=2,o.S=4,o.P=8,o.B=16,o.W=32,e.exports=o},{"./$":11}],7:[function(t,e,n){e.exports=function(t){return t.FW=!0,t.path=t.g,t}},{}],8:[function(t,e,n){e.exports=function(t,e,n){var r=void 0===n;switch(e.length){case 0:return r?t():t.call(n);case 1:return r?t(e[0]):t.call(n,e[0]);case 2:return r?t(e[0],e[1]):t.call(n,e[0],e[1]);case 3:return r?t(e[0],e[1],e[2]):t.call(n,e[0],e[1],e[2]);case 4:return r?t(e[0],e[1],e[2],e[3]):t.call(n,e[0],e[1],e[2],e[3]);case 5:return r?t(e[0],e[1],e[2],e[3],e[4]):t.call(n,e[0],e[1],e[2],e[3],e[4])}return t.apply(n,e)}},{}],9:[function(t,e,n){var r=t("./$.wks")("iterator"),o=!1;try{var i=[7][r]();i.return=function(){o=!0},Array.from(i,function(){throw 2})}catch(t){}e.exports=function(t){if(!o)return!1;var e=!1;try{var n=[7],i=n[r]();i.next=function(){e=!0},n[r]=function(){return i},t(n)}catch(t){}return e}},{"./$.wks":17}],10:[function(t,e,n){"use strict";function r(t,e){u.hide(t,p,e),h in[]&&u.hide(t,h,e)}function o(t,e,n,o){var i=t.prototype,c=i[p]||i[h]||o&&i[o]||n;if(u.FW&&r(i,c),c!==n){var s=u.getProto(c.call(new t));f.set(s,e+" Iterator",!0),u.FW&&u.has(i,h)&&r(s,u.that)}return v[e]=c,v[e+" Iterator"]=u.that,c}function i(t){var e=u.g.Symbol,n=t[e&&e.iterator||h],r=n||t[p]||v[f.classof(t)];return d(r.call(t))}function c(t){var e=t.return;void 0!==e&&d(e.call(t))}function s(t,e,n,r){try{return r?e(d(n)[0],n[1]):e(n)}catch(e){throw c(t),e}}var u=t("./$"),a=t("./$.ctx"),f=t("./$.cof"),l=t("./$.def"),d=t("./$.assert").obj,p=t("./$.wks")("iterator"),h="@@iterator",v={},$={},y="keys"in[]&&!("next"in[].keys());r($,u.that);var g=e.exports={BUGGY:y,Iterators:v,prototype:$,step:function(t,e){return{value:e,done:!!t}},stepCall:s,close:c,is:function(t){var e=Object(t),n=u.g.Symbol,r=n&&n.iterator||h;return r in e||p in e||u.has(v,f.classof(e))},get:i,set:r,create:function(t,e,n,r){t.prototype=u.create(r||g.prototype,{next:u.desc(1,n)}),f.set(t,e+" Iterator")},define:o,std:function(t,e,n,r,i,c,s){function a(t){return function(){return new n(this,t)}}g.create(n,e,r);var f,d,p=a("key+value"),h=a("value"),v=t.prototype;if("value"==i?h=o(t,e,h,"values"):p=o(t,e,p,"entries"),i&&(f={entries:p,keys:c?h:a("key"),values:h},l(l.P+l.F*y,e,f),s))for(d in f)d in v||u.hide(v,d,f[d])},forOf:function(t,e,n,r){for(var o,u=i(t),f=a(n,r,e?2:1);!(o=u.next()).done;)if(s(u,f,o.value,e)===!1)return c(u)}}},{"./$":11,"./$.assert":3,"./$.cof":4,"./$.ctx":5,"./$.def":6,"./$.wks":17}],11:[function(t,e,n){"use strict";function r(t){return isNaN(t=+t)?0:(t>0?v:h)(t)}function o(t,e){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:e}}function i(t,e,n){return t[e]=n,t}function c(t){return g?function(e,n,r){return w.setDesc(e,n,o(t,r))}:i}function s(t){return null!==t&&("object"==typeof t||"function"==typeof t)}function u(t){return"function"==typeof t}function a(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}var f="undefined"!=typeof self?self:Function("return this")(),l={},d=Object.defineProperty,p={}.hasOwnProperty,h=Math.ceil,v=Math.floor,$=Math.max,y=Math.min,g=!!function(){try{return 2==d({},"a",{get:function(){return 2}}).a}catch(t){}}(),m=c(1),w=e.exports=t("./$.fw")({g:f,core:l,html:f.document&&document.documentElement,isObject:s,isFunction:u,it:function(t){return t},that:function(){return this},toInteger:r,toLength:function(t){return t>0?y(r(t),9007199254740991):0},toIndex:function(t,e){return t=r(t),t<0?$(t+e,0):y(t,e)},has:function(t,e){return p.call(t,e)},create:Object.create,getProto:Object.getPrototypeOf,DESC:g,desc:o,getDesc:Object.getOwnPropertyDescriptor,setDesc:d,getKeys:Object.keys,getNames:Object.getOwnPropertyNames,getSymbols:Object.getOwnPropertySymbols,assertDefined:a,ES5Object:Object,toObject:function(t){return w.ES5Object(a(t))},hide:m,def:c(0),set:f.Symbol?i:m,mix:function(t,e){for(var n in e)m(t,n,e[n]);return t},each:[].forEach});"undefined"!=typeof __e&&(__e=l),"undefined"!=typeof __g&&(__g=f)},{"./$.fw":7}],12:[function(t,e,n){var r=t("./$");e.exports=function(e){r.DESC&&r.FW&&r.setDesc(e,t("./$.wks")("species"),{configurable:!0,get:r.that})}},{"./$":11,"./$.wks":17}],13:[function(t,e,n){"use strict";var r=t("./$");e.exports=function(t){return function(e){var n,o,i=String(r.assertDefined(this)),c=r.toInteger(e),s=i.length;return c<0||c>=s?t?"":void 0:(n=i.charCodeAt(c),n<55296||n>56319||c+1===s||(o=i.charCodeAt(c+1))<56320||o>57343?t?i.charAt(c):n:t?i.slice(c,c+2):(n-55296<<10)+(o-56320)+65536)}}},{"./$":11}],14:[function(t,e,n){"use strict";function r(){var t=+this;if(u.has(j,t)){var e=j[t];delete j[t],e()}}function o(t){r.call(t.data)}var i,c,s,u=t("./$"),a=t("./$.ctx"),f=t("./$.cof"),l=t("./$.invoke"),d=u.g,p=u.isFunction,h=u.html,v=d.document,$=d.process,y=d.setImmediate,g=d.clearImmediate,m=d.postMessage,w=d.addEventListener,b=d.MessageChannel,x=0,j={},k="onreadystatechange";p(y)&&p(g)||(y=function(t){for(var e=[],n=1;arguments.length>n;)e.push(arguments[n++]);return j[++x]=function(){l(p(t)?t:Function(t),e)},i(x),x},g=function(t){delete j[t]},"process"==f($)?i=function(t){$.nextTick(a(r,t,1))}:w&&p(m)&&!d.importScripts?(i=function(t){m(t,"*")},w("message",o,!1)):p(b)?(c=new b,s=c.port2,c.port1.onmessage=o,i=a(s.postMessage,s,1)):i=v&&k in v.createElement("script")?function(t){h.appendChild(v.createElement("script"))[k]=function(){h.removeChild(this),r.call(t)}}:function(t){setTimeout(a(r,t,1),0)}),e.exports={set:y,clear:g}},{"./$":11,"./$.cof":4,"./$.ctx":5,"./$.invoke":8}],15:[function(t,e,n){function r(t){return"Symbol("+t+")_"+(++o+Math.random()).toString(36)}var o=0;r.safe=t("./$").g.Symbol||r,e.exports=r},{"./$":11}],16:[function(t,e,n){var r=t("./$"),o=t("./$.wks")("unscopables");!r.FW||o in[]||r.hide(Array.prototype,o,{}),e.exports=function(t){r.FW&&([][o][t]=!0)}},{"./$":11,"./$.wks":17}],17:[function(t,e,n){var r=t("./$").g,o={};e.exports=function(e){return o[e]||(o[e]=r.Symbol&&r.Symbol[e]||t("./$.uid").safe("Symbol."+e))}},{"./$":11,"./$.uid":15}],18:[function(t,e,n){var r=t("./$"),o=t("./$.unscope"),i=t("./$.uid").safe("iter"),c=t("./$.iter"),s=c.step,u=c.Iterators;c.std(Array,"Array",function(t,e){r.set(this,i,{o:r.toObject(t),i:0,k:e})},function(){var t=this[i],e=t.o,n=t.k,r=t.i++;return!e||r>=e.length?(t.o=void 0,s(1)):"key"==n?s(0,r):"value"==n?s(0,e[r]):s(0,[r,e[r]])},"value"),u.Arguments=u.Array,o("keys"),o("values"),o("entries")},{"./$":11,"./$.iter":10,"./$.uid":15,"./$.unscope":16}],19:[function(t,e,n){"use strict";function r(t){var e=E(t)[$];return void 0!=e?e:t}function o(t){var e;return O(t)&&(e=t.then),!!S(e)&&e}function i(t){var e,n=t[y],r=n.c,o=0;if(n.h)return!1;for(;r.length>o;)if(e=r[o++],e.fail||!i(e.P))return!1;return!0}function c(t,e){var n=t.c;(e||n.length)&&x(function(){var r=t.p,c=t.v,s=1==t.s,u=0;if(e&&i(r))setTimeout(function(){i(r)&&("process"==d(b)?b.emit("unhandledRejection",c,r):w.console&&S(console.error)&&console.error("Unhandled promise rejection",c))},1e3);else for(;n.length>u;)!function(e){var n,r,i=s?e.ok:e.fail;try{i?(s||(t.h=!0),n=i===!0?c:i(c),n===e.P?e.rej(TypeError(m+"-chain cycle")):(r=o(n))?r.call(n,e.res,e.rej):e.res(n)):e.rej(c)}catch(t){e.rej(t)}}(n[u++]);n.length=0})}function s(t){var e=this;e.d||(e.d=!0,e=e.r||e,e.v=t,e.s=2,c(e,!0))}function u(t){var e,n,r=this;if(!r.d){r.d=!0,r=r.r||r;try{(e=o(t))?(n={r:r,d:!1},e.call(t,l(u,n,1),l(s,n,1))):(r.v=t,r.s=1,c(r))}catch(t){s.call(n||{r:r,d:!1},t)}}}var a,f=t("./$"),l=t("./$.ctx"),d=t("./$.cof"),p=t("./$.def"),h=t("./$.assert"),v=t("./$.iter"),$=t("./$.wks")("species"),y=t("./$.uid").safe("record"),g=v.forOf,m="Promise",w=f.g,b=w.process,x=b&&b.nextTick||t("./$.task").set,j=w[m],k=j,S=f.isFunction,O=f.isObject,F=h.fn,E=h.obj;S(j)&&S(j.resolve)&&j.resolve(a=new j(function(){}))==a||(j=function(t){F(t);var e={p:h.inst(this,j,m),c:[],s:0,d:!1,v:void 0,h:!1};f.hide(this,y,e);try{t(l(u,e,1),l(s,e,1))}catch(t){s.call(e,t)}},f.mix(j.prototype,{then:function(t,e){var n=E(E(this).constructor)[$],r={ok:!S(t)||t,fail:!!S(e)&&e},o=r.P=new(void 0!=n?n:j)(function(t,e){r.res=F(t),r.rej=F(e)}),i=this[y];return i.c.push(r),i.s&&c(i),o},catch:function(t){return this.then(void 0,t)}})),p(p.G+p.W+p.F*(j!=k),{Promise:j}),d.set(j,m),t("./$.species")(j),p(p.S,m,{reject:function(t){return new(r(this))(function(e,n){n(t)})},resolve:function(t){return O(t)&&y in t&&f.getProto(t)===this.prototype?t:new(r(this))(function(e){e(t)})}}),p(p.S+p.F*!t("./$.iter-detect")(function(t){j.all(t).catch(function(){})}),m,{all:function(t){var e=r(this),n=[];return new e(function(r,o){g(t,!1,n.push,n);var i=n.length,c=Array(i);i?f.each.call(n,function(t,n){e.resolve(t).then(function(t){c[n]=t,--i||r(c)},o)}):r(c)})},race:function(t){var e=r(this);return new e(function(n,r){g(t,!1,function(t){e.resolve(t).then(n,r)})})}})},{"./$":11,"./$.assert":3,"./$.cof":4,"./$.ctx":5,"./$.def":6,"./$.iter":10,"./$.iter-detect":9,"./$.species":12,"./$.task":14,"./$.uid":15,"./$.wks":17}],20:[function(t,e,n){var r=t("./$").set,o=t("./$.string-at")(!0),i=t("./$.uid").safe("iter"),c=t("./$.iter"),s=c.step;c.std(String,"String",function(t){r(this,i,{o:String(t),i:0})},function(){var t,e=this[i],n=e.o,r=e.i;return r>=n.length?s(1):(t=o.call(n,r),e.i+=t.length,s(0,t))})},{"./$":11,"./$.iter":10,"./$.string-at":13,"./$.uid":15}],21:[function(t,e,n){t("./es6.array.iterator");var r=t("./$"),o=t("./$.iter").Iterators,i=t("./$.wks")("iterator"),c=o.Array,s=r.g.NodeList;!r.FW||!s||i in s.prototype||r.hide(s.prototype,i,c),o.NodeList=c},{"./$":11,"./$.iter":10,"./$.wks":17,"./es6.array.iterator":18}]},{},[1]);
+    } catch (e) {
+        if (console) {
+            console.error("header script failure");
+        }
+    }
+  </script><script>
+      window['APP_ENV_ENTRY'] = '';
+      var url_en = 'www.euronews.com';
+      var stickySecondsLdbIsActive = false;
+      var ff_is_active_taboola = true;
+      var dfpSiteName = 'euronews';
+      var newsletterMediego = false;
+  </script><script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@graph": [
+        {
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+                "@type": "Webpage",
+                "url": "/2019/02/12/ru-venezuela-protests"
+            },
+            "headline": "\u0414\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u0438 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0432\u0443\u0445 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b",
+            "description": "\u0412 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043e\u0434\u043d\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u043f\u0440\u043e\u0448\u043b\u0438 \u0430\u043a\u0446\u0438\u0438 \u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u043a\u043e\u0432 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0433\u043e \u0438 \u0441\u0430\u043c\u043e\u043f\u0440\u043e\u0432\u043e\u0437\u0433\u043b\u0430\u0448\u0435\u043d\u043d\u043e\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0441\u0442\u0440\u0430\u043d\u044b \u041d\u0438\u043a\u043e\u043b\u0430\u0441\u0430 \u041c\u0430\u0434\u0443\u0440\u043e \u0438 \u0425\u0430\u0443\u0430\u043d\u0430 \u0413\u0443\u0430\u0439\u0434\u043e",
+            "articleBody": "\u0412 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043f\u0440\u043e\u0448\u043b\u0430 \u043c\u0430\u0441\u0441\u043e\u0432\u0430\u044f \u0430\u043a\u0446\u0438\u044f \u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u043a\u043e\u0432 \u0441\u0430\u043c\u043e\u043f\u0440\u043e\u0432\u043e\u0437\u0433\u043b\u0430\u0448\u0451\u043d\u043d\u043e\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u0430 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b \u0425\u0443\u0430\u043d\u0430 \u0413\u0443\u0430\u0439\u0434\u043e. \u0412\u044b\u0448\u0435\u043b \u0432 \u043d\u0430\u0440\u043e\u0434 \u0438 \u0441\u0430\u043c \u043b\u0438\u0434\u0435\u0440 \u043e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u0438. \n\n\u042d\u0442\u043e \u0443\u0436\u0435 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u0430\u044f \u0437\u0430 \u0442\u0440\u0438 \u043d\u0435\u0434\u0435\u043b\u0438 \u043c\u0430\u0441\u0441\u043e\u0432\u0430\u044f \u0434\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u044f \u0432 \u0432\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044c\u0441\u043a\u043e\u0439 \u0441\u0442\u043e\u043b\u0438\u0446\u0435. \u0413\u043b\u0430\u0432\u043d\u044b\u043c \u043b\u043e\u0437\u0443\u043d\u0433\u043e\u043c \u0430\u043a\u0446\u0438\u0438 \u0441\u0442\u0430\u043b \u043f\u0440\u0438\u0437\u044b\u0432 \u0434\u043e\u043f\u0443\u0441\u0442\u0438\u0442\u044c \u0432 \u0441\u0442\u0440\u0430\u043d\u0443 \u0433\u0443\u043c\u0430\u043d\u0438\u0442\u0430\u0440\u043d\u0443\u044e \u043f\u043e\u043c\u043e\u0449\u044c \u0438\u0437-\u0437\u0430 \u0440\u0443\u0431\u0435\u0436\u0430. \n\n\u041d\u0430\u043a\u0430\u043d\u0443\u043d\u0435 \u0413\u0443\u0430\u0439\u0434\u043e \u0437\u0430\u044f\u0432\u0438\u043b, \u0447\u0442\u043e \u0447\u0430\u0441\u0442\u044c \u043f\u043e\u043c\u043e\u0449\u0438 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0437\u0430\u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c. \n\n\u0022 23 \u0444\u0435\u0432\u0440\u0430\u043b\u044f - \u0434\u0435\u043d\u044c, \u043a\u043e\u0433\u0434\u0430 \u0433\u0443\u043c\u0430\u043d\u0438\u0442\u0430\u0440\u043d\u0430\u044f \u043f\u043e\u043c\u043e\u0449\u044c \u043f\u043e\u0441\u0442\u0443\u043f\u0438\u0442 \u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0443. \u0421 \u0441\u0435\u0433\u043e\u0434\u043d\u044f\u0448\u043d\u0435\u0433\u043e \u0434\u043d\u044f \u043c\u044b \u043d\u0430\u0447\u0438\u043d\u0430\u0435\u043c \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0443 \u043f\u0435\u0440\u0435\u0432\u043e\u0437\u0447\u0438\u043a\u043e\u0432, \u043c\u0435\u0434\u0441\u0435\u0441\u0442\u0435\u0440, \u0432\u0440\u0430\u0447\u0435\u0439, \u0437\u0430\u0439\u043c\u0435\u043c\u0441\u044f \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0435\u0439 \u043f\u0440\u0438\u0435\u043c\u0430 \u043f\u043e\u043c\u043e\u0449\u0438 \u0022, \u2013 \u043e\u0431\u044a\u044f\u0432\u0438\u043b \u0413\u0443\u0430\u0439\u0434\u043e. \n\n\u041e\u0434\u043d\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u0432 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043f\u0440\u043e\u0448\u0435\u043b \u043c\u0430\u0440\u0448 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u0430 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b \u041d\u0438\u043a\u043e\u043b\u0430\u0441\u0430 \u041c\u0430\u0434\u0443\u0440\u043e, \u043f\u0440\u0438\u0443\u0440\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u043a\u0430\u043a \u0438 \u0430\u043a\u0446\u0438\u044f \u043e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u0438, \u043a\u043e \u0414\u043d\u044e \u043c\u043e\u043b\u043e\u0434\u0435\u0436\u0438. \n\n\u0421 \u0442\u043e\u0447\u043a\u0438 \u0437\u0440\u0435\u043d\u0438\u044f \u043e\u0444\u0438\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0430, \u0441\u0430\u043c\u0430 \u0446\u0435\u043b\u0435\u0441\u043e\u043e\u0431\u0440\u0430\u0437\u043d\u043e\u0441\u0442\u044c \u043f\u043e\u0441\u0442\u0430\u0432\u043e\u043a \u0433\u0443\u043c\u043f\u043e\u043c\u043e\u0449\u0438 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0435 \u0438\u0437-\u0437\u0430 \u0440\u0443\u0431\u0435\u0436\u0430 \u0432\u044b\u0437\u044b\u0432\u0430\u0435\u0442 \u0432\u043e\u043f\u0440\u043e\u0441\u044b. \n\n\u0412 \u043e\u0434\u043d\u043e\u043c \u0438\u0437 \u043d\u0435\u0434\u0430\u0432\u043d\u0438\u0445 \u0438\u043d\u0442\u0435\u0440\u0432\u044c\u044e \u041c\u0430\u0434\u0443\u0440\u043e \u043d\u0430\u0437\u0432\u0430\u043b \u043e\u0431\u0435\u0449\u0430\u043d\u043d\u0443\u044e \u0421\u0428\u0410 \u043f\u043e\u043c\u043e\u0449\u044c \u0022\u0444\u0430\u043b\u044c\u0448\u0438\u0432\u044b\u043c \u0448\u043e\u0443\u0022, \u0437\u0430 \u043a\u043e\u0442\u043e\u0440\u044b\u043c \u0441\u043a\u0440\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0438\u043d\u043e\u0441\u0442\u0440\u0430\u043d\u043d\u043e\u0435 \u0432\u043e\u0435\u043d\u043d\u043e\u0435 \u0432\u043c\u0435\u0448\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e. \n\n\u041e\u0434\u043d\u0430\u043a\u043e \u043d\u0430\u043a\u0430\u043d\u0443\u043d\u0435 \u0432\u043b\u0430\u0441\u0442\u0438 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b \u0437\u0430\u044f\u0432\u0438\u043b\u0438 \u043e \u0433\u043e\u0442\u043e\u0432\u043d\u043e\u0441\u0442\u0438 \u0432\u0435\u0441\u0442\u0438 \u0434\u0438\u0430\u043b\u043e\u0433 \u0441 \u043e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u0435\u0439 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u041e\u041e\u041d \u0438\u043b\u0438 \u0434\u0440\u0443\u0433\u043e\u0433\u043e \u043f\u043e\u0441\u0440\u0435\u0434\u043d\u0438\u043a\u0430.",
+            "dateCreated": "2019-02-12 20:17:45",
+            "dateModified": "2019-02-13 12:41:26",
+            "datePublished": "2019-02-12 22:29:19",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://static.euronews.com/articles/stories/03/66/47/66/1440x810_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg",
+                "height": "1440px",
+                "width": "810px",
+                "caption": "\u0414\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u0438 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0432\u0443\u0445 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b",
+                "thumbnail": "https://static.euronews.com/articles/stories/03/66/47/66/1440x810_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "euronews",
+                    "url": "https://static.euronews.com/website/images/euronews_logo.png"
+                }
+            },
+            "author": {
+                "@type": "Person",
+                "name": "\u041e\u043b\u044c\u0433\u0430 \u041a\u0435\u043f\u0438\u043d\u0441\u043a\u0438",
+                "url": "kepinski",
+                "sameAs": "https://twitter.com/euronewsru"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Euronews",
+                "legalName": "Euronews",
+                "url": "http://ru.euronews.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://static.euronews.com/website/images/euronews_logo.png",
+                    "width": "688px",
+                    "height": "102px"
+                },
+                "sameAs": [
+                    "http://vk.com/en.euronews",
+                    "https://www.facebook.com/ru.euronews",
+                    "https://t.me/russian_euronews",
+                    "https://flipboard.com/@euronewsru",
+                    "https://ok.ru/group/55820682067996"
+                ]
+            },
+            "video": {
+                "@type": "VideoObject",
+                "name": "\u0414\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u0438 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0432\u0443\u0445 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b",
+                "description": "\u0412 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043e\u0434\u043d\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u043f\u0440\u043e\u0448\u043b\u0438 \u0430\u043a\u0446\u0438\u0438 \u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u043a\u043e\u0432 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0433\u043e \u0438 \u0441\u0430\u043c\u043e\u043f\u0440\u043e\u0432\u043e\u0437\u0433\u043b\u0430\u0448\u0435\u043d\u043d\u043e\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0441\u0442\u0440\u0430\u043d\u044b \u041d\u0438\u043a\u043e\u043b\u0430\u0441\u0430 \u041c\u0430\u0434\u0443\u0440\u043e \u0438 \u0425\u0430\u0443\u0430\u043d\u0430 \u0413\u0443\u0430\u0439\u0434\u043e",
+                "thumbnailUrl": "https://static.euronews.com/articles/stories/03/66/47/66/385x202_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg",
+                "height": "385px",
+                "width": "202px",
+                "uploadDate": "2019-02-12 22:29:19",
+                "duration": "PT1M11S",
+                "contentUrl": "https://video.euronews.com/mp4/med/EN/NW/SU/19/02/12/ru/190212_NWSU_6623806_6625936_71000_222512_ru.mp4",
+                "embedUrl": "https://youtube.com/embed/Qdqlq1dx9c8",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Euronews",
+                    "legalName": "Euronews",
+                    "url": "http://ru.euronews.com/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://static.euronews.com/website/images/euronews_logo.png",
+                        "width": "688px",
+                        "height": "102px"
+                    },
+                    "sameAs": [
+                        "http://vk.com/en.euronews",
+                        "https://www.facebook.com/ru.euronews",
+                        "https://t.me/russian_euronews",
+                        "https://flipboard.com/@euronewsru",
+                        "https://ok.ru/group/55820682067996"
+                    ]
+                }
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://ru.euronews.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "\u041d\u043e\u0432\u043e\u0441\u0442\u0438",
+                    "item": "https://ru.euronews.com/news"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "\u041c\u0438\u0440",
+                    "item": "https://ru.euronews.com/news/international"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "\u0414\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u0438 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0432\u0443\u0445 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b",
+                    "item": "https://ru.euronews.com/2019/02/12/ru-venezuela-protests"
+                }
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "name": "Euronews.com",
+            "url": "http://ru.euronews.com/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "http://ru.euronews.com/search?query={search_term_string}",
+                "query-input": "required name=search_term_string"
+            },
+            "sameAs": [
+                "http://vk.com/en.euronews",
+                "https://www.facebook.com/ru.euronews",
+                "https://t.me/russian_euronews",
+                "https://flipboard.com/@euronewsru",
+                "https://ok.ru/group/55820682067996"
+            ]
+        }
+    ]
+}</script><link rel="dns-prefetch preconnect" as="script" href="https://widgets.skyscanner.net/widget-server/js/loader.js" crossorigin>
+<script data-item="player-preroll">
+        var dfptValue = '';
+        try {
+  let DFPDataAds = JSON.parse(window.dfpData)
+  let siteName = DFPDataAds.level1 || 'euronews_new'
+  let keyvalues = ''
+  for (let key in DFPDataAds.keyValues) {
+    keyvalues = keyvalues + (key + '=' + DFPDataAds.keyValues[key] + '&')
+  }
+
+  let keyValuesTags = ''
+  let keyValuesDfpt = ''
+
+  if (dfptValue) {
+    keyValuesDfpt = 'dfpt=' + dfptValue
+  }
+
+  if (typeof DFPDataAds.keyValues.tags !== 'undefined') {
+    keyValuesTags = '&tags=' + DFPDataAds.keyValues.tags
+  }
+
+  let dfpTagUrl =
+    'https://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&unviewed_position_start=1&output=vast&iu=/6458/'
+    + siteName + '/'
+    + DFPDataAds.adUnit + '&sz=320x240&url=' +
+    encodeURI(window.location) + '&correlator=' + Math.floor(Math.random() * 1000000) +
+    '&description_url=' + encodeURIComponent(window.location) + '&hl=' + document.documentElement.getAttribute('lang') +
+    '&cust_params=' + encodeURIComponent(
+      '&prog=' + digitalData.page.program
+      // + keyValuesTags
+      + '&' + keyValuesDfpt
+      + '&' + keyvalues
+    ) + '&prev_scp=' + encodeURIComponent(keyvalues)
+} catch (error) {
+}
+
+    </script>
+</head>
+<body class="
+      t-program--world
+    ">
+<button id="js-back-to-top" type="button" class="enw-btn--back-to-top"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 32 32"><path fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round" d="M10 19l6-6 6 6"></path></svg></button><div class="topbar__overlay"></div>
+<div id="outdated"></div>
+<div id="fb-root"></div>
+<div>
+<div id="adzone-custom" class="advertising advertising--no-label hide js-adzone"></div>
+<div id="adzone-oop" class="advertising advertising--no-label hide js-adzone"></div>
+<div id="js-leaderboard-top" class="base-leaderboard base-leaderboard--top base-leaderboard--sticky show-for-xlarge"><div class="enw-block__leaderboard  text-center "><div id="adzone-leaderboard_1" class="advertising js-adzone"></div></div></div>
+<header id="js-header-sticky" class="c-site-header c-site-header--sticky"><section class="o-menu-top_nav show-for-medium t-menu-top_bar--dark"><div class="c-menu-top_bar">
+<div class="c-menu-top_bar__left">
+<ul class="menu c-menu-language">
+<li class="c-menu-language__icon">
+<?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><path fill="#FFFFFF" d="M23.979,8c8.822,0,16,7.178,16,16s-7.178,16-16,16c-8.822,0-16-7.178-16-16S15.157,8,23.979,8 M23.979,4
+	c-11.046,0-20,8.954-20,20s8.954,20,20,20s20-8.954,20-20S35.025,4,23.979,4L23.979,4z"></path><path fill="#FFFFFF" d="M23.979,9c1.717,0,5,5.842,5,15s-3.283,15-5,15c-1.717,0-5-5.841-5-15S22.262,9,23.979,9 M23.979,6
+	c-4.418,0-8,8.059-8,18s3.582,18,8,18s8-8.059,8-18S28.397,6,23.979,6L23.979,6z"></path><rect x="5.979" y="28.5" fill="#FFFFFF" width="36" height="3"></rect><rect x="5.979" y="16.5" fill="#FFFFFF" width="36" height="3"></rect></svg>
+</li>
+<li>
+<a class="c-menu-language--isSelected" href="#">Русский</a><div class="c-menu-language__list"><div class="flex">
+<ul class="u-margin-end-2">
+<li><a class="u-padding-end-4" href="//www.euronews.com" lang="en-GB" hreflang="en">English</a></li>
+<li><a class="u-padding-end-4" href="//fr.euronews.com/2019/02/12/venezuela-le-face-a-face-guaido-maduro-se-poursuit" lang="fr-FR" hreflang="fr">Français</a></li>
+<li><a class="u-padding-end-4" href="//de.euronews.com/2019/02/12/guaido-hilfslieferungen-starten-am-23-februar" lang="de-DEU" hreflang="de">Deutsch</a></li>
+<li><a class="u-padding-end-4" href="//it.euronews.com" lang="it-IT" hreflang="it">Italiano</a></li>
+</ul>
+<ul class="u-margin-end-2">
+<li><a class="u-padding-end-4" href="//es.euronews.com/2019/02/12/guaido-la-ayuda-humanitaria-entrara-en-venezuela-el-23-de-febrero" lang="es-ES" hreflang="es">Español</a></li>
+<li><a class="u-padding-end-4" href="//pt.euronews.com/2019/02/12/manifestacoes-pro-e-contra-maduro-voltam-as-ruas" lang="pt-PT" hreflang="pt">Português</a></li>
+<li class="c-menu-language-item--isActive"><a class="u-padding-end-4" href="//ru.euronews.com/2019/02/12/ru-venezuela-protests" lang="ru-RU" hreflang="ru">Русский</a></li>
+<li><a class="u-padding-end-4" href="//tr.euronews.com" lang="tr-TR" hreflang="tr">Türkçe</a></li>
+</ul>
+<ul>
+<li><a class="u-padding-end-4" href="//gr.euronews.com/2019/02/12/xouan-guaido-stis-23-febrouariou-ftanei-h-anthropistikh-bohtheia" lang="el-GR" hreflang="el">Ελληνικά</a></li>
+<li><a class="u-padding-end-4" href="//hu.euronews.com" lang="hu-HU" hreflang="hu">Magyar</a></li>
+<li><a class="u-padding-end-4" href="//fa.euronews.com" lang="fa-IR" hreflang="fa">فارسی</a></li>
+<li><a class="u-padding-end-4" href="//arabic.euronews.com" lang="hy-AM" hreflang="ar">العربية</a></li>
+</ul>
+</div></div>
+</li>
+</ul>
+<ul class="menu internal-links">
+<li class="c-internal-links icon-newsletter"><a class="u-padding-0" href="/follow-us"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><g><path fill="#FFFFFF" d="M40,12v24H8V12H40 M42,8H6c-1.1,0-2,0.9-2,2v28c0,1.1,0.9,2,2,2h36c1.1,0,2-0.9,2-2V10C44,8.9,43.1,8,42,8
+		L42,8z"></path></g><polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="39.917,12.083 24,24.029 7.917,11.917 "></polyline></svg><span>Рассылка</span></a></li>
+<li class="c-internal-links c-internal-links__link book-flight"><a href="//flights.euronews.com/ru-RU/flights" target="_blank" class="u-padding-0"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><g><g><path fill="#FFFFFF" d="M32.801,41.964l2.817-2.817l-4.225-18.308l7.746-7.746c1.169-1.169,1.169-3.056,0-4.225
+			c-1.169-1.169-3.056-1.169-4.225,0l-7.746,7.746L8.859,12.389l-2.817,2.817l14.788,7.746l-7.746,7.746l-4.929-0.704l-2.112,2.112
+			l6.337,3.521l3.521,6.337l2.112-2.112l-0.704-4.929l7.746-7.746L32.801,41.964z"></path></g></g></svg><span>Забронируйте ваш билет</span></a></li>
+</ul>
+</div>
+<div class="c-menu-top_bar__right"><ul class="menu"><li class="js-search-menu c-search show-for-medium"><div id="search-autocomplete-sticky" class="js-awesomeplete-searchBar " eventisallowed="1" maxitems="10"><search-form apiurl="/api/searchautocomplete.json?q=" eventisallowed="1" searchplaceholder="Поиск на Euronews" class=""></search-form></div></li></ul></div>
+</div></section><section class="o-menu-top_nav"><div class="c-menu-main c-menu-main--is-sticky">
+<div class="c-menu-main__left"><div class="c-site-header__logo"><a class="u-margin-auto" href="/"><img src="https://static.euronews.com/website/images/euronews_horizontal_flat.svg" alt="Euronews"></a></div></div>
+<div class="c-menu-main__right">
+<nav class="enw-nav-menuList hide-for-small-only"><ul class="enw-menuList menu js-enw-topnav__menu">
+<li class="show-for-large "><a href="/european-affairs/european-news" class="enw-menuList__item">
+                        Eвропа
+                    </a></li>
+<li class="show-for-large "><a href="/news/international" class="enw-menuList__item menu__item--is-active">
+                        Мир
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/news/business" class="enw-menuList__item">
+                        Бизнес
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/news/sport" class="enw-menuList__item">
+                        Спорт
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/lifestyle/culture" class="enw-menuList__item">
+                        Культура
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/knowledge/sci-tech" class="enw-menuList__item">
+                        Sci-tech
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/lifestyle/travel" class="enw-menuList__item">
+                        Путешествия
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/video" class="enw-menuList__item">
+                        Видео
+                    </a></li>
+<li id="more_links_medium" class="more_links show-for-medium hide-for-large">
+<a href="#" class="enw-menuList__item  dropdown u-padding-end-2">другие</a><div class="sub-menu"><div class="menu row medium-12">
+<div class="medium-2 columns"><a href="/european-affairs/european-news" class="enw-menuList__sub-title">
+                                    Eвропа
+                                </a></div>
+<div class="medium-2 columns"><a href="/news/international" class="enw-menuList__sub-title menu__item--is-active">
+                                    Мир
+                                </a></div>
+<div class="medium-2 columns"><a href="/news/business" class="enw-menuList__sub-title">
+                                    Бизнес
+                                </a></div>
+<div class="medium-2 columns"><a href="/news/sport" class="enw-menuList__sub-title">
+                                    Спорт
+                                </a></div>
+<div class="medium-2 columns"><a href="/lifestyle/culture" class="enw-menuList__sub-title">
+                                    Культура
+                                </a></div>
+<div class="medium-2 columns"><a href="/knowledge/sci-tech" class="enw-menuList__sub-title">
+                                    Sci-tech
+                                </a></div>
+<div class="medium-2 columns"><a href="/lifestyle/travel" class="enw-menuList__sub-title">
+                                    Путешествия
+                                </a></div>
+<div class="medium-2 columns"><a href="/video" class="enw-menuList__sub-title">
+                                    Видео
+                                </a></div>
+</div></div>
+</li>
+<li id="more_links_large" class="more_links show-for-large hide-for-xlarge">
+<a href="#" class="enw-menuList__item  dropdown u-padding-end-2">другие</a><div class="sub-menu"><div class="menu row medium-12">
+<div class="medium-2 columns"><a href="/news/business" class="enw-menuList__sub-title">
+                                    Бизнес
+                                </a></div>
+<div class="medium-2 columns"><a href="/news/sport" class="enw-menuList__sub-title">
+                                    Спорт
+                                </a></div>
+<div class="medium-2 columns"><a href="/lifestyle/culture" class="enw-menuList__sub-title">
+                                    Культура
+                                </a></div>
+<div class="medium-2 columns"><a href="/knowledge/sci-tech" class="enw-menuList__sub-title">
+                                    Sci-tech
+                                </a></div>
+<div class="medium-2 columns"><a href="/lifestyle/travel" class="enw-menuList__sub-title">
+                                    Путешествия
+                                </a></div>
+<div class="medium-2 columns"><a href="/video" class="enw-menuList__sub-title">
+                                    Видео
+                                </a></div>
+</div></div>
+</li>
+<li class="c-separator">
+<li id="programs_links" class="programs_links">
+<a href="#" class="enw-menuList__item  dropdown"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="18.009" y1="24" x2="40.029" y2="24"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="8.029" y1="23.985" x2="11.946" y2="23.985"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="18.009" y1="13.993" x2="40.029" y2="13.993"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="8.029" y1="13.978" x2="11.946" y2="13.978"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="18.009" y1="33.993" x2="40.029" y2="33.993"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="8.029" y1="33.978" x2="11.946" y2="33.978"></line></g></svg>
+Программы</a><div class="sub-menu">
+<div class="menu row medium-12">
+<div class="medium-2 columns">
+<h3><a href="/european-affairs/european-news" class="enw-menuList__sub-title">
+                                                Eвропа
+                                            </a></h3>
+<ul>
+<li><a href="/programs/smart-regions" class="js-menu-program-smart-regions enw-menuList__sub-item">Smart Regions
+                                                </a></li>
+<li><a href="/programs/brussels-bureau" class="js-menu-program-brussels-bureau enw-menuList__sub-item">Брюссельское Бюро
+                                                </a></li>
+<li><a href="/programs/state-of-the-union" class="js-menu-program-state-of-the-union enw-menuList__sub-item">О Положении Союза
+                                                </a></li>
+</ul>
+<h3 class="u-margin-top-2"><a href="/news/business" class="enw-menuList__sub-title">
+                                                Бизнес
+                                            </a></h3>
+<ul>
+<li><a href="/programs/realeconomy" class="js-menu-program-realeconomy enw-menuList__sub-item">Real Economy
+                                                </a></li>
+<li><a href="/programs/business-planet" class="js-menu-program-business-planet enw-menuList__sub-item">Планета Бизнеса
+                                                </a></li>
+<li><a href="/programs/target" class="js-menu-program-target enw-menuList__sub-item">Цель
+                                                </a></li>
+<li><a href="/programs/markets" class="js-menu-program-markets enw-menuList__sub-item">Рынки
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><a href="/news/international" class="enw-menuList__sub-title">
+                                                Мир
+                                            </a></h3>
+<ul>
+<li><a href="/programs/aid-zone" class="js-menu-program-aid-zone enw-menuList__sub-item">Aid Zone
+                                                </a></li>
+<li><a href="/programs/global-japan" class="js-menu-program-global-japan enw-menuList__sub-item">Global Japan
+                                                </a></li>
+<li><a href="/programs/insiders" class="js-menu-program-insiders enw-menuList__sub-item">Insiders
+                                                </a></li>
+<li><a href="/programs/insight" class="js-menu-program-insight enw-menuList__sub-item">Insight
+                                                </a></li>
+<li><a href="/programs/learning-world" class="js-menu-program-learning-world enw-menuList__sub-item">Learning World
+                                                </a></li>
+<li><a href="/nocomment" class="js-menu-program-nocomment enw-menuList__sub-item">No Comment
+                                                </a></li>
+<li><a href="/programs/view" class="js-menu-program-view enw-menuList__sub-item">View
+                                                </a></li>
+<li><a href="/programs/globalconversation" class="js-menu-program-globalconversation enw-menuList__sub-item">Глобальный Диалог
+                                                </a></li>
+<li><a href="/programs/world" class="js-menu-program-world enw-menuList__sub-item">Мир
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><a href="/lifestyle/culture" class="enw-menuList__sub-title">
+                                                Культура
+                                            </a></h3>
+<ul>
+<li><a href="/programs/cult" class="js-menu-program-cult enw-menuList__sub-item">Cult
+                                                </a></li>
+<li><a href="/programs/europeanlens" class="js-menu-program-europeanlens enw-menuList__sub-item">European Lens
+                                                </a></li>
+<li><a href="/programs/musica" class="js-menu-program-musica enw-menuList__sub-item">Musica
+                                                </a></li>
+<li><a href="/programs/adventures" class="js-menu-program-adventures enw-menuList__sub-item">Приключения
+                                                </a></li>
+<li><a href="/programs/cinema" class="js-menu-program-cinema enw-menuList__sub-item">Кино
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><a href="/knowledge/sci-tech" class="enw-menuList__sub-title">
+                                                Sci-tech
+                                            </a></h3>
+<ul>
+<li><a href="/programs/climate-update" class="js-menu-program-climate-update enw-menuList__sub-item">Climate Update
+                                                </a></li>
+<li><a href="/programs/ocean" class="js-menu-program-ocean enw-menuList__sub-item">Ocean
+                                                </a></li>
+<li><a href="/programs/sci-tech" class="js-menu-program-sci-tech enw-menuList__sub-item">Sci-Tech
+                                                </a></li>
+<li><a href="/programs/space" class="js-menu-program-space enw-menuList__sub-item">Космос
+                                                </a></li>
+<li><a href="/programs/futuris" class="js-menu-program-futuris enw-menuList__sub-item">Футурис
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><a href="/lifestyle/travel" class="enw-menuList__sub-title">
+                                                Путешествия
+                                            </a></h3>
+<ul>
+<li><a href="/programs/focus" class="js-menu-program-focus enw-menuList__sub-item">Focus
+                                                </a></li>
+<li><a href="/programs/notes-from-the-usa" class="js-menu-program-notes-from-the-usa enw-menuList__sub-item">Notes From The Usa
+                                                </a></li>
+<li><a href="/programs/postcards" class="js-menu-program-postcards enw-menuList__sub-item">Postcards
+                                                </a></li>
+<li><a href="/programs/taste" class="js-menu-program-taste enw-menuList__sub-item">Taste
+                                                </a></li>
+<li><a href="/programs/metropolitans" class="js-menu-program-metropolitans enw-menuList__sub-item">Метрополитэнс
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><span class="enw-menuList__sub-title">
+                                                Hubs
+                                            </span></h3>
+<ul>
+<li><a href="/special/angola-360" class="js-menu-program-hub_angola-360 enw-menuList__sub-item">Angola 360
+                                                </a></li>
+<li><a href="/special/go-matera" class="js-menu-program-hub_go-matera enw-menuList__sub-item">Go Matera
+                                                </a></li>
+<li><a href="/special/european-elections-2019" class="js-menu-program-hub_european-elections-2019 enw-menuList__sub-item">Европейские Выборы-2019
+                                                </a></li>
+</ul>
+</div>
+</div>
+<div class="top-bar-allviews__footer"><div class="row"><div class="top-bar-allviews__footer__btwrapper"><a href="/programs" class="enw-btn__top-bar-allviews float-right"><span>Все программы</span></a></div></div></div>
+</div>
+</li>
+</ul></nav><ul class="menu js-enw-topnav__menu enw-icons-menu">
+<li class="show-for-medium weather-menu"><a href="/weather" id="header-weather-link" class="menu-item" title="Погода"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><style>.nav-weather--st0{fill:#f2a900}.nav-weather--st1{fill:#fff}</style>
+<path class="nav-weather--st0" d="M8.9 2.9h1v2.2h-1zM0 11.7h2.4v1H0zM2.265 6.082l.707-.707L4.6 7.002l-.708.707zM13.688 6.6l1.697-1.698.707.707-1.697 1.697zM5.2 15.2c.1-.2.2-.3.3-.5-.6-.8-.9-1.8-.9-2.8 0-2.6 2.1-4.8 4.8-4.8 1.7 0 3.2.9 4 2.2.1 0 .1 0 .2-.1.3 0 .6-.1.9-.1-1-1.9-2.9-3.1-5.1-3.1-3.2 0-5.8 2.6-5.8 5.8 0 1.4.5 2.8 1.4 3.8 0-.1.1-.2.2-.4z"></path><path class="nav-weather--st1" d="M24 17c-.2-2.5-2.3-4.4-4.8-4.2-.5-1.5-1.7-2.6-3.1-3.1-.8-.3-1.7-.4-2.5-.2-1.8.3-3.4 1.5-4 3.4h-.3c-1.8 0-3.3 1-4.1 2.5-.3.6-.5 1.3-.5 2 0 2.5 2 4.5 4.5 4.6h10.2c2.5 0 4.5-2 4.5-4.5.1-.4.1-.4.1-.5z"></path><path class="nav-weather--st0" d="M4.7 17.4l-.4-.4-1.6 1.6.7.7L4.8 18c-.1-.2-.1-.4-.1-.6z"></path></svg><span class="show-for-large">Погода</span></a></li>
+<li class="show-for-medium"><a href="/bulletin" class="menu-item" title="Выпуск новостей"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewbox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><style type="text/css">
+	.icon-bulletin--st0{fill:#FFFFFF;}
+</style>
+<g><g><g><g><path class="icon-bulletin--st0" d="M20.8,4.5v39l22.8-7.3V11.8L20.8,4.5z M28.9,30.5v-13l8.1,6.5L28.9,30.5z"></path><path class="icon-bulletin--st0" d="M17.6,40.3l-4.9,1.6V6.1l4.9,1.6V40.3z"></path><path class="icon-bulletin--st0" d="M9.4,38.6l-4.9,1.6V7.8l4.9,1.6V38.6z"></path></g></g></g></g></svg><span class="show-for-large">Выпуск новостей</span></a></li>
+<li id="menu-nav-live" class="menu-nav-live"><a href="/live" class="menu-item menu-nav-live-link" title="Live"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><g><path fill="#FFFFFF" d="M40.063,12v21.875h-32V12H40.063 M42.063,8h-36c-1.1,0-2,0.9-2,2v25.875c0,1.1,0.9,2,2,2h36
+		c1.1,0,2-0.9,2-2V10C44.063,8.9,43.163,8,42.063,8L42.063,8z"></path></g><path fill="#FFFFFF" d="M29.34,22.521l-7.5-5c-0.153-0.102-0.351-0.111-0.513-0.025c-0.163,0.087-0.264,0.256-0.264,0.441v10
+	c0,0.185,0.102,0.354,0.264,0.441c0.074,0.04,0.155,0.059,0.236,0.059c0.097,0,0.194-0.028,0.277-0.084l7.5-5
+	c0.139-0.093,0.223-0.249,0.223-0.416S29.479,22.614,29.34,22.521z"></path><path fill="#FFFFFF" d="M32,44H16c-1.104,0-2-0.896-2-2s0.896-2,2-2h16c1.104,0,2,0.896,2,2S33.104,44,32,44z"></path></svg><span class="show-for-large">Live</span></a></li>
+<li class="enw-menu-nav-justin
+                  
+              "><a href="/just-in" class="menu-item justinbar" title="Just In"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><path fill="#FFFFFF" d="M43.506,21.384l1.77-11.215c0.036-0.228-0.067-0.442-0.266-0.553c-0.2-0.111-0.466-0.103-0.691,0.022
+	l-12.21,6.751c-0.225,0.125-0.373,0.345-0.386,0.574c-0.006,0.104,0.017,0.202,0.064,0.286c0.056,0.102,0.147,0.184,0.263,0.233
+	l10.439,4.464c0.194,0.083,0.433,0.065,0.637-0.048C43.33,21.785,43.473,21.592,43.506,21.384z"></path><path fill="#FFFFFF" d="M39.708,27.042c-0.09,0.462-0.2,0.924-0.332,1.385c-2.441,8.478-11.324,13.39-19.802,10.949
+	c-8.478-2.441-13.39-11.324-10.949-19.802c2.441-8.478,11.324-13.39,19.802-10.949c4.842,1.394,8.512,4.892,10.322,9.213
+	c1.498,0.421,2.975,0.73,4.24-0.104c-2.005-6.057-6.862-11.055-13.456-12.953C18.919,1.725,7.837,7.852,4.781,18.467
+	C1.725,29.081,7.852,40.164,18.467,43.219c10.615,3.056,21.697-3.072,24.753-13.686c0.174-0.605,0.309-1.212,0.424-1.819
+	C42.619,27.082,41.383,26.858,39.708,27.042z"></path><path fill="#FFFFFF" d="M24.021,11.741L24.021,11.741c-1.1-0.001-2.001,0.898-2.002,1.998l-0.011,10.335
+	c-0.001,1.1,0.898,2.001,1.998,2.002l0,0c1.1,0.001,2.001-0.898,2.002-1.998l0.011-10.335C26.02,12.643,25.121,11.742,24.021,11.741
+	z"></path><path fill="#FFFFFF" d="M30.933,31.403L30.933,31.403c0.792-0.763,0.816-2.036,0.052-2.828l-5.551-5.761
+	c-0.763-0.792-2.036-0.816-2.828-0.052l0,0c-0.792,0.763-0.816,2.036-0.052,2.828l5.551,5.761
+	C28.869,32.143,30.141,32.166,30.933,31.403z"></path><path fill="#FFFFFF" d="M43.58,28.222c-0.308,1.07-1.426,1.688-2.496,1.38c-1.07-0.308-1.688-1.426-1.38-2.496
+	c0.308-1.07,1.426-1.688,2.496-1.38C43.27,26.035,43.888,27.152,43.58,28.222z"></path></svg><span class="show-for-large">Just In</span></a></li>
+</ul>
+</div>
+</div>
+<div class="c-breakingNews js-breakingNews breakingNews-hidden"><div class="expanded row">
+<div class="small-12 medium-2 columns c-breakingNews__title"><h2 class="c-breakingNews__h2">Срочная новость</h2></div>
+<div class="small-12 medium-10 columns c-breakingNews__swiper-container">
+<div class="enw-swiper enw-swiper--breakingNews" data-content="[]"><div id="breaking-news-sticky-component" class="swiper-container" data-carousel="breaking-news" data-carousel-theme="carousel">
+<div class="swiper-wrapper"><breaking-news></breaking-news></div>
+<!-- Add Pagination --><div class="breaking-news-sticky-component swiper-pagination"></div>
+</div></div>
+<button class="c-breakingNews__button close-breaking-news" aria-label="Close alert"><svg id="Calque_1" class="c-button--cross" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewbox="0 0 17 17"><path d="M15.5 16.7l-7-6.6-6.9 6.6-1.4-1.5 6.9-6.4L.2 2.3 1.6.8l6.9 6.6 7-6.6 1.3 1.5L10 8.8l6.8 6.4z"></path></svg></button>
+</div>
+</div></div></section></header><header id="js-header" class="c-site-header"><section class="o-menu-top_nav show-for-medium t-menu-top_bar--dark"><div class="c-menu-top_bar">
+<div class="c-menu-top_bar__left">
+<ul class="menu c-menu-language">
+<li class="c-menu-language__icon">
+<?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><path fill="#FFFFFF" d="M23.979,8c8.822,0,16,7.178,16,16s-7.178,16-16,16c-8.822,0-16-7.178-16-16S15.157,8,23.979,8 M23.979,4
+	c-11.046,0-20,8.954-20,20s8.954,20,20,20s20-8.954,20-20S35.025,4,23.979,4L23.979,4z"></path><path fill="#FFFFFF" d="M23.979,9c1.717,0,5,5.842,5,15s-3.283,15-5,15c-1.717,0-5-5.841-5-15S22.262,9,23.979,9 M23.979,6
+	c-4.418,0-8,8.059-8,18s3.582,18,8,18s8-8.059,8-18S28.397,6,23.979,6L23.979,6z"></path><rect x="5.979" y="28.5" fill="#FFFFFF" width="36" height="3"></rect><rect x="5.979" y="16.5" fill="#FFFFFF" width="36" height="3"></rect></svg>
+</li>
+<li>
+<a class="c-menu-language--isSelected" href="#">Русский</a><div class="c-menu-language__list"><div class="flex">
+<ul class="u-margin-end-2">
+<li><a class="u-padding-end-4" href="//www.euronews.com" lang="en-GB" hreflang="en">English</a></li>
+<li><a class="u-padding-end-4" href="//fr.euronews.com/2019/02/12/venezuela-le-face-a-face-guaido-maduro-se-poursuit" lang="fr-FR" hreflang="fr">Français</a></li>
+<li><a class="u-padding-end-4" href="//de.euronews.com/2019/02/12/guaido-hilfslieferungen-starten-am-23-februar" lang="de-DEU" hreflang="de">Deutsch</a></li>
+<li><a class="u-padding-end-4" href="//it.euronews.com" lang="it-IT" hreflang="it">Italiano</a></li>
+</ul>
+<ul class="u-margin-end-2">
+<li><a class="u-padding-end-4" href="//es.euronews.com/2019/02/12/guaido-la-ayuda-humanitaria-entrara-en-venezuela-el-23-de-febrero" lang="es-ES" hreflang="es">Español</a></li>
+<li><a class="u-padding-end-4" href="//pt.euronews.com/2019/02/12/manifestacoes-pro-e-contra-maduro-voltam-as-ruas" lang="pt-PT" hreflang="pt">Português</a></li>
+<li class="c-menu-language-item--isActive"><a class="u-padding-end-4" href="//ru.euronews.com/2019/02/12/ru-venezuela-protests" lang="ru-RU" hreflang="ru">Русский</a></li>
+<li><a class="u-padding-end-4" href="//tr.euronews.com" lang="tr-TR" hreflang="tr">Türkçe</a></li>
+</ul>
+<ul>
+<li><a class="u-padding-end-4" href="//gr.euronews.com/2019/02/12/xouan-guaido-stis-23-febrouariou-ftanei-h-anthropistikh-bohtheia" lang="el-GR" hreflang="el">Ελληνικά</a></li>
+<li><a class="u-padding-end-4" href="//hu.euronews.com" lang="hu-HU" hreflang="hu">Magyar</a></li>
+<li><a class="u-padding-end-4" href="//fa.euronews.com" lang="fa-IR" hreflang="fa">فارسی</a></li>
+<li><a class="u-padding-end-4" href="//arabic.euronews.com" lang="hy-AM" hreflang="ar">العربية</a></li>
+</ul>
+</div></div>
+</li>
+</ul>
+<ul class="menu internal-links">
+<li class="c-internal-links icon-newsletter"><a class="u-padding-0" href="/follow-us"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><g><path fill="#FFFFFF" d="M40,12v24H8V12H40 M42,8H6c-1.1,0-2,0.9-2,2v28c0,1.1,0.9,2,2,2h36c1.1,0,2-0.9,2-2V10C44,8.9,43.1,8,42,8
+		L42,8z"></path></g><polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="39.917,12.083 24,24.029 7.917,11.917 "></polyline></svg><span>Рассылка</span></a></li>
+<li class="c-internal-links c-internal-links__link book-flight"><a href="//flights.euronews.com/ru-RU/flights" target="_blank" class="u-padding-0"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><g><g><path fill="#FFFFFF" d="M32.801,41.964l2.817-2.817l-4.225-18.308l7.746-7.746c1.169-1.169,1.169-3.056,0-4.225
+			c-1.169-1.169-3.056-1.169-4.225,0l-7.746,7.746L8.859,12.389l-2.817,2.817l14.788,7.746l-7.746,7.746l-4.929-0.704l-2.112,2.112
+			l6.337,3.521l3.521,6.337l2.112-2.112l-0.704-4.929l7.746-7.746L32.801,41.964z"></path></g></g></svg><span>Забронируйте ваш билет</span></a></li>
+</ul>
+</div>
+<div class="c-menu-top_bar__right"><ul class="menu"><li class="js-search-menu c-search show-for-medium"><div id="search-autocomplete" class="js-awesomeplete-searchBar " eventisallowed="1" maxitems="10"><search-form apiurl="/api/searchautocomplete.json?q=" eventisallowed="1" searchplaceholder="Поиск на Euronews" class=""></search-form></div></li></ul></div>
+</div></section><section class="o-menu-top_nav"><div class="c-menu-main">
+<div class="c-menu-main__left">
+<ul class="dropdown menu show-for-small-only js-o-menu-top_nav__menu o-menu-top_nav__menu-burger js-enw-topnav__burger-menu"><li class="o-menu-top_nav__top-bar__burgerMenu"><div id="toggle-menu"><div id="hamburger-button">
+<span></span><span></span><span></span><span></span><span></span><span></span>
+</div></div></li></ul>
+<div class="c-site-header__logo"><a class="u-margin-auto" href="/"><img src="https://static.euronews.com/website/images/euronews_horizontal_flat.svg" alt="Euronews"></a></div>
+</div>
+<div class="c-menu-main__right">
+<nav class="enw-nav-menuList hide-for-small-only"><ul class="enw-menuList menu js-enw-topnav__menu">
+<li class="show-for-large "><a href="/european-affairs/european-news" class="enw-menuList__item">
+                        Eвропа
+                    </a></li>
+<li class="show-for-large "><a href="/news/international" class="enw-menuList__item menu__item--is-active">
+                        Мир
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/news/business" class="enw-menuList__item">
+                        Бизнес
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/news/sport" class="enw-menuList__item">
+                        Спорт
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/lifestyle/culture" class="enw-menuList__item">
+                        Культура
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/knowledge/sci-tech" class="enw-menuList__item">
+                        Sci-tech
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/lifestyle/travel" class="enw-menuList__item">
+                        Путешествия
+                    </a></li>
+<li class="show-for-large show-for-xlarge"><a href="/video" class="enw-menuList__item">
+                        Видео
+                    </a></li>
+<li id="more_links_medium" class="more_links show-for-medium hide-for-large">
+<a href="#" class="enw-menuList__item  dropdown u-padding-end-2">другие</a><div class="sub-menu"><div class="menu row medium-12">
+<div class="medium-2 columns"><a href="/european-affairs/european-news" class="enw-menuList__sub-title">
+                                    Eвропа
+                                </a></div>
+<div class="medium-2 columns"><a href="/news/international" class="enw-menuList__sub-title menu__item--is-active">
+                                    Мир
+                                </a></div>
+<div class="medium-2 columns"><a href="/news/business" class="enw-menuList__sub-title">
+                                    Бизнес
+                                </a></div>
+<div class="medium-2 columns"><a href="/news/sport" class="enw-menuList__sub-title">
+                                    Спорт
+                                </a></div>
+<div class="medium-2 columns"><a href="/lifestyle/culture" class="enw-menuList__sub-title">
+                                    Культура
+                                </a></div>
+<div class="medium-2 columns"><a href="/knowledge/sci-tech" class="enw-menuList__sub-title">
+                                    Sci-tech
+                                </a></div>
+<div class="medium-2 columns"><a href="/lifestyle/travel" class="enw-menuList__sub-title">
+                                    Путешествия
+                                </a></div>
+<div class="medium-2 columns"><a href="/video" class="enw-menuList__sub-title">
+                                    Видео
+                                </a></div>
+</div></div>
+</li>
+<li id="more_links_large" class="more_links show-for-large hide-for-xlarge">
+<a href="#" class="enw-menuList__item  dropdown u-padding-end-2">другие</a><div class="sub-menu"><div class="menu row medium-12">
+<div class="medium-2 columns"><a href="/news/business" class="enw-menuList__sub-title">
+                                    Бизнес
+                                </a></div>
+<div class="medium-2 columns"><a href="/news/sport" class="enw-menuList__sub-title">
+                                    Спорт
+                                </a></div>
+<div class="medium-2 columns"><a href="/lifestyle/culture" class="enw-menuList__sub-title">
+                                    Культура
+                                </a></div>
+<div class="medium-2 columns"><a href="/knowledge/sci-tech" class="enw-menuList__sub-title">
+                                    Sci-tech
+                                </a></div>
+<div class="medium-2 columns"><a href="/lifestyle/travel" class="enw-menuList__sub-title">
+                                    Путешествия
+                                </a></div>
+<div class="medium-2 columns"><a href="/video" class="enw-menuList__sub-title">
+                                    Видео
+                                </a></div>
+</div></div>
+</li>
+<li class="c-separator">
+<li id="programs_links" class="programs_links">
+<a href="#" class="enw-menuList__item  dropdown"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="18.009" y1="24" x2="40.029" y2="24"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="8.029" y1="23.985" x2="11.946" y2="23.985"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="18.009" y1="13.993" x2="40.029" y2="13.993"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="8.029" y1="13.978" x2="11.946" y2="13.978"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="18.009" y1="33.993" x2="40.029" y2="33.993"></line></g><g><line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="8.029" y1="33.978" x2="11.946" y2="33.978"></line></g></svg>
+Программы</a><div class="sub-menu">
+<div class="menu row medium-12">
+<div class="medium-2 columns">
+<h3><a href="/european-affairs/european-news" class="enw-menuList__sub-title">
+                                                Eвропа
+                                            </a></h3>
+<ul>
+<li><a href="/programs/smart-regions" class="js-menu-program-smart-regions enw-menuList__sub-item">Smart Regions
+                                                </a></li>
+<li><a href="/programs/brussels-bureau" class="js-menu-program-brussels-bureau enw-menuList__sub-item">Брюссельское Бюро
+                                                </a></li>
+<li><a href="/programs/state-of-the-union" class="js-menu-program-state-of-the-union enw-menuList__sub-item">О Положении Союза
+                                                </a></li>
+</ul>
+<h3 class="u-margin-top-2"><a href="/news/business" class="enw-menuList__sub-title">
+                                                Бизнес
+                                            </a></h3>
+<ul>
+<li><a href="/programs/realeconomy" class="js-menu-program-realeconomy enw-menuList__sub-item">Real Economy
+                                                </a></li>
+<li><a href="/programs/business-planet" class="js-menu-program-business-planet enw-menuList__sub-item">Планета Бизнеса
+                                                </a></li>
+<li><a href="/programs/target" class="js-menu-program-target enw-menuList__sub-item">Цель
+                                                </a></li>
+<li><a href="/programs/markets" class="js-menu-program-markets enw-menuList__sub-item">Рынки
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><a href="/news/international" class="enw-menuList__sub-title">
+                                                Мир
+                                            </a></h3>
+<ul>
+<li><a href="/programs/aid-zone" class="js-menu-program-aid-zone enw-menuList__sub-item">Aid Zone
+                                                </a></li>
+<li><a href="/programs/global-japan" class="js-menu-program-global-japan enw-menuList__sub-item">Global Japan
+                                                </a></li>
+<li><a href="/programs/insiders" class="js-menu-program-insiders enw-menuList__sub-item">Insiders
+                                                </a></li>
+<li><a href="/programs/insight" class="js-menu-program-insight enw-menuList__sub-item">Insight
+                                                </a></li>
+<li><a href="/programs/learning-world" class="js-menu-program-learning-world enw-menuList__sub-item">Learning World
+                                                </a></li>
+<li><a href="/nocomment" class="js-menu-program-nocomment enw-menuList__sub-item">No Comment
+                                                </a></li>
+<li><a href="/programs/view" class="js-menu-program-view enw-menuList__sub-item">View
+                                                </a></li>
+<li><a href="/programs/globalconversation" class="js-menu-program-globalconversation enw-menuList__sub-item">Глобальный Диалог
+                                                </a></li>
+<li><a href="/programs/world" class="js-menu-program-world enw-menuList__sub-item">Мир
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><a href="/lifestyle/culture" class="enw-menuList__sub-title">
+                                                Культура
+                                            </a></h3>
+<ul>
+<li><a href="/programs/cult" class="js-menu-program-cult enw-menuList__sub-item">Cult
+                                                </a></li>
+<li><a href="/programs/europeanlens" class="js-menu-program-europeanlens enw-menuList__sub-item">European Lens
+                                                </a></li>
+<li><a href="/programs/musica" class="js-menu-program-musica enw-menuList__sub-item">Musica
+                                                </a></li>
+<li><a href="/programs/adventures" class="js-menu-program-adventures enw-menuList__sub-item">Приключения
+                                                </a></li>
+<li><a href="/programs/cinema" class="js-menu-program-cinema enw-menuList__sub-item">Кино
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><a href="/knowledge/sci-tech" class="enw-menuList__sub-title">
+                                                Sci-tech
+                                            </a></h3>
+<ul>
+<li><a href="/programs/climate-update" class="js-menu-program-climate-update enw-menuList__sub-item">Climate Update
+                                                </a></li>
+<li><a href="/programs/ocean" class="js-menu-program-ocean enw-menuList__sub-item">Ocean
+                                                </a></li>
+<li><a href="/programs/sci-tech" class="js-menu-program-sci-tech enw-menuList__sub-item">Sci-Tech
+                                                </a></li>
+<li><a href="/programs/space" class="js-menu-program-space enw-menuList__sub-item">Космос
+                                                </a></li>
+<li><a href="/programs/futuris" class="js-menu-program-futuris enw-menuList__sub-item">Футурис
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><a href="/lifestyle/travel" class="enw-menuList__sub-title">
+                                                Путешествия
+                                            </a></h3>
+<ul>
+<li><a href="/programs/focus" class="js-menu-program-focus enw-menuList__sub-item">Focus
+                                                </a></li>
+<li><a href="/programs/notes-from-the-usa" class="js-menu-program-notes-from-the-usa enw-menuList__sub-item">Notes From The Usa
+                                                </a></li>
+<li><a href="/programs/postcards" class="js-menu-program-postcards enw-menuList__sub-item">Postcards
+                                                </a></li>
+<li><a href="/programs/taste" class="js-menu-program-taste enw-menuList__sub-item">Taste
+                                                </a></li>
+<li><a href="/programs/metropolitans" class="js-menu-program-metropolitans enw-menuList__sub-item">Метрополитэнс
+                                                </a></li>
+</ul>
+</div>
+<div class="medium-2 columns">
+<h3><span class="enw-menuList__sub-title">
+                                                Hubs
+                                            </span></h3>
+<ul>
+<li><a href="/special/angola-360" class="js-menu-program-hub_angola-360 enw-menuList__sub-item">Angola 360
+                                                </a></li>
+<li><a href="/special/go-matera" class="js-menu-program-hub_go-matera enw-menuList__sub-item">Go Matera
+                                                </a></li>
+<li><a href="/special/european-elections-2019" class="js-menu-program-hub_european-elections-2019 enw-menuList__sub-item">Европейские Выборы-2019
+                                                </a></li>
+</ul>
+</div>
+</div>
+<div class="top-bar-allviews__footer"><div class="row"><div class="top-bar-allviews__footer__btwrapper"><a href="/programs" class="enw-btn__top-bar-allviews float-right"><span>Все программы</span></a></div></div></div>
+</div>
+</li>
+</ul></nav><ul class="menu js-enw-topnav__menu enw-icons-menu">
+<li class="show-for-medium weather-menu"><a href="/weather" id="header-weather-link" class="menu-item" title="Погода"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><style>.nav-weather--st0{fill:#f2a900}.nav-weather--st1{fill:#fff}</style>
+<path class="nav-weather--st0" d="M8.9 2.9h1v2.2h-1zM0 11.7h2.4v1H0zM2.265 6.082l.707-.707L4.6 7.002l-.708.707zM13.688 6.6l1.697-1.698.707.707-1.697 1.697zM5.2 15.2c.1-.2.2-.3.3-.5-.6-.8-.9-1.8-.9-2.8 0-2.6 2.1-4.8 4.8-4.8 1.7 0 3.2.9 4 2.2.1 0 .1 0 .2-.1.3 0 .6-.1.9-.1-1-1.9-2.9-3.1-5.1-3.1-3.2 0-5.8 2.6-5.8 5.8 0 1.4.5 2.8 1.4 3.8 0-.1.1-.2.2-.4z"></path><path class="nav-weather--st1" d="M24 17c-.2-2.5-2.3-4.4-4.8-4.2-.5-1.5-1.7-2.6-3.1-3.1-.8-.3-1.7-.4-2.5-.2-1.8.3-3.4 1.5-4 3.4h-.3c-1.8 0-3.3 1-4.1 2.5-.3.6-.5 1.3-.5 2 0 2.5 2 4.5 4.5 4.6h10.2c2.5 0 4.5-2 4.5-4.5.1-.4.1-.4.1-.5z"></path><path class="nav-weather--st0" d="M4.7 17.4l-.4-.4-1.6 1.6.7.7L4.8 18c-.1-.2-.1-.4-.1-.6z"></path></svg><span class="show-for-large">Погода</span></a></li>
+<li class="show-for-medium"><a href="/bulletin" class="menu-item" title="Выпуск новостей"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewbox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><style type="text/css">
+	.icon-bulletin--st0{fill:#FFFFFF;}
+</style>
+<g><g><g><g><path class="icon-bulletin--st0" d="M20.8,4.5v39l22.8-7.3V11.8L20.8,4.5z M28.9,30.5v-13l8.1,6.5L28.9,30.5z"></path><path class="icon-bulletin--st0" d="M17.6,40.3l-4.9,1.6V6.1l4.9,1.6V40.3z"></path><path class="icon-bulletin--st0" d="M9.4,38.6l-4.9,1.6V7.8l4.9,1.6V38.6z"></path></g></g></g></g></svg><span class="show-for-large">Выпуск новостей</span></a></li>
+<li id="menu-nav-live" class="menu-nav-live"><a href="/live" class="menu-item menu-nav-live-link" title="Live"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><g><path fill="#FFFFFF" d="M40.063,12v21.875h-32V12H40.063 M42.063,8h-36c-1.1,0-2,0.9-2,2v25.875c0,1.1,0.9,2,2,2h36
+		c1.1,0,2-0.9,2-2V10C44.063,8.9,43.163,8,42.063,8L42.063,8z"></path></g><path fill="#FFFFFF" d="M29.34,22.521l-7.5-5c-0.153-0.102-0.351-0.111-0.513-0.025c-0.163,0.087-0.264,0.256-0.264,0.441v10
+	c0,0.185,0.102,0.354,0.264,0.441c0.074,0.04,0.155,0.059,0.236,0.059c0.097,0,0.194-0.028,0.277-0.084l7.5-5
+	c0.139-0.093,0.223-0.249,0.223-0.416S29.479,22.614,29.34,22.521z"></path><path fill="#FFFFFF" d="M32,44H16c-1.104,0-2-0.896-2-2s0.896-2,2-2h16c1.104,0,2,0.896,2,2S33.104,44,32,44z"></path></svg><span class="show-for-large">Live</span></a></li>
+<li class="enw-menu-nav-justin
+                  
+              "><a href="/just-in" class="menu-item justinbar" title="Just In"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><path fill="#FFFFFF" d="M43.506,21.384l1.77-11.215c0.036-0.228-0.067-0.442-0.266-0.553c-0.2-0.111-0.466-0.103-0.691,0.022
+	l-12.21,6.751c-0.225,0.125-0.373,0.345-0.386,0.574c-0.006,0.104,0.017,0.202,0.064,0.286c0.056,0.102,0.147,0.184,0.263,0.233
+	l10.439,4.464c0.194,0.083,0.433,0.065,0.637-0.048C43.33,21.785,43.473,21.592,43.506,21.384z"></path><path fill="#FFFFFF" d="M39.708,27.042c-0.09,0.462-0.2,0.924-0.332,1.385c-2.441,8.478-11.324,13.39-19.802,10.949
+	c-8.478-2.441-13.39-11.324-10.949-19.802c2.441-8.478,11.324-13.39,19.802-10.949c4.842,1.394,8.512,4.892,10.322,9.213
+	c1.498,0.421,2.975,0.73,4.24-0.104c-2.005-6.057-6.862-11.055-13.456-12.953C18.919,1.725,7.837,7.852,4.781,18.467
+	C1.725,29.081,7.852,40.164,18.467,43.219c10.615,3.056,21.697-3.072,24.753-13.686c0.174-0.605,0.309-1.212,0.424-1.819
+	C42.619,27.082,41.383,26.858,39.708,27.042z"></path><path fill="#FFFFFF" d="M24.021,11.741L24.021,11.741c-1.1-0.001-2.001,0.898-2.002,1.998l-0.011,10.335
+	c-0.001,1.1,0.898,2.001,1.998,2.002l0,0c1.1,0.001,2.001-0.898,2.002-1.998l0.011-10.335C26.02,12.643,25.121,11.742,24.021,11.741
+	z"></path><path fill="#FFFFFF" d="M30.933,31.403L30.933,31.403c0.792-0.763,0.816-2.036,0.052-2.828l-5.551-5.761
+	c-0.763-0.792-2.036-0.816-2.828-0.052l0,0c-0.792,0.763-0.816,2.036-0.052,2.828l5.551,5.761
+	C28.869,32.143,30.141,32.166,30.933,31.403z"></path><path fill="#FFFFFF" d="M43.58,28.222c-0.308,1.07-1.426,1.688-2.496,1.38c-1.07-0.308-1.688-1.426-1.38-2.496
+	c0.308-1.07,1.426-1.688,2.496-1.38C43.27,26.035,43.888,27.152,43.58,28.222z"></path></svg><span class="show-for-large">Just In</span></a></li>
+</ul>
+</div>
+</div>
+<div class="c-breakingNews js-breakingNews breakingNews-hidden"><div class="expanded row">
+<div class="small-12 medium-2 columns c-breakingNews__title"><h2 class="c-breakingNews__h2">Срочная новость</h2></div>
+<div class="small-12 medium-10 columns c-breakingNews__swiper-container">
+<div class="enw-swiper enw-swiper--breakingNews" data-content="[]"><div id="breaking-news-component" class="swiper-container" data-carousel="breaking-news" data-carousel-theme="carousel">
+<div class="swiper-wrapper"><breaking-news></breaking-news></div>
+<!-- Add Pagination --><div class="breaking-news-component swiper-pagination"></div>
+</div></div>
+<button class="c-breakingNews__button close-breaking-news" aria-label="Close alert"><svg id="Calque_1" class="c-button--cross" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewbox="0 0 17 17"><path d="M15.5 16.7l-7-6.6-6.9 6.6-1.4-1.5 6.9-6.4L.2 2.3 1.6.8l6.9 6.6 7-6.6 1.3 1.5L10 8.8l6.8 6.4z"></path></svg></button>
+</div>
+</div></div></section><iframe src="//www.euronews.com/quantcast-consent" style="display:none"></iframe></header>
+</div>
+<a href="#" id="dfp-wallpaper-wrapper" class="u-is-hidden"></a><main id="enw-main-content" class="u-overflow-visible"><div class="c-breadcrumbs--scroll row column hide-for-small-only"><nav aria-label="You are here:" role="navigation"><ol id="wo-breadcrumbs" class="breadcrumbs c-breadcrumbs">
+<li class="c-breadcrumbs__item">
+<a href="/"><span>Home</span></a><meta content="1">
+<span class="separator"> &gt; </span>
+</li>
+<li class="c-breadcrumbs__item">
+<a href="/news"><span>Новости</span></a><meta content="2">
+<span class="separator"> &gt; </span>
+</li>
+<li class="c-breadcrumbs__item">
+<a href="/news/international"><span>Мир</span></a><meta content="3">
+<span class="separator"> &gt; </span>
+</li>
+<li class="c-breadcrumbs__item">
+<span>Демонстрации в поддержку двух президентов Венесуэлы</span><meta content="4">
+</li>
+</ol></nav></div>
+<div class="c-article  jsArticleFirst u-overflow-visible"><div class="row collapse u-overflow-visible theme-news ">
+<section class="column small-12 large-8 xlarge-9 u-overflow-visible"><article class="u-margin-top-2 u-margin-top-medium-5 u-margin-left-2 u-margin-left-medium-5 u-margin-right-2 u-margin-right-medium-5 u-overflow-visible"><header class="u-margin-bottom-1 u-margin-bottom-medium-6"><div class="c-article-labels"><p class="media__body__label media__body__label-programs-icons media__body__label--theme-news"><a class="media__body__cat" href="/news/america/venezuela">Венесуэла
+            </a></p></div>
+<meta content="Демонстрации в поддержку двух президентов Венесуэлы">
+<h1 class="c-article-title">Демонстрации в поддержку двух президентов Венесуэлы</h1>
+<div class="c-article-title--spotim"><a class="c-article-title--spotim__link" href="#spotim-widget"><span class="c-article-title--spotim--count text-center spot-im-replies-count" data-post-id="3664770"> </span><span class="c-article-title--spotim--text">Комментарии</span></a></div>
+<div class="c-article-meta-container"><div class="c-article-meta"><address class="c-article-meta__author-info "><h5 class="c-article-author"><span class="c-article-meta__author-name--default"><span><span class="c-article-meta__by">  </span><a class="c-article-meta__author-title" target="_blank" href="https://twitter.com/euronewsru">Ольга Кепински 
+  </a></span><time class="c-article-meta__time" data-timestamp="1550006959" datetime="2019-02-12"><span class="c-article-meta__separator">&amp;bullet;</span><span class="hide-for-small-only">
+    Последние обновления:
+  </span>
+  13/02/2019
+      <span>-</span>
+    12:41
+  </time></span></h5></address></div></div>
+<div class="jsTopArticle c-article-video js-article-video" data-sponsored="Спонсоры"><div class="top-article__main article media media--news
+                          jsTopArticleMain">
+<div id="jsMainMediaArticle" class="c-pfpPlayer" data-videosticky=""><div class="text-center pfpPlayer__wrapper media__img"><div id="pfpPlayer">
+<script async defer src="https://apis.google.com/js/api.js?onload=googleApiClientReady"></script><script async defer data-id="euronews-youtube-pfp" data-video-id="Qdqlq1dx9c8" data-video-autoplay="0" data-video-isembed="" data-sitename="euronews" data-color="#003865" data-article="{&quot;id&quot;:&quot;676228&quot;,&quot;cid&quot;:&quot;3664770&quot;,&quot;versionId&quot;:&quot;3&quot;,&quot;archive&quot;:0,&quot;housenumber&quot;:&quot;190212_NWSU_6623806&quot;,&quot;owner&quot;:&quot;euronews&quot;,&quot;channels&quot;:[{&quot;id&quot;:&quot;1&quot;},{&quot;id&quot;:&quot;2&quot;},{&quot;id&quot;:&quot;3&quot;},{&quot;id&quot;:&quot;4&quot;},{&quot;id&quot;:&quot;5&quot;}],&quot;status&quot;:2,&quot;title&quot;:&quot;\u0414\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u0438 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0432\u0443\u0445 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b&quot;,&quot;titleSeo&quot;:null,&quot;titleListing1&quot;:null,&quot;titleListing2&quot;:&quot;\u0414\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u0438 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0432\u0443\u0445 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b&quot;,&quot;leadin&quot;:&quot;\u0412 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043e\u0434\u043d\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u043f\u0440\u043e\u0448\u043b\u0438 \u0430\u043a\u0446\u0438\u0438 \u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u043a\u043e\u0432 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0433\u043e \u0438 \u0441\u0430\u043c\u043e\u043f\u0440\u043e\u0432\u043e\u0437\u0433\u043b\u0430\u0448\u0435\u043d\u043d\u043e\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0441\u0442\u0440\u0430\u043d\u044b \u041d\u0438\u043a\u043e\u043b\u0430\u0441\u0430 \u041c\u0430\u0434\u0443\u0440\u043e \u0438 \u0425\u0430\u0443\u0430\u043d\u0430 \u0413\u0443\u0430\u0439\u0434\u043e&quot;,&quot;summary&quot;:&quot;\u0412 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043e\u0434\u043d\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u043f\u0440\u043e\u0448\u043b\u0438 \u0430\u043a\u0446\u0438\u0438 \u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u043a\u043e\u0432 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0433\u043e \u0438 \u0441\u0430\u043c\u043e\u043f\u0440\u043e\u0432\u043e\u0437\u0433\u043b\u0430\u0448\u0435\u043d\u043d\u043e\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0441\u0442\u0440\u0430\u043d\u044b \u041d\u0438\u043a\u043e\u043b\u0430\u0441\u0430 \u041c\u0430\u0434\u0443\u0440\u043e \u0438 \u0425\u0430\u0443\u0430\u043d\u0430 \u0413\u0443\u0430\u0439\u0434\u043e&quot;,&quot;keySentence&quot;:null,&quot;url&quot;:&quot;ru-venezuela-protests&quot;,&quot;masterCms&quot;:&quot;v2&quot;,&quot;plainText&quot;:&quot;\u0412 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043f\u0440\u043e\u0448\u043b\u0430 \u043c\u0430\u0441\u0441\u043e\u0432\u0430\u044f \u0430\u043a\u0446\u0438\u044f \u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u043a\u043e\u0432 \u0441\u0430\u043c\u043e\u043f\u0440\u043e\u0432\u043e\u0437\u0433\u043b\u0430\u0448\u0451\u043d\u043d\u043e\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u0430 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b \u0425\u0443\u0430\u043d\u0430 \u0413\u0443\u0430\u0439\u0434\u043e. \u0412\u044b\u0448\u0435\u043b \u0432 \u043d\u0430\u0440\u043e\u0434 \u0438 \u0441\u0430\u043c \u043b\u0438\u0434\u0435\u0440 \u043e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u0438. \n\n\u042d\u0442\u043e \u0443\u0436\u0435 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u0430\u044f \u0437\u0430 \u0442\u0440\u0438 \u043d\u0435\u0434\u0435\u043b\u0438 \u043c\u0430\u0441\u0441\u043e\u0432\u0430\u044f \u0434\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u044f \u0432 \u0432\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044c\u0441\u043a\u043e\u0439 \u0441\u0442\u043e\u043b\u0438\u0446\u0435. \u0413\u043b\u0430\u0432\u043d\u044b\u043c \u043b\u043e\u0437\u0443\u043d\u0433\u043e\u043c \u0430\u043a\u0446\u0438\u0438 \u0441\u0442\u0430\u043b \u043f\u0440\u0438\u0437\u044b\u0432 \u0434\u043e\u043f\u0443\u0441\u0442\u0438\u0442\u044c \u0432 \u0441\u0442\u0440\u0430\u043d\u0443 \u0433\u0443\u043c\u0430\u043d\u0438\u0442\u0430\u0440\u043d\u0443\u044e \u043f\u043e\u043c\u043e\u0449\u044c \u0438\u0437-\u0437\u0430 \u0440\u0443\u0431\u0435\u0436\u0430. \n\n\u041d\u0430\u043a\u0430\u043d\u0443\u043d\u0435 \u0413\u0443\u0430\u0439\u0434\u043e \u0437\u0430\u044f\u0432\u0438\u043b, \u0447\u0442\u043e \u0447\u0430\u0441\u0442\u044c \u043f\u043e\u043c\u043e\u0449\u0438 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0437\u0430\u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c. \n\n\&quot; 23 \u0444\u0435\u0432\u0440\u0430\u043b\u044f - \u0434\u0435\u043d\u044c, \u043a\u043e\u0433\u0434\u0430 \u0433\u0443\u043c\u0430\u043d\u0438\u0442\u0430\u0440\u043d\u0430\u044f \u043f\u043e\u043c\u043e\u0449\u044c \u043f\u043e\u0441\u0442\u0443\u043f\u0438\u0442 \u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0443. \u0421 \u0441\u0435\u0433\u043e\u0434\u043d\u044f\u0448\u043d\u0435\u0433\u043e \u0434\u043d\u044f \u043c\u044b \u043d\u0430\u0447\u0438\u043d\u0430\u0435\u043c \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0443 \u043f\u0435\u0440\u0435\u0432\u043e\u0437\u0447\u0438\u043a\u043e\u0432, \u043c\u0435\u0434\u0441\u0435\u0441\u0442\u0435\u0440, \u0432\u0440\u0430\u0447\u0435\u0439, \u0437\u0430\u0439\u043c\u0435\u043c\u0441\u044f \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0435\u0439 \u043f\u0440\u0438\u0435\u043c\u0430 \u043f\u043e\u043c\u043e\u0449\u0438 \&quot;, \u2013 \u043e\u0431\u044a\u044f\u0432\u0438\u043b \u0413\u0443\u0430\u0439\u0434\u043e. \n\n\u041e\u0434\u043d\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u0432 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043f\u0440\u043e\u0448\u0435\u043b \u043c\u0430\u0440\u0448 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u0430 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b \u041d\u0438\u043a\u043e\u043b\u0430\u0441\u0430 \u041c\u0430\u0434\u0443\u0440\u043e, \u043f\u0440\u0438\u0443\u0440\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u043a\u0430\u043a \u0438 \u0430\u043a\u0446\u0438\u044f \u043e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u0438, \u043a\u043e \u0414\u043d\u044e \u043c\u043e\u043b\u043e\u0434\u0435\u0436\u0438. \n\n\u0421 \u0442\u043e\u0447\u043a\u0438 \u0437\u0440\u0435\u043d\u0438\u044f \u043e\u0444\u0438\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0430, \u0441\u0430\u043c\u0430 \u0446\u0435\u043b\u0435\u0441\u043e\u043e\u0431\u0440\u0430\u0437\u043d\u043e\u0441\u0442\u044c \u043f\u043e\u0441\u0442\u0430\u0432\u043e\u043a \u0433\u0443\u043c\u043f\u043e\u043c\u043e\u0449\u0438 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0435 \u0438\u0437-\u0437\u0430 \u0440\u0443\u0431\u0435\u0436\u0430 \u0432\u044b\u0437\u044b\u0432\u0430\u0435\u0442 \u0432\u043e\u043f\u0440\u043e\u0441\u044b. \n\n\u0412 \u043e\u0434\u043d\u043e\u043c \u0438\u0437 \u043d\u0435\u0434\u0430\u0432\u043d\u0438\u0445 \u0438\u043d\u0442\u0435\u0440\u0432\u044c\u044e \u041c\u0430\u0434\u0443\u0440\u043e \u043d\u0430\u0437\u0432\u0430\u043b \u043e\u0431\u0435\u0449\u0430\u043d\u043d\u0443\u044e \u0421\u0428\u0410 \u043f\u043e\u043c\u043e\u0449\u044c \&quot;\u0444\u0430\u043b\u044c\u0448\u0438\u0432\u044b\u043c \u0448\u043e\u0443\&quot;, \u0437\u0430 \u043a\u043e\u0442\u043e\u0440\u044b\u043c \u0441\u043a\u0440\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0438\u043d\u043e\u0441\u0442\u0440\u0430\u043d\u043d\u043e\u0435 \u0432\u043e\u0435\u043d\u043d\u043e\u0435 \u0432\u043c\u0435\u0448\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e. \n\n\u041e\u0434\u043d\u0430\u043a\u043e \u043d\u0430\u043a\u0430\u043d\u0443\u043d\u0435 \u0432\u043b\u0430\u0441\u0442\u0438 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b \u0437\u0430\u044f\u0432\u0438\u043b\u0438 \u043e \u0433\u043e\u0442\u043e\u0432\u043d\u043e\u0441\u0442\u0438 \u0432\u0435\u0441\u0442\u0438 \u0434\u0438\u0430\u043b\u043e\u0433 \u0441 \u043e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u0435\u0439 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u041e\u041e\u041d \u0438\u043b\u0438 \u0434\u0440\u0443\u0433\u043e\u0433\u043e \u043f\u043e\u0441\u0440\u0435\u0434\u043d\u0438\u043a\u0430.&quot;,&quot;htmlText&quot;:&quot;&lt;p&gt;\u0412 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043f\u0440\u043e\u0448\u043b\u0430 \u043c\u0430\u0441\u0441\u043e\u0432\u0430\u044f \u0430\u043a\u0446\u0438\u044f \u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u043a\u043e\u0432 \u0441\u0430\u043c\u043e\u043f\u0440\u043e\u0432\u043e\u0437\u0433\u043b\u0430\u0448\u0451\u043d\u043d\u043e\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u0430 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b \u0425\u0443\u0430\u043d\u0430 \u0413\u0443\u0430\u0439\u0434\u043e. \u0412\u044b\u0448\u0435\u043b \u0432 \u043d\u0430\u0440\u043e\u0434 \u0438 \u0441\u0430\u043c \u043b\u0438\u0434\u0435\u0440 \u043e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u0438.&lt;\/p&gt;  &lt;div class=\&quot;show-for-small-only \&quot;&gt;\n    &lt;div class=\&quot;enw-MPU \&quot;&gt;\n  &lt;div id=\&quot;adzone-mpu_1\&quot; class=\&quot;enw-MPU__img advertising js-adzone\&quot;&gt;&lt;\/div&gt;\n&lt;\/div&gt;\n\n  &lt;\/div&gt;\n\n&lt;p&gt;\u042d\u0442\u043e \u0443\u0436\u0435 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u0430\u044f \u0437\u0430 \u0442\u0440\u0438 \u043d\u0435\u0434\u0435\u043b\u0438 \u043c\u0430\u0441\u0441\u043e\u0432\u0430\u044f \u0434\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u044f \u0432 \u0432\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044c\u0441\u043a\u043e\u0439 \u0441\u0442\u043e\u043b\u0438\u0446\u0435. \u0413\u043b\u0430\u0432\u043d\u044b\u043c \u043b\u043e\u0437\u0443\u043d\u0433\u043e\u043c \u0430\u043a\u0446\u0438\u0438 \u0441\u0442\u0430\u043b \u043f\u0440\u0438\u0437\u044b\u0432 \u0434\u043e\u043f\u0443\u0441\u0442\u0438\u0442\u044c \u0432 \u0441\u0442\u0440\u0430\u043d\u0443 \u0433\u0443\u043c\u0430\u043d\u0438\u0442\u0430\u0440\u043d\u0443\u044e \u043f\u043e\u043c\u043e\u0449\u044c \u0438\u0437-\u0437\u0430 \u0440\u0443\u0431\u0435\u0436\u0430.&lt;\/p&gt;&lt;div id=\&quot;adzone-outstream\&quot; class=\&quot;advertising advertising--no-label js-adzone\&quot;&gt;&lt;\/div&gt;\n&lt;p&gt;\u041d\u0430\u043a\u0430\u043d\u0443\u043d\u0435 \u0413\u0443\u0430\u0439\u0434\u043e \u0437\u0430\u044f\u0432\u0438\u043b, \u0447\u0442\u043e \u0447\u0430\u0441\u0442\u044c \u043f\u043e\u043c\u043e\u0449\u0438 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0437\u0430\u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c.&lt;\/p&gt;\n&lt;p&gt;\&quot;&lt;em&gt;23 \u0444\u0435\u0432\u0440\u0430\u043b\u044f - \u0434\u0435\u043d\u044c, \u043a\u043e\u0433\u0434\u0430 \u0433\u0443\u043c\u0430\u043d\u0438\u0442\u0430\u0440\u043d\u0430\u044f \u043f\u043e\u043c\u043e\u0449\u044c \u043f\u043e\u0441\u0442\u0443\u043f\u0438\u0442 \u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0443. \u0421 \u0441\u0435\u0433\u043e\u0434\u043d\u044f\u0448\u043d\u0435\u0433\u043e \u0434\u043d\u044f \u043c\u044b \u043d\u0430\u0447\u0438\u043d\u0430\u0435\u043c \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0443 \u043f\u0435\u0440\u0435\u0432\u043e\u0437\u0447\u0438\u043a\u043e\u0432, \u043c\u0435\u0434\u0441\u0435\u0441\u0442\u0435\u0440, \u0432\u0440\u0430\u0447\u0435\u0439, \u0437\u0430\u0439\u043c\u0435\u043c\u0441\u044f \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0435\u0439 \u043f\u0440\u0438\u0435\u043c\u0430 \u043f\u043e\u043c\u043e\u0449\u0438&lt;\/em&gt;\&quot;, \u2013 \u043e\u0431\u044a\u044f\u0432\u0438\u043b \u0413\u0443\u0430\u0439\u0434\u043e.&lt;\/p&gt;\n&lt;p&gt;\u041e\u0434\u043d\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u0432 \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0435 \u043f\u0440\u043e\u0448\u0435\u043b \u043c\u0430\u0440\u0448 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0433\u043e \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u0430 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b \u041d\u0438\u043a\u043e\u043b\u0430\u0441\u0430 \u041c\u0430\u0434\u0443\u0440\u043e, \u043f\u0440\u0438\u0443\u0440\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u043a\u0430\u043a \u0438 \u0430\u043a\u0446\u0438\u044f \u043e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u0438, \u043a\u043e \u0414\u043d\u044e \u043c\u043e\u043b\u043e\u0434\u0435\u0436\u0438.&lt;\/p&gt;\n&lt;p&gt;\u0421 \u0442\u043e\u0447\u043a\u0438 \u0437\u0440\u0435\u043d\u0438\u044f \u043e\u0444\u0438\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u041a\u0430\u0440\u0430\u043a\u0430\u0441\u0430, \u0441\u0430\u043c\u0430 \u0446\u0435\u043b\u0435\u0441\u043e\u043e\u0431\u0440\u0430\u0437\u043d\u043e\u0441\u0442\u044c \u043f\u043e\u0441\u0442\u0430\u0432\u043e\u043a \u0433\u0443\u043c\u043f\u043e\u043c\u043e\u0449\u0438 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0435 \u0438\u0437-\u0437\u0430 \u0440\u0443\u0431\u0435\u0436\u0430 \u0432\u044b\u0437\u044b\u0432\u0430\u0435\u0442 \u0432\u043e\u043f\u0440\u043e\u0441\u044b.&lt;\/p&gt;\n&lt;p&gt;\u0412 \u043e\u0434\u043d\u043e\u043c \u0438\u0437 \u043d\u0435\u0434\u0430\u0432\u043d\u0438\u0445 \u0438\u043d\u0442\u0435\u0440\u0432\u044c\u044e \u041c\u0430\u0434\u0443\u0440\u043e \u043d\u0430\u0437\u0432\u0430\u043b \u043e\u0431\u0435\u0449\u0430\u043d\u043d\u0443\u044e \u0421\u0428\u0410 \u043f\u043e\u043c\u043e\u0449\u044c \&quot;\u0444\u0430\u043b\u044c\u0448\u0438\u0432\u044b\u043c \u0448\u043e\u0443\&quot;, \u0437\u0430 \u043a\u043e\u0442\u043e\u0440\u044b\u043c \u0441\u043a\u0440\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0438\u043d\u043e\u0441\u0442\u0440\u0430\u043d\u043d\u043e\u0435 \u0432\u043e\u0435\u043d\u043d\u043e\u0435 \u0432\u043c\u0435\u0448\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e.&lt;\/p&gt;\n&lt;p&gt;\u041e\u0434\u043d\u0430\u043a\u043e \u043d\u0430\u043a\u0430\u043d\u0443\u043d\u0435 \u0432\u043b\u0430\u0441\u0442\u0438 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b \u0437\u0430\u044f\u0432\u0438\u043b\u0438 \u043e \u0433\u043e\u0442\u043e\u0432\u043d\u043e\u0441\u0442\u0438 \u0432\u0435\u0441\u0442\u0438 \u0434\u0438\u0430\u043b\u043e\u0433 \u0441 \u043e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u0435\u0439 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u041e\u041e\u041d \u0438\u043b\u0438 \u0434\u0440\u0443\u0433\u043e\u0433\u043e \u043f\u043e\u0441\u0440\u0435\u0434\u043d\u0438\u043a\u0430.&lt;\/p&gt;\n&lt;div class=\&quot;widget widget--type-freeform\nwidget--size-fullwidth\nwidget--align-center\&quot;&gt;\n  &lt;div class=\&quot;widget__wrapper\&quot;&gt;\n    &lt;div class=\&quot;widget__ratio widget__ratio--auto\&quot;&gt;\n      &lt;div class=\&quot;widget__contents\&quot;&gt;\n         &lt;p style=\&quot;padding-left: 15%;text-align:right\&quot;&gt; &lt;br&gt;&lt;i&gt;\u0422\u0435\u043f\u0435\u0440\u044c \u0432\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u0441\u043b\u0435\u0434\u0438\u0442\u044c \u0437\u0430 \u043d\u043e\u0432\u043e\u0441\u0442\u044f\u043c\u0438 Euronews \u043d\u0430 &lt;a href=\&quot;https:\/\/t.me\/russian_euronews\&quot;&gt;\u043d\u0430\u0448\u0435\u043c \u043a\u0430\u043d\u0430\u043b\u0435 \u0432 Telegram&lt;\/a&gt; \u0438 \u0432 &lt;a href=\&quot;https:\/\/ok.ru\/euronews\&quot;&gt;\u0441\u043e\u0446\u0441\u0435\u0442\u0438 \&quot;\u041e\u0434\u043d\u043e\u043a\u043b\u0430\u0441\u0441\u043d\u0438\u043a\u0438\&quot;&lt;\/a&gt;.&lt;\/i&gt;&lt;\/p&gt; \n      &lt;\/div&gt;\n    &lt;\/div&gt;\n  &lt;\/div&gt;\n&lt;\/div&gt;&quot;,&quot;hashtag&quot;:null,&quot;createdAt&quot;:1549999065,&quot;publishedAt&quot;:1550006959,&quot;updatedAt&quot;:1550058086,&quot;expiresAt&quot;:0,&quot;canonical&quot;:&quot;https:\/\/ru.euronews.com\/2019\/02\/12\/ru-venezuela-protests&quot;,&quot;images&quot;:[{&quot;url&quot;:&quot;https:\/\/static.euronews.com\/articles\/stories\/03\/66\/47\/66\/{{w}}x{{h}}_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg&quot;,&quot;altText&quot;:null,&quot;caption&quot;:null,&quot;captionUrl&quot;:null,&quot;captionCredit&quot;:null,&quot;sourceUrl&quot;:null,&quot;sourceCredit&quot;:null,&quot;width&quot;:&quot;960&quot;,&quot;height&quot;:&quot;540&quot;}],&quot;authors&quot;:{&quot;journalists&quot;:[{&quot;urlSafeValue&quot;:&quot;kepinski&quot;,&quot;title&quot;:&quot;\u041e\u043b\u044c\u0433\u0430 \u041a\u0435\u043f\u0438\u043d\u0441\u043a\u0438&quot;,&quot;twitter&quot;:&quot;euronewsru&quot;}],&quot;producers&quot;:[],&quot;videoEditor&quot;:[]},&quot;keywords&quot;:[{&quot;id&quot;:&quot;450&quot;,&quot;slug&quot;:&quot;venezuela&quot;,&quot;urlSafeValue&quot;:&quot;venezuela&quot;,&quot;title&quot;:&quot;\u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0430&quot;,&quot;titleRaw&quot;:&quot;\u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0430&quot;},{&quot;id&quot;:&quot;11588&quot;,&quot;slug&quot;:&quot;nicolas-maduro&quot;,&quot;urlSafeValue&quot;:&quot;nicolas-maduro&quot;,&quot;title&quot;:&quot;\u041d\u0438\u043a\u043e\u043b\u0430\u0441 \u041c\u0430\u0434\u0443\u0440\u043e&quot;,&quot;titleRaw&quot;:&quot;\u041d\u0438\u043a\u043e\u043b\u0430\u0441 \u041c\u0430\u0434\u0443\u0440\u043e&quot;},{&quot;id&quot;:&quot;18636&quot;,&quot;slug&quot;:&quot;juan-guaido&quot;,&quot;urlSafeValue&quot;:&quot;juan-guaido&quot;,&quot;title&quot;:&quot;\u0425\u0443\u0430\u043d \u0413\u0443\u0430\u0439\u0434\u043e&quot;,&quot;titleRaw&quot;:&quot;\u0425\u0443\u0430\u043d \u0413\u0443\u0430\u0439\u0434\u043e&quot;},{&quot;id&quot;:&quot;11286&quot;,&quot;slug&quot;:&quot;opposition&quot;,&quot;urlSafeValue&quot;:&quot;opposition&quot;,&quot;title&quot;:&quot;\u041e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u044f&quot;,&quot;titleRaw&quot;:&quot;\u041e\u043f\u043f\u043e\u0437\u0438\u0446\u0438\u044f&quot;},{&quot;id&quot;:&quot;12028&quot;,&quot;slug&quot;:&quot;demonstration&quot;,&quot;urlSafeValue&quot;:&quot;demonstration&quot;,&quot;title&quot;:&quot;\u0434\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u044f&quot;,&quot;titleRaw&quot;:&quot;\u0434\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u044f&quot;},{&quot;id&quot;:&quot;9229&quot;,&quot;slug&quot;:&quot;humanitarian-aid&quot;,&quot;urlSafeValue&quot;:&quot;humanitarian-aid&quot;,&quot;title&quot;:&quot;\u0413\u0443\u043c\u0430\u043d\u0438\u0442\u0430\u0440\u043d\u0430\u044f \u043f\u043e\u043c\u043e\u0449\u044c&quot;,&quot;titleRaw&quot;:&quot;\u0413\u0443\u043c\u0430\u043d\u0438\u0442\u0430\u0440\u043d\u0430\u044f \u043f\u043e\u043c\u043e\u0449\u044c&quot;}],&quot;related&quot;:[{&quot;id&quot;:&quot;674194&quot;},{&quot;id&quot;:&quot;669640&quot;},{&quot;id&quot;:&quot;676500&quot;}],&quot;technicalTags&quot;:[],&quot;allViews&quot;:0,&quot;allViewsMeta&quot;:{&quot;pointOfView&quot;:{&quot;quotation&quot;:null,&quot;description&quot;:null,&quot;author&quot;:null},&quot;survey&quot;:[],&quot;tweetId&quot;:null,&quot;tweet2NdId&quot;:&quot;&quot;,&quot;contentType&quot;:null,&quot;displayOverlay&quot;:&quot;0&quot;},&quot;displayType&quot;:&quot;default&quot;,&quot;video&quot;:1,&quot;videos&quot;:[{&quot;format&quot;:&quot;mp4&quot;,&quot;quality&quot;:&quot;md&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;url&quot;:&quot;https:\/\/video.euronews.com\/mp4\/med\/EN\/NW\/SU\/19\/02\/12\/ru\/190212_NWSU_6623806_6625936_71000_222512_ru.mp4&quot;,&quot;editor&quot;:&quot;&quot;,&quot;duration&quot;:&quot;71000&quot;,&quot;filesizeBytes&quot;:&quot;6999360&quot;,&quot;expiresAt&quot;:0,&quot;youtubeId&quot;:&quot;Qdqlq1dx9c8&quot;},{&quot;format&quot;:&quot;mp4&quot;,&quot;quality&quot;:&quot;hd&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;url&quot;:&quot;https:\/\/video.euronews.com\/mp4\/EN\/NW\/SU\/19\/02\/12\/ru\/190212_NWSU_6623806_6625936_71000_222512_ru.mp4&quot;,&quot;editor&quot;:&quot;&quot;,&quot;duration&quot;:&quot;71000&quot;,&quot;filesizeBytes&quot;:&quot;11708715&quot;,&quot;expiresAt&quot;:0,&quot;youtubeId&quot;:&quot;Qdqlq1dx9c8&quot;}],&quot;liveStream&quot;:[],&quot;isLiveCoverage&quot;:&quot;0&quot;,&quot;sourceId&quot;:&quot;1&quot;,&quot;sources&quot;:[],&quot;externalSource&quot;:null,&quot;additionalSources&quot;:null,&quot;additionalReporting&quot;:null,&quot;freeField1&quot;:null,&quot;freeField2&quot;:&quot;&quot;,&quot;type&quot;:&quot;&quot;,&quot;program&quot;:{&quot;id&quot;:&quot;world&quot;,&quot;urlSafeValue&quot;:&quot;world&quot;,&quot;title&quot;:&quot;\u043c\u0438\u0440&quot;,&quot;online&quot;:&quot;1&quot;,&quot;url&quot;:&quot;\/programs\/world&quot;},&quot;themes&quot;:[{&quot;urlSafeValue&quot;:&quot;news&quot;,&quot;title&quot;:&quot;News&quot;,&quot;translation&quot;:&quot;\u041c\u0438\u0440&quot;,&quot;url&quot;:&quot;\/\/ru.euronews.com\/news\/international&quot;}],&quot;advertising&quot;:0,&quot;advertisingData&quot;:{&quot;startDate&quot;:0,&quot;endDate&quot;:0,&quot;type&quot;:null,&quot;isDfp&quot;:null,&quot;slug&quot;:null,&quot;title&quot;:null,&quot;sponsor&quot;:null,&quot;sponsorName&quot;:null,&quot;sponsorUrl&quot;:null,&quot;sponsorLogo&quot;:&quot;&quot;,&quot;sponsorLogoReverse&quot;:&quot;&quot;},&quot;geoLocation&quot;:{&quot;lat&quot;:0,&quot;lon&quot;:0},&quot;location&quot;:1,&quot;continent&quot;:{&quot;id&quot;:&quot;4392&quot;,&quot;urlSafeValue&quot;:&quot;america&quot;,&quot;title&quot;:&quot;\u0410\u043c\u0435\u0440\u0438\u043a\u0430&quot;},&quot;country&quot;:{&quot;id&quot;:&quot;298&quot;,&quot;urlSafeValue&quot;:&quot;venezuela&quot;,&quot;title&quot;:&quot;\u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0430&quot;,&quot;url&quot;:&quot;\/news\/america\/venezuela&quot;},&quot;town&quot;:{&quot;id&quot;:&quot;516&quot;,&quot;urlSafeValue&quot;:&quot;caracas-venezuela&quot;,&quot;title&quot;:&quot;\u041a\u0430\u0440\u0430\u043a\u0430\u0441, \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u0430&quot;},&quot;versions&quot;:{&quot;fr&quot;:{&quot;url&quot;:&quot;venezuela-le-face-a-face-guaido-maduro-se-poursuit&quot;,&quot;title&quot;:&quot;Venezuela : Guaido parie sur l'aide humanitaire pour le 23 f\u00e9vrier&quot;,&quot;authors&quot;:{&quot;journalists&quot;:[{&quot;urlSafeValue&quot;:&quot;pavy&quot;,&quot;title&quot;:&quot;Julien Pavy&quot;,&quot;twitter&quot;:&quot;&quot;}],&quot;producers&quot;:[]},&quot;publishedAt&quot;:1550007687,&quot;expiresAt&quot;:0},&quot;de&quot;:{&quot;url&quot;:&quot;guaido-hilfslieferungen-starten-am-23-februar&quot;,&quot;title&quot;:&quot;Guaid\u00f3: Hilfslieferungen starten am 23. Februar&quot;,&quot;authors&quot;:{&quot;journalists&quot;:[],&quot;producers&quot;:[]},&quot;publishedAt&quot;:1550006563,&quot;expiresAt&quot;:0},&quot;es&quot;:{&quot;url&quot;:&quot;guaido-la-ayuda-humanitaria-entrara-en-venezuela-el-23-de-febrero&quot;,&quot;title&quot;:&quot;Guaid\u00f3: \&quot;La ayuda humanitaria entrar\u00e1 en Venezuela el 23 de febrero\&quot;&quot;,&quot;authors&quot;:{&quot;journalists&quot;:[],&quot;producers&quot;:[]},&quot;publishedAt&quot;:1550005986,&quot;expiresAt&quot;:0},&quot;pt&quot;:{&quot;url&quot;:&quot;manifestacoes-pro-e-contra-maduro-voltam-as-ruas&quot;,&quot;title&quot;:&quot;Manifesta\u00e7\u00f5es pr\u00f3 e contra Maduro voltam \u00e0s ruas&quot;,&quot;authors&quot;:{&quot;journalists&quot;:[],&quot;producers&quot;:[]},&quot;publishedAt&quot;:1550044187,&quot;expiresAt&quot;:0},&quot;ru&quot;:{&quot;url&quot;:&quot;ru-venezuela-protests&quot;,&quot;title&quot;:&quot;\u0414\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u0438 \u0432 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u0432\u0443\u0445 \u043f\u0440\u0435\u0437\u0438\u0434\u0435\u043d\u0442\u043e\u0432 \u0412\u0435\u043d\u0435\u0441\u0443\u044d\u043b\u044b&quot;,&quot;authors&quot;:{&quot;journalists&quot;:[{&quot;urlSafeValue&quot;:&quot;kepinski&quot;,&quot;title&quot;:&quot;\u041e\u043b\u044c\u0433\u0430 \u041a\u0435\u043f\u0438\u043d\u0441\u043a\u0438&quot;,&quot;twitter&quot;:&quot;&quot;}],&quot;producers&quot;:[]},&quot;publishedAt&quot;:1550006959,&quot;expiresAt&quot;:0},&quot;el&quot;:{&quot;url&quot;:&quot;xouan-guaido-stis-23-febrouariou-ftanei-h-anthropistikh-bohtheia&quot;,&quot;title&quot;:&quot;\u03a7. \u0393\u03ba\u03bf\u03c5\u03b1\u03ca\u03b4\u03cc: \u03a3\u03c4\u03b9\u03c2 23 \u03a6\u03b5\u03b2\u03c1\u03bf\u03c5\u03b1\u03c1\u03af\u03bf\u03c5 \u03c6\u03c4\u03ac\u03bd\u03b5\u03b9 \u03b7 \u03b1\u03bd\u03b8\u03c1\u03c9\u03c0\u03b9\u03c3\u03c4\u03b9\u03ba\u03ae \u03b2\u03bf\u03ae\u03b8\u03b5\u03b9\u03b1&quot;,&quot;authors&quot;:{&quot;journalists&quot;:[{&quot;urlSafeValue&quot;:&quot;tsellos&quot;,&quot;title&quot;:&quot;Konstantinos Tsellos&quot;,&quot;twitter&quot;:&quot;@costastse&quot;}],&quot;producers&quot;:[]},&quot;publishedAt&quot;:1550005543,&quot;expiresAt&quot;:0}},&quot;vertical&quot;:&quot;news&quot;,&quot;fullUrl&quot;:&quot;\/2019\/02\/12\/ru-venezuela-protests&quot;,&quot;lastModified&quot;:1550058086,&quot;ampUrl&quot;:&quot;\/amp\/2019\/02\/12\/ru-venezuela-protests&quot;,&quot;adobeFromBreakingNews&quot;:false,&quot;isSponsored&quot;:false,&quot;isMagazine&quot;:false,&quot;pfpRelated&quot;:[&quot;Ic_WT6ocOzo&quot;,&quot;0aqvA3nrxP8&quot;,&quot;Q91yLCxwpno&quot;],&quot;authorStatus&quot;:{&quot;urlSafeValue&quot;:&quot;kepinski&quot;,&quot;title&quot;:&quot;\u041e\u043b\u044c\u0433\u0430 \u041a\u0435\u043f\u0438\u043d\u0441\u043a\u0438&quot;,&quot;twitter&quot;:&quot;euronewsru&quot;},&quot;contentType&quot;:&quot;normal&quot;}" src="/js/youtube-pfp-6c6c697f28.js"></script>
+</div></div></div>
+<div class="media__img jsMainMediaImg "><figure class="media__img__wrapper"><a href="/2019/02/12/ru-venezuela-protests" class="media__img__link"><img class="u-width-full media__img__obj  " src="https://static.euronews.com/articles/stories/03/66/47/66/880x495_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg" srcset="https://static.euronews.com/articles/stories/03/66/47/66/320x180_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg 320w, https://static.euronews.com/articles/stories/03/66/47/66/688x387_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg 688w, https://static.euronews.com/articles/stories/03/66/47/66/603x339_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg 603w, https://static.euronews.com/articles/stories/03/66/47/66/880x495_cmsv2_7a02807d-f138-593b-b5d1-8f31bbdbde71-3664766.jpg 880w" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 100vw, (max-width: 1279px) 100vw, 100vw" title="Демонстрации в поддержку двух президентов Венесуэлы" alt="Демонстрации в поддержку двух президентов Венесуэлы"></a></figure></div>
+</div></div></header><section class="row  collapse jsBottomArticle u-overflow-visible" data-nid="676228" data-cid="3664770" data-related="2"><div class="hide"><div><a href="http://ru.euronews.com/"><img src="https://static.euronews.com/logo/euronews-logo.png"></a></div></div>
+<div class="column show-for-medium medium-2 xlarge-1 u-zindex--top u-overflow-visible"><div class="u-margin-bottom-medium-3 u-position-sticky-80"><div class="row collapse c-social-share t-social-share--blue js-social-share">
+<p class="column small-12 c-social-share__title">Поделиться статьей</p>
+<ul class="column small-12 align-center c-social-share__list js-social-share-list">
+<li class="c-social-share__list--embed js-tooltip text-center c-tooltip">
+<img class="c-social-share__icon" src="/images/vector/euronews_icons_embed.svg" alt="embed"><div class="c-tooltip__wrapper"><div class="c-tooltip__content">
+<h3 class="c-tooltip__title">Скопировать линк для интеграции видео</h3>
+<div class="c-tooltip__text">
+<input class="c-tooltip__input js-copyInput" value="http://ru.euronews.com/embed/676228"><a class="c-tooltip__btn js-copybtn">Скопировать</a>
+</div>
+</div></div>
+</li>
+<li class="c-social-share__list--vk text-center show-for-medium"><a href="http://vk.com/share.php?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B','%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_vk.svg" alt="vk"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--facebook text-center show-for-medium"><a href="https://www.facebook.com/share.php?u=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B','%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B" target="_blank" onclick="function socialSharePopOut(e, width, height){window.open(e.href, '_blank', 'width='+width+', height='+height+', resizable=0, titlebar=no,top='+((screen.height/2)-(height/2))+',left='+((screen.width/2)-(width/2)));}socialSharePopOut(this, 479, 826); return false;"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_fb.svg" alt="facebook"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--telegram text-center show-for-medium"><a href="https://t.me/share/url?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_telegram.svg" alt="telegram"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--vk text-center  show-for-small-only "><a onclick="window.open('http://vk.com/share.php?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B','%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B', 'width=960,height=540,titlebar=no,top='+(($(window).height()/2) - 200)+',left='+(($(window).width()/2) - 100))"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_vk.svg" alt="vk"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--facebook text-center  show-for-small-only "><a onclick="window.open('https://www.facebook.com/share.php?u=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B','%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B', 'width=960,height=540,titlebar=no,top='+(($(window).height()/2) - 200)+',left='+(($(window).width()/2) - 100))"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_fb.svg" alt="facebook"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--telegram text-center  show-for-small-only "><a onclick="window.open('https://t.me/share/url?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests', 'width=960,height=540,titlebar=no,top='+(($(window).height()/2) - 200)+',left='+(($(window).width()/2) - 100))"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_telegram.svg" alt="telegram"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--send text-center  c-social-share__list"><a href="mailto:?body=https://ru.euronews.com/2019/02/12/ru-venezuela-protests"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_mail.svg" alt="mail icon"><span>send</span></a></li>
+<li class="c-social-share__list--more text-center js-more-hook"><button class="c-social-share__button js-more-button"><div class="c-social-share__button-image"></div>
+<span class="more-text">Ещё</span><span class="less-text">Скрыть</span></button></li>
+<li class="c-social-share__list--spotim c-social-share__list"><a class="c-social-share__list--spotim-link" href="#spotim-widget"><div class="c-social-share__list--spotim--count text-center spot-im-replies-count" data-post-id="3664770"></div></a></li>
+</ul>
+<div class="column small-12 c-social-share__more js-more-list"><ul class="align-center c-social-share__more-list">
+<li class="c-social-share__list--okru text-center show-for-medium"><a href="https://connect.ok.ru/offer?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_ok_ru.svg" alt="okru"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--flipboard text-center show-for-medium"><a href="https://share.flipboard.com/bookmarklet/popout?ext=sharethis&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B&amp;url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/flipboard_logo.svg" alt="flipboard"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--okru text-center show-for-small-only"><a href="https://connect.ok.ru/offer?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_ok_ru.svg" alt="okru"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--flipboard text-center show-for-small-only"><a href="https://share.flipboard.com/bookmarklet/popout?ext=sharethis&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B&amp;url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/flipboard_logo.svg" alt="flipboard"><span>Поделиться</span></a></li>
+</ul></div>
+</div></div></div>
+<div class="column small-12 medium-10 xlarge-11 u-zindex--bottom js-responsive-iframes-container">
+<div class="c-font-size-switcher medium-order-4 js-font-size-switch u-float-end u-padding-top-0 t-font-size-switcher--blue">
+<span class="c-font-size-switcher__text text-center">Размер текста</span><a href="#" class="c-font-size-switcher__link-small js-font-size-switch-small current-font-size">
+    Aa
+  </a><a href="#" class="c-font-size-switcher__link-big js-font-size-switch-big">
+    Aa
+  </a>
+</div>
+<div class="c-article-content  js-article-content article__content">
+<div class="c-article-content__first-element"></div>
+<p>В Каракасе прошла массовая акция сторонников самопровозглашённого президента Венесуэлы Хуана Гуайдо. Вышел в народ и сам лидер оппозиции.</p>
+<div class="show-for-small-only "><div class="enw-MPU "><div id="adzone-mpu_1" class="enw-MPU__img advertising js-adzone"></div></div></div>
+<p>Это уже четвертая за три недели массовая демонстрация в венесуэльской столице. Главным лозунгом акции стал призыв допустить в страну гуманитарную помощь из-за рубежа.</p>
+<div id="adzone-outstream" class="advertising advertising--no-label js-adzone"></div>
+<p>Накануне Гуайдо заявил, что часть помощи удалось заполучить.</p>
+<p>"<em>23 февраля - день, когда гуманитарная помощь поступит в Венесуэлу. С сегодняшнего дня мы начинаем подготовку перевозчиков, медсестер, врачей, займемся организацией приема помощи</em>", – объявил Гуайдо.</p>
+<p>Одновременно в Каракасе прошел марш в поддержку действующего президента Венесуэлы Николаса Мадуро, приуроченный как и акция оппозиции, ко Дню молодежи.</p>
+<p>С точки зрения официального Каракаса, сама целесообразность поставок гумпомощи Венесуэле из-за рубежа вызывает вопросы.</p>
+<p>В одном из недавних интервью Мадуро назвал обещанную США помощь "фальшивым шоу", за которым скрывается иностранное военное вмешательство.</p>
+<p>Однако накануне власти Венесуэлы заявили о готовности вести диалог с оппозицией с помощью ООН или другого посредника.</p>
+<div class="widget widget--type-freeform
+widget--size-fullwidth
+widget--align-center"><div class="widget__wrapper"><div class="widget__ratio widget__ratio--auto"><div class="widget__contents"><p style="padding-left: 15%;text-align:right"><br><i>Теперь вы можете следить за новостями Euronews на <a href="https://t.me/russian_euronews">нашем канале в Telegram</a> и в <a href="https://ok.ru/euronews">соцсети "Одноклассники"</a>.</i></p></div></div></div></div>
+</div>
+<section class="c-article-footer__section"><div class="advertising advertising--no-label advertising--sharethrough js-adzone" id="adzone-sharethrough" data-ad-key="strnativekey" data-ad-key-value="1G96EdRgcHV6pyWWMGCR7SB7"></div></section>
+</div></section><footer><section class="c-article-footer__section "><div class="enw-widget">
+<h3 class="enw-widget__title">Больше по теме</h3>
+<div class="row column"><ul>
+<li><a property="article:tag" class="c-tag" href="//ru.euronews.com/tag/venezuela">Венесуэла</a></li>
+<li><a property="article:tag" class="c-tag" href="//ru.euronews.com/tag/nicolas-maduro">Николас Мадуро</a></li>
+<li><a property="article:tag" class="c-tag" href="//ru.euronews.com/tag/juan-guaido">Хуан Гуайдо</a></li>
+<li><a property="article:tag" class="c-tag" href="//ru.euronews.com/tag/opposition">Оппозиция</a></li>
+<li><a property="article:tag" class="c-tag" href="//ru.euronews.com/tag/demonstration">демонстрация</a></li>
+<li><a property="article:tag" class="c-tag" href="//ru.euronews.com/tag/humanitarian-aid">Гуманитарная помощь</a></li>
+</ul></div>
+</div></section><section class="c-article-footer__section show-for-small-only js-footer-social-widget"><div class="u-margin-bottom-medium-3 js-sticky-social-widget"><div class="row collapse c-social-share t-social-share--blue js-social-share">
+<p class="column small-12 c-social-share__title">Поделиться статьей</p>
+<ul class="column small-12 align-center c-social-share__list js-social-share-list">
+<li class="c-social-share__list--embed js-tooltip text-center c-tooltip">
+<img class="c-social-share__icon" src="/images/vector/euronews_icons_embed.svg" alt="embed"><div class="c-tooltip__wrapper"><div class="c-tooltip__content">
+<h3 class="c-tooltip__title">Скопировать линк для интеграции видео</h3>
+<div class="c-tooltip__text">
+<input class="c-tooltip__input js-copyInput" value="http://ru.euronews.com/embed/676228"><a class="c-tooltip__btn js-copybtn">Скопировать</a>
+</div>
+</div></div>
+</li>
+<li class="c-social-share__list--vk text-center show-for-medium"><a href="http://vk.com/share.php?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B','%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_vk.svg" alt="vk"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--facebook text-center show-for-medium"><a href="https://www.facebook.com/share.php?u=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B','%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B" target="_blank" onclick="function socialSharePopOut(e, width, height){window.open(e.href, '_blank', 'width='+width+', height='+height+', resizable=0, titlebar=no,top='+((screen.height/2)-(height/2))+',left='+((screen.width/2)-(width/2)));}socialSharePopOut(this, 479, 826); return false;"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_fb.svg" alt="facebook"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--telegram text-center show-for-medium"><a href="https://t.me/share/url?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_telegram.svg" alt="telegram"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--vk text-center  show-for-small-only "><a onclick="window.open('http://vk.com/share.php?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B','%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B', 'width=960,height=540,titlebar=no,top='+(($(window).height()/2) - 200)+',left='+(($(window).width()/2) - 100))"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_vk.svg" alt="vk"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--facebook text-center  show-for-small-only "><a onclick="window.open('https://www.facebook.com/share.php?u=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B','%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B', 'width=960,height=540,titlebar=no,top='+(($(window).height()/2) - 200)+',left='+(($(window).width()/2) - 100))"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_fb.svg" alt="facebook"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--telegram text-center  show-for-small-only "><a onclick="window.open('https://t.me/share/url?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests', 'width=960,height=540,titlebar=no,top='+(($(window).height()/2) - 200)+',left='+(($(window).width()/2) - 100))"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_telegram.svg" alt="telegram"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--send text-center  c-social-share__list"><a href="mailto:?body=https://ru.euronews.com/2019/02/12/ru-venezuela-protests"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_mail.svg" alt="mail icon"><span>send</span></a></li>
+<li class="c-social-share__list--more text-center js-more-hook"><button class="c-social-share__button js-more-button"><div class="c-social-share__button-image"></div>
+<span class="more-text">Ещё</span><span class="less-text">Скрыть</span></button></li>
+<li class="c-social-share__list--spotim c-social-share__list"><a class="c-social-share__list--spotim-link" href="#spotim-widget"><div class="c-social-share__list--spotim--count text-center spot-im-replies-count" data-post-id="3664770"></div></a></li>
+</ul>
+<div class="column small-12 c-social-share__more js-more-list"><ul class="align-center c-social-share__more-list">
+<li class="c-social-share__list--okru text-center show-for-medium"><a href="https://connect.ok.ru/offer?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_ok_ru.svg" alt="okru"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--flipboard text-center show-for-medium"><a href="https://share.flipboard.com/bookmarklet/popout?ext=sharethis&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B&amp;url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/flipboard_logo.svg" alt="flipboard"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--okru text-center show-for-small-only"><a href="https://connect.ok.ru/offer?url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_ok_ru.svg" alt="okru"><span>Поделиться</span></a></li>
+<li class="c-social-share__list--flipboard text-center show-for-small-only"><a href="https://share.flipboard.com/bookmarklet/popout?ext=sharethis&amp;title=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8+%D0%B2+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D1%83+%D0%B4%D0%B2%D1%83%D1%85+%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2+%D0%92%D0%B5%D0%BD%D0%B5%D1%81%D1%83%D1%8D%D0%BB%D1%8B&amp;url=https%3A%2F%2Fru.euronews.com%2F2019%2F02%2F12%2Fru-venezuela-protests" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/flipboard_logo.svg" alt="flipboard"><span>Поделиться</span></a></li>
+</ul></div>
+</div></div></section><script></script><div class="js-spotim__wrapper c-spotim__wrapper"><div id="spotim-widget" data-spotim-module="launcher" data-spot-id="sp_yT2ffIXL" data-vars='["3664770","https:\/\/ru.euronews.com\/2019\/02\/12\/ru-venezuela-protests"]'></div></div>
+<div class="js-spotim__wrapper c-spotim__wrapper"><div id="spotim-widget" data-spotim-module="recirculation" data-spot-id="sp_yT2ffIXL" data-vars='["3664770","https:\/\/ru.euronews.com\/2019\/02\/12\/ru-venezuela-protests"]'></div></div>
+<section class="c-article-footer__section"><div class="enw-widget">
+<h3 class="enw-widget__title">Также по теме</h3>
+<div class="row">
+<div class="column small-12 medium-4"><article data-nid="676500" data-min-enable data-sponsored="Спонсоры" class="media              media-news
+               s-mode-2 mode-2 m-mode-3 mode-3 l-mode-3 xl-mode-3
+               shrink u--has-video              "><div class="media__main">
+<div class="media__img "><figure class="media__img__wrapper " data-video-duration="
+                              02:40
+              "><a href="/2019/02/13/maduro-itw-euronews" class="media__img__link"><img class="media__img__obj lazyload" src="/images/fallback-160x90.jpg" data-src="https://static.euronews.com/articles/stories/03/66/50/84/368x207_cmsv2_5f792642-1741-5ccb-a26e-8d390aa1a279-3665084.jpg" data-srcset="https://static.euronews.com/articles/stories/03/66/50/84/160x90_cmsv2_5f792642-1741-5ccb-a26e-8d390aa1a279-3665084.jpg 160w, https://static.euronews.com/articles/stories/03/66/50/84/368x207_cmsv2_5f792642-1741-5ccb-a26e-8d390aa1a279-3665084.jpg 368w, https://static.euronews.com/articles/stories/03/66/50/84/281x158_cmsv2_5f792642-1741-5ccb-a26e-8d390aa1a279-3665084.jpg 281w" sizes="(max-width: 767px) 8vw, (max-width: 1023px) 33vw, (max-width: 1279px) 17vw, 25vw" title="Николас Мадуро: «Трамп выкрутил им руки»" alt="Николас Мадуро: «Трамп выкрутил им руки»"></a></figure></div>
+<div class="media__body  "><div class="media__body__wrapper"><div class="row collapse"><div class="small-12 column">
+<p class="media__body__label media__body__label-programs-icons media__body__label--theme-news"><a class="media__body__cat" href="/programs/world">мир
+            </a></p>
+<h3 class="media__body__title media__body__title--theme-news"><a rel="bookmark" class="media__body__link" href="/2019/02/13/maduro-itw-euronews" title="«Трамп выкрутил им руки»">
+                                                        «Трамп выкрутил им руки»
+                                  </a></h3>
+</div></div></div></div>
+</div></article></div>
+<div class="column small-12 medium-4"><article data-nid="674194" data-min-enable data-sponsored="Спонсоры" class="media              media-news
+               s-mode-2 mode-2 m-mode-3 mode-3 l-mode-3 xl-mode-3
+               shrink u--has-video              "><div class="media__main">
+<div class="media__img "><figure class="media__img__wrapper " data-video-duration="
+                              01:05
+              "><a href="/2019/02/11/guaido-attacks-aid-blockers" class="media__img__link"><img class="media__img__obj lazyload" src="/images/fallback-160x90.jpg" data-src="https://static.euronews.com/articles/stories/03/65/87/46/368x207_cmsv2_e5be11c0-e124-51db-81ea-4cccb8de5da4-3658746.jpg" data-srcset="https://static.euronews.com/articles/stories/03/65/87/46/160x90_cmsv2_e5be11c0-e124-51db-81ea-4cccb8de5da4-3658746.jpg 160w, https://static.euronews.com/articles/stories/03/65/87/46/368x207_cmsv2_e5be11c0-e124-51db-81ea-4cccb8de5da4-3658746.jpg 368w, https://static.euronews.com/articles/stories/03/65/87/46/281x158_cmsv2_e5be11c0-e124-51db-81ea-4cccb8de5da4-3658746.jpg 281w" sizes="(max-width: 767px) 8vw, (max-width: 1023px) 33vw, (max-width: 1279px) 17vw, 25vw" title="Кризис в Венесуэле: гуманитарная помощь раздора" alt="Кризис в Венесуэле: гуманитарная помощь раздора"></a></figure></div>
+<div class="media__body  "><div class="media__body__wrapper"><div class="row collapse"><div class="small-12 column">
+<p class="media__body__label media__body__label-programs-icons media__body__label--theme-news"><a class="media__body__cat" href="/programs/world">мир
+            </a></p>
+<h3 class="media__body__title media__body__title--theme-news"><a rel="bookmark" class="media__body__link" href="/2019/02/11/guaido-attacks-aid-blockers" title="Кризис в Венесуэле: гуманитарная помощь раздора">
+                                                        Кризис в Венесуэле: гуманитарная помощь раздора
+                                  </a></h3>
+</div></div></div></div>
+</div></article></div>
+<div class="column small-12 medium-4"><article data-nid="669640" data-min-enable data-sponsored="Спонсоры" class="media              media-news
+               s-mode-2 mode-2 m-mode-3 mode-3 l-mode-3 xl-mode-3
+               shrink u--has-video              "><div class="media__main">
+<div class="media__img "><figure class="media__img__wrapper " data-video-duration="
+                              01:21
+              "><a href="/2019/02/06/venezuela-aid" class="media__img__link"><img class="media__img__obj lazyload" src="/images/fallback-160x90.jpg" data-src="https://static.euronews.com/articles/stories/03/64/66/36/368x207_cmsv2_df8274e5-9e42-558d-99df-f4cb23e0fbc5-3646636.jpg" data-srcset="https://static.euronews.com/articles/stories/03/64/66/36/160x90_cmsv2_df8274e5-9e42-558d-99df-f4cb23e0fbc5-3646636.jpg 160w, https://static.euronews.com/articles/stories/03/64/66/36/368x207_cmsv2_df8274e5-9e42-558d-99df-f4cb23e0fbc5-3646636.jpg 368w, https://static.euronews.com/articles/stories/03/64/66/36/281x158_cmsv2_df8274e5-9e42-558d-99df-f4cb23e0fbc5-3646636.jpg 281w" sizes="(max-width: 767px) 8vw, (max-width: 1023px) 33vw, (max-width: 1279px) 17vw, 25vw" title='Венесуэла: помощь или "дешевое шоу"' alt='Венесуэла: помощь или "дешевое шоу"'></a></figure></div>
+<div class="media__body  "><div class="media__body__wrapper"><div class="row collapse"><div class="small-12 column">
+<p class="media__body__label media__body__label-programs-icons media__body__label--theme-news"><a class="media__body__cat" href="/programs/world">мир
+            </a></p>
+<h3 class="media__body__title media__body__title--theme-news"><a rel="bookmark" class="media__body__link" href="/2019/02/06/venezuela-aid" title='Венесуэла: помощь или "дешевое шоу"'>
+                                                        Венесуэла: помощь или "дешевое шоу"
+                                  </a></h3>
+</div></div></div></div>
+</div></article></div>
+</div>
+</div></section><section class="c-article-footer__section"><div class="minute-tv minutely js-minutely-topvideo" data-embed-name="ru"><div class="editor-tv-component"></div></div></section><section class="js-article-sidebar-mobile-container hide-for-large"></section><section class="js-taboolaLazy taboola u-margin-top-4 u-margin-top-medium-5"><div id="taboola-below-article-thumbnails-3rd" class="taboola--line"></div>
+<script data-item="taboola">
+    window._taboola = window._taboola || [];
+    _taboola.push({
+        mode: 'organic-thumbnails-b',
+        container: 'taboola-below-article-thumbnails-3rd',
+        placement: 'Below Article Thumbnails 3rd',
+        target_type: 'mix'
+    });
+</script><div id="taboola-below-article-thumbnails-2nd" class="taboola--line"></div>
+<script data-item="taboola" type="text/javascript">
+    window._taboola = window._taboola || [];
+    _taboola.push({
+        mode: 'thumbnails-e',
+        container: 'taboola-below-article-thumbnails-2nd',
+        placement: 'Below Article Thumbnails 2nd',
+        target_type: 'mix'
+    });
+</script><div id="taboola-below-article-thumbnails"></div>
+<script data-item="taboola" type="text/javascript">
+    window._taboola = window._taboola || [];
+    _taboola.push({
+        mode: 'organic-thumbnails-a',
+        container: 'taboola-below-article-thumbnails',
+        placement: 'Below Article Thumbnails',
+        target_type: 'mix'
+    });
+</script></section></footer></article></section><aside class="column small-12 large-4 xlarge-3 js-article-sidebar"><div class="js-article-sidebar-content u-margin-top-4 u-margin-top-medium-5 u-margin-end-large-2">
+<div class="c-article-sidebar__sticky-zone  hide-for-medium-only u-overflow-visible u-min-height-1200"><div class="u-margin-bottom-4 u-position-sticky-70"><div class="enw-MPU jsMPU  "><div id="adzone-halfpage_1" class="enw-MPU__img advertising js-adzone"></div></div></div></div>
+<div class="row">
+<div class="column small-12 medium-6 large-12"><div class="js-taboolaLazy enw-widget u-margin-bottom-4 u-padding-end-medium-only-1">
+<div id="taboola-right-rail-thumbnails"></div>
+<script type="text/javascript">
+    window._taboola = window._taboola || [];
+    _taboola.push({
+        mode: 'thumbnails-rr',
+        container: 'taboola-right-rail-thumbnails',
+        placement: 'Right Rail Thumbnails',
+        target_type: 'mix'
+    });
+</script>
+</div></div>
+<div class="column small-12 hide-for-medium-only"><div class="u-margin-bottom-10"><div class="enw-MPU "><div id="adzone-mpu_2" class="enw-MPU__img advertising js-adzone"></div></div></div></div>
+<div class="column small-12 medium-6 large-12"><div class="u-margin-bottom-large-4 u-padding-start-medium-only-1"><div class="enw-widget enw-widget--related jsBlockRelated">
+<h3 class="enw-widget__title">Выбор редакции</h3>
+<article data-nid="677380" data-min-enable data-sponsored="Спонсоры" class="media              media-news
+               s-mode-3 mode-3 m-mode-3 l-mode-3 xl-mode-3
+               shrink u--has-video              "><div class="media__main">
+<div class="media__img "><figure class="media__img__wrapper " data-video-duration="
+                              00:50
+              "><a href="/2019/02/13/putin-lukashenko-sochi-political-skiing" class="media__img__link"><img class="media__img__obj lazyload" src="/images/fallback-160x90.jpg" data-src="https://static.euronews.com/articles/stories/03/66/81/26/368x207_cmsv2_24af34dc-26cf-53f0-86f6-8cd5b9b17882-3668126.jpg" data-srcset="https://static.euronews.com/articles/stories/03/66/81/26/160x90_cmsv2_24af34dc-26cf-53f0-86f6-8cd5b9b17882-3668126.jpg 160w, https://static.euronews.com/articles/stories/03/66/81/26/368x207_cmsv2_24af34dc-26cf-53f0-86f6-8cd5b9b17882-3668126.jpg 368w, https://static.euronews.com/articles/stories/03/66/81/26/281x158_cmsv2_24af34dc-26cf-53f0-86f6-8cd5b9b17882-3668126.jpg 281w" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw" title="Путин и Лукашенко на лыжне постсоветской интеграции" alt="Путин и Лукашенко на лыжне постсоветской интеграции"></a></figure></div>
+<div class="media__body  "><div class="media__body__wrapper"><div class="row collapse"><div class="small-12 column">
+<p class="media__body__label media__body__label-programs-icons media__body__label--theme-news"><a class="media__body__cat" href="/news/europe/russia">Россия
+            </a></p>
+<h3 class="media__body__title media__body__title--theme-news"><a rel="bookmark" class="media__body__link" href="/2019/02/13/putin-lukashenko-sochi-political-skiing" title="Путин и Лукашенко на лыжне постсоветской интеграции">
+                                                        Путин и Лукашенко на лыжне постсоветской интеграции
+                                  </a></h3>
+</div></div></div></div>
+</div></article><article data-nid="675366" data-min-enable data-sponsored="Спонсоры" class="media              media-news
+               s-mode-2 mode-2 m-mode-2 l-mode-2 xl-mode-2
+               shrink u--has-video              "><div class="media__main">
+<div class="media__img "><figure class="media__img__wrapper " data-video-duration="
+                              02:29
+              "><a href="/2019/02/12/ru-afghan-war-30-years-later-russians" class="media__img__link"><img class="media__img__obj lazyload" src="/images/fallback-160x90.jpg" data-src="https://static.euronews.com/articles/stories/03/66/19/70/160x90_cmsv2_bee9bc6a-966e-57a0-b3d9-68d774eaad39-3661970.jpg" data-srcset="https://static.euronews.com/articles/stories/03/66/19/70/160x90_cmsv2_bee9bc6a-966e-57a0-b3d9-68d774eaad39-3661970.jpg 160w, https://static.euronews.com/articles/stories/03/66/19/70/130x73_cmsv2_bee9bc6a-966e-57a0-b3d9-68d774eaad39-3661970.jpg 130w, https://static.euronews.com/articles/stories/03/66/19/70/183x103_cmsv2_bee9bc6a-966e-57a0-b3d9-68d774eaad39-3661970.jpg 183w" sizes="(max-width: 767px) 42vw, (max-width: 1023px) 25vw, (max-width: 1279px) 17vw, 8vw" title="Незажившие раны Афганской войны" alt="Незажившие раны Афганской войны"></a></figure></div>
+<div class="media__body  "><div class="media__body__wrapper"><div class="row collapse"><div class="small-12 column">
+<p class="media__body__label media__body__label-programs-icons media__body__label--theme-news"><a class="media__body__cat" href="/news/europe/russia">Россия
+            </a></p>
+<h3 class="media__body__title media__body__title--theme-news"><a rel="bookmark" class="media__body__link" href="/2019/02/12/ru-afghan-war-30-years-later-russians" title="Незажившие раны Афганской войны">
+                                                        Незажившие раны Афганской войны
+                                  </a></h3>
+</div></div></div></div>
+</div></article><article data-nid="675364" data-min-enable data-sponsored="Спонсоры" class="media              media-news
+               s-mode-2 mode-2 m-mode-2 l-mode-2 xl-mode-2
+               shrink u--has-video              "><div class="media__main">
+<div class="media__img "><figure class="media__img__wrapper " data-video-duration="
+                              01:30
+              "><a href="/2019/02/12/afghanistan-30-years-after-soviet-troops-withdrawal" class="media__img__link"><img class="media__img__obj lazyload" src="/images/fallback-160x90.jpg" data-src="https://static.euronews.com/articles/stories/03/66/19/68/160x90_cmsv2_72f3ba7f-e788-5742-8c79-d4a5c2c55cfc-3661968.jpg" data-srcset="https://static.euronews.com/articles/stories/03/66/19/68/160x90_cmsv2_72f3ba7f-e788-5742-8c79-d4a5c2c55cfc-3661968.jpg 160w, https://static.euronews.com/articles/stories/03/66/19/68/130x73_cmsv2_72f3ba7f-e788-5742-8c79-d4a5c2c55cfc-3661968.jpg 130w, https://static.euronews.com/articles/stories/03/66/19/68/183x103_cmsv2_72f3ba7f-e788-5742-8c79-d4a5c2c55cfc-3661968.jpg 183w" sizes="(max-width: 767px) 42vw, (max-width: 1023px) 25vw, (max-width: 1279px) 17vw, 8vw" title="30 лет спустя: разбитые надежды моджахедов" alt="30 лет спустя: разбитые надежды моджахедов"></a></figure></div>
+<div class="media__body  "><div class="media__body__wrapper"><div class="row collapse"><div class="small-12 column">
+<p class="media__body__label media__body__label-programs-icons media__body__label--theme-news"><a class="media__body__cat" href="/news/asia/afghanistan">Афганистан
+            </a></p>
+<h3 class="media__body__title media__body__title--theme-news"><a rel="bookmark" class="media__body__link" href="/2019/02/12/afghanistan-30-years-after-soviet-troops-withdrawal" title="30 лет спустя: разбитые надежды моджахедов">
+                                                        30 лет спустя: разбитые надежды моджахедов
+                                  </a></h3>
+</div></div></div></div>
+</div></article>
+</div></div></div>
+</div>
+</div></aside>
+</div></div></main><footer class="enw-footer"><div class="enw-search__wrapper">
+<div id="footer-search-autocomplete" class="js-awesomeplete-searchBar " eventisallowed="1" maxitems="10"><search-form apiurl="/api/searchautocomplete.json?q=" eventisallowed="1" searchplaceholder="Поиск на Euronews" class="c-search__input--xlarge c-search__input--icon-left u-padding-start-7"></search-form></div>
+<div class="row"><div class="small-12 columns enw-block-tags u-position-relative"><div class="enw-searchBar__bytags text-center">
+<h3 class="small enw-searchBar__bytags__title">
+<svg class="tag-icon" width="19" height="19" viewbox="0 0 19 19" xmlns="http://www.w3.org/2000/svg"><path d="M14.862 2.906c0 .676.556 1.238 1.23 1.242a1.231 1.231 0 0 0 1.235-1.23 1.248 1.248 0 0 0-1.23-1.24 1.225 1.225 0 0 0-1.235 1.228zM14.437.104l3.437.113c.528.017.898.376.915.9.068 2.188.124 4.375.208 6.56.03.765-.23 1.373-.765 1.907-3.012 2.998-6.013 6.007-9.018 9.01-.547.548-.962.548-1.51 0L.387 11.276c-.516-.516-.516-.94 0-1.457C3.41 6.796 6.438 3.78 9.45.75c.532-.535 1.142-.78 1.89-.747 1.032.046 2.065.07 3.097.102z" fill="#FFF" fill-rule="evenodd"></path></svg>
+                            Поиск в тэгах дня
+                        </h3>
+<ul class="u-list-inline enw-listTags">
+<li><a href="//ru.euronews.com/tag/spain" class="enw-listTags__tags">Испания</a></li>
+<li><a href="//ru.euronews.com/tag/usa" class="enw-listTags__tags">США</a></li>
+<li><a href="//ru.euronews.com/tag/brexit" class="enw-listTags__tags">Брексит</a></li>
+<li><a href="//ru.euronews.com/tag/united-kingdom" class="enw-listTags__tags">Великобритания</a></li>
+<li><a href="//ru.euronews.com/tag/pedro-sanchez" class="enw-listTags__tags">Педро Санчес (премьер-министр Испании)</a></li>
+<li><a href="//ru.euronews.com/tag/germany" class="enw-listTags__tags">Германия</a></li>
+<li><a href="//ru.euronews.com/tag/borders" class="enw-listTags__tags">Границы</a></li>
+<li><a href="//ru.euronews.com/tag/islam" class="enw-listTags__tags">Ислам</a></li>
+</ul>
+</div></div></div>
+</div>
+<div class="enw-footer__sitemap">
+<div class="row"><div class="small-12 columns enw-footer__logo  u-margin-bottom-3 "><a href="#"><img class="enw-footer__logo-img" src="https://static.euronews.com/website/images/euronews_horizontal_flat.svg"></a></div></div>
+<div class="row">
+<div class="small-12 medium-2 columns "><ul class="enw-footer__sitemap__cat" data-accordion-menu><li>
+<a class="enw-footer__list-heading js-footer-list-heading" href="#">
+                            Каналы
+                        </a><ul class="menu vertical nested">
+<li><a href="/news">
+                                            Новости
+                                        </a></li>
+<li><a href="/lifestyle">
+                                            Стиль жизни
+                                        </a></li>
+<li><a href="/knowledge">
+                                            Знание
+                                        </a></li>
+<li><a href="/european-affairs">
+                                            Европейские новости
+                                        </a></li>
+</ul>
+</li></ul></div>
+<div class="small-12 medium-2 columns"><ul class="enw-footer__sitemap__cat" data-accordion-menu><li>
+<a class="enw-footer__list-heading js-footer-list-heading" href="#">
+                            Сюжеты
+                        </a><ul class="menu vertical nested">
+<li><a href="/european-affairs/european-news">Eвропа</a></li>
+<li><a href="/news/international">Мир</a></li>
+<li><a href="/news/business">Бизнес</a></li>
+<li><a href="/news/sport">Спорт</a></li>
+<li><a href="/lifestyle/culture">Культура</a></li>
+<li><a href="/knowledge/sci-tech">Sci-tech</a></li>
+<li><a href="/lifestyle/travel">Путешествия</a></li>
+<li><a href="/video">Видео</a></li>
+<li><a href="/programs">Программы</a></li>
+</ul>
+</li></ul></div>
+<div class="small-12 medium-2 columns"><ul class="enw-footer__sitemap__cat" data-accordion-menu><li>
+<a class="enw-footer__list-heading js-footer-list-heading" href="#">
+                            Услуги
+                        </a><ul class="menu vertical nested">
+<li><a href="/live">Live</a></li>
+<li><a href="/bulletin">Выпуск новостей</a></li>
+<li><a href="/weather">Погода</a></li>
+<li><a href="/just-in">Лента срочных сообщений</a></li>
+<li><a href="/follow-us">Подписывайтесь на нас</a></li>
+<li><a href="/widgets">Widgets &amp; Services</a></li>
+<li><a onclick="window.open(this.href); return false;" href="http://www.euronewsradio.com/?l=ru">Euronews radio</a></li>
+<li><a href="http://www.africanews.com">
+                                    Африканьюс
+                                </a></li>
+<li><a href="//flights.euronews.com/ru-RU/flights" target="_blank">Забронируйте ваш билет</a></li>
+</ul>
+</li></ul></div>
+<div class="small-12 medium-2 columns"><ul class="enw-footer__sitemap__cat" data-accordion-menu><li>
+<a class="enw-footer__list-heading js-footer-list-heading" href="#">
+                            Corporate
+                        </a><ul class="menu vertical nested">
+<li><a href="/about">О "евроньюс"</a></li>
+<li><a href="/services-ue">партнёрство с ЕС</a></li>
+<li><a href="/terms-and-conditions">Пользовательское соглашение</a></li>
+<li><a href="/cookie-policy">Политика в области cookies</a></li>
+<li><a href="/contact">Контакт</a></li>
+<li><a href="/distribution">Распространение</a></li>
+<li><a href="/advertising">Реклама</a></li>
+<li><a href="/jobs">Вакансии</a></li>
+</ul>
+</li></ul></div>
+<div class="small-12 medium-4 columns">
+<a class="enw-footer__list-heading enw-footer__list-heading--followus js-footer-list-heading u-position-relative u-margin-top-small-1 u-margin-bottom-small-2" href="#">
+                        Подписывайтесь на нас
+                    </a><div class="c-social-share t-social-share--inline"><ul class="u-list-inline c-social-share__list u-justify-content-start">
+<li class="c-social-share__list--vk"><a href="http://vk.com/en.euronews" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_vk.svg" title="VK" alt="VK"></a></li>
+<li class="c-social-share__list--facebook"><a href="https://www.facebook.com/ru.euronews" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_fb.svg" title="Facebook" alt="Facebook"></a></li>
+<li class="c-social-share__list--telegram"><a href="https://t.me/russian_euronews" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_telegram.svg" title="Telegram" alt="Telegram"></a></li>
+<li class="c-social-share__list--twitter"><a href="https://twitter.com/euronewsru" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_twitter.svg" title="Twitter" alt="Twitter"></a></li>
+<li class="c-social-share__list--flipboard"><a href="https://flipboard.com/@euronewsru" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/flipboard_logo.svg" title="Flipboard" alt="Flipboard"></a></li>
+<li class="c-social-share__list--okru"><a href="https://ok.ru/group/55820682067996" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_ok_ru.svg" title="OK" alt="OK"></a></li>
+<li class="c-social-share__list--youtube"><a href="https://www.youtube.com/euronewsru" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_youtube.svg" title="Youtube" alt="Youtube"></a></li>
+<li class="c-social-share__list--linkedin"><a href="https://www.linkedin.com/company/euronews" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_linkedin.svg" title="Linkedin" alt="Linkedin"></a></li>
+<li class="c-social-share__list--dailymotion"><a href="https://www.dailymotion.com/euronews-en" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_dailymotion.svg" title="Dailymotion" alt="Dailymotion"></a></li>
+<li class="c-social-share__list--instagram"><a href="https://www.instagram.com/euronews_russian/" target="_blank"><img class="c-social-share__icon" src="https://static.euronews.com/website/images/vector/social-icons/social_icon_instagram.svg" title="Instagram" alt="Instagram"></a></li>
+</ul></div>
+<div id="mailmunchNewsletter" class="u-position-relative mailmunch-forms-widget-726105" data-site="579434"></div>
+</div>
+<div class="small-12 columns"><div class="text-center enw-footer__copyright">Copyright © euronews 2019 </div></div>
+</div>
+</div></footer><aside id="hamburger-menu" class="enw-menu show-for-small-only enw-block-scrollable js-scrollable"><div class="enw-hamburger-menu-content" id="hamburger-menu-content" data-content='{"mainItems":[{"url":"\/european-affairs\/european-news","label":"E\u0432\u0440\u043e\u043f\u0430","theme":"europe"},{"url":"\/news\/international","label":"\u041c\u0438\u0440","theme":"news"},{"url":"\/news\/business","label":"\u0411\u0438\u0437\u043d\u0435\u0441","theme":"business"},{"url":"\/news\/sport","label":"\u0421\u043f\u043e\u0440\u0442","theme":"sport"},{"url":"\/lifestyle\/culture","label":"\u041a\u0443\u043b\u044c\u0442\u0443\u0440\u0430","theme":"culture"},{"url":"\/knowledge\/sci-tech","label":"Sci-tech","theme":"science_technology"},{"url":"\/lifestyle\/travel","label":"\u041f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u044f","theme":"travel"},{"url":"\/video","label":"\u0412\u0438\u0434\u0435\u043e","theme":""}],"programsBlocks":[[{"label":"E\u0432\u0440\u043e\u043f\u0430","items":[{"url":"\/programs\/smart-regions","label":"Smart Regions","id":"smart-regions"},{"url":"\/programs\/brussels-bureau","label":"\u0411\u0440\u044e\u0441\u0441\u0435\u043b\u044c\u0441\u043a\u043e\u0435 \u0431\u044e\u0440\u043e","id":"brussels-bureau"},{"url":"\/programs\/state-of-the-union","label":"\u041e \u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0438 \u0421\u043e\u044e\u0437\u0430","id":"state-of-the-union"}],"url":"\/european-affairs\/european-news"},{"label":"\u0411\u0438\u0437\u043d\u0435\u0441","items":[{"url":"\/programs\/realeconomy","label":"real economy","id":"realeconomy"},{"url":"\/programs\/business-planet","label":"\u041f\u043b\u0430\u043d\u0435\u0442\u0430 \u0431\u0438\u0437\u043d\u0435\u0441\u0430","id":"business-planet"},{"url":"\/programs\/target","label":"\u0426\u0435\u043b\u044c","id":"target"},{"url":"\/programs\/markets","label":"\u0440\u044b\u043d\u043a\u0438","id":"markets"}],"url":"\/news\/business"}],[{"label":"\u041c\u0438\u0440","items":[{"url":"\/programs\/aid-zone","label":"Aid Zone","id":"aid-zone"},{"url":"\/programs\/global-japan","label":"Global Japan","id":"global-japan"},{"url":"\/programs\/insiders","label":"insiders","id":"insiders"},{"url":"\/programs\/insight","label":"Insight","id":"insight"},{"url":"\/programs\/learning-world","label":"learning world","id":"learning-world"},{"url":"\/nocomment","label":"no comment","id":"nocomment","openInNewTab":false},{"url":"\/programs\/view","label":"View","id":"view"},{"url":"\/programs\/globalconversation","label":"\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0439 \u0434\u0438\u0430\u043b\u043e\u0433","id":"globalconversation"},{"url":"\/programs\/world","label":"\u043c\u0438\u0440","id":"world"}],"url":"\/news\/international"}],[{"label":"\u041a\u0443\u043b\u044c\u0442\u0443\u0440\u0430","items":[{"url":"\/programs\/cult","label":"Cult","id":"cult"},{"url":"\/programs\/europeanlens","label":"European Lens","id":"europeanlens"},{"url":"\/programs\/musica","label":"musica","id":"musica"},{"url":"\/programs\/adventures","label":"\u041f\u0440\u0438\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f","id":"adventures"},{"url":"\/programs\/cinema","label":"\u043a\u0438\u043d\u043e","id":"cinema"}],"url":"\/lifestyle\/culture"}],[{"label":"Sci-tech","items":[{"url":"\/programs\/climate-update","label":"Climate update","id":"climate-update"},{"url":"\/programs\/ocean","label":"Ocean","id":"ocean"},{"url":"\/programs\/sci-tech","label":"Sci-tech","id":"sci-tech"},{"url":"\/programs\/space","label":"\u043a\u043e\u0441\u043c\u043e\u0441","id":"space"},{"url":"\/programs\/futuris","label":"\u0444\u0443\u0442\u0443\u0440\u0438\u0441","id":"futuris"}],"url":"\/knowledge\/sci-tech"}],[{"label":"\u041f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u044f","items":[{"url":"\/programs\/focus","label":"focus","id":"focus"},{"url":"\/programs\/notes-from-the-usa","label":"Notes from the USA","id":"notes-from-the-usa"},{"url":"\/programs\/postcards","label":"Postcards","id":"postcards"},{"url":"\/programs\/taste","label":"Taste","id":"taste"},{"url":"\/programs\/metropolitans","label":"\u043c\u0435\u0442\u0440\u043e\u043f\u043e\u043b\u0438\u0442\u044d\u043d\u0441","id":"metropolitans"}],"url":"\/lifestyle\/travel"}],[{"label":"hubs","items":[{"url":"\/special\/angola-360","label":"Angola 360","id":"hub_angola-360"},{"url":"\/special\/go-matera","label":"Go Matera","id":"hub_go-matera"},{"url":"\/special\/european-elections-2019","label":"\u0415\u0432\u0440\u043e\u043f\u0435\u0439\u0441\u043a\u0438\u0435 \u0432\u044b\u0431\u043e\u0440\u044b-2019","id":"hub_european-elections-2019"}],"url":""}]],"channelsItems":[{"label":"\u041d\u043e\u0432\u043e\u0441\u0442\u0438","url":"\/news","displayFooter":true},{"label":"\u0421\u0442\u0438\u043b\u044c \u0436\u0438\u0437\u043d\u0438","url":"\/lifestyle","displayFooter":true},{"label":"\u0417\u043d\u0430\u043d\u0438\u0435","url":"\/knowledge","displayFooter":true},{"label":"\u0412\u0438\u0434\u0435\u043e","url":"\/video","openInNewTab":false,"displayFooter":false},{"label":"\u0415\u0432\u0440\u043e\u043f\u0435\u0439\u0441\u043a\u0438\u0435 \u043d\u043e\u0432\u043e\u0441\u0442\u0438","url":"\/european-affairs","displayFooter":true}]}'>
+<div class="u-margin-bottom-2"><div class="c-languages-select"><select class="c-languages-select__options js-languageSelect" aria-label="язык">
+    Pусский
+                  <option value="//www.euronews.com" lang="en-GB" hreflang="en">
+          English
+        </option>
+<option value="//fr.euronews.com/2018/09/21/200-films-seront-presentes-au-festival-zinemaldia" lang="fr-FR" hreflang="fr">
+          Français
+        </option>
+<option value="//de.euronews.com/2018/09/21/66-filmfestival-in-san-sebastian-eroffnet" lang="de-DEU" hreflang="de">
+          Deutsch
+        </option>
+<option value="//it.euronews.com/2018/09/21/al-via-la-66esima-edizione-del-festival-del-cinema-di-san-sebastian" lang="it-IT" hreflang="it">
+          Italiano
+        </option>
+<option value="//es.euronews.com/2018/09/21/comienza-un-festival-de-san-sebastian-renovado-y-en-forma" lang="es-ES" hreflang="es">
+          Español
+        </option>
+<option value="//pt.euronews.com/2018/09/21/cinema-de-regresso-a-san-sebastian" lang="pt-PT" hreflang="pt">
+          Português
+        </option>
+<option value="//ru.euronews.com/2018/09/21/cinema-festival" selected lang="ru-RU" hreflang="ru">
+          Русский
+        </option>
+<option value="//tr.euronews.com" lang="tr-TR" hreflang="tr">
+          Türkçe
+        </option>
+<option value="//gr.euronews.com/2018/09/21/festival-kinimatografou-sto-san-sebastian" lang="el-GR" hreflang="el">
+          Ελληνικά
+        </option>
+<option value="//hu.euronews.com/2018/09/21/argentin-filmmel-nyitott-a-zinemaldia" lang="hu-HU" hreflang="hu">
+          Magyar
+        </option>
+<option value="//fa.euronews.com" lang="fa-IR" hreflang="fa">
+          فارسی
+        </option>
+<option value="//arabic.euronews.com" lang="hy-AM" hreflang="ar">
+          العربية
+        </option></select></div></div>
+<div class="show-for-small-only"><div id="hamburger-search-autocomplete" class="js-awesomeplete-searchBar " eventisallowed="1" maxitems="10"><search-form apiurl="/api/searchautocomplete.json?q=" eventisallowed="1" searchplaceholder="Поиск на Euronews" class=""></search-form></div></div>
+<ul class="vertical menu">
+<li><a href="/european-affairs/european-news" class="enw-menuBlock"><div>Eвропа</div></a></li>
+<li><a href="/news/international" class="enw-menuBlock menu__item--is-active"><div>Мир</div></a></li>
+<li><a href="/news/business" class="enw-menuBlock"><div>Бизнес</div></a></li>
+<li><a href="/news/sport" class="enw-menuBlock"><div>Спорт</div></a></li>
+<li><a href="/lifestyle/culture" class="enw-menuBlock"><div>Культура</div></a></li>
+<li><a href="/knowledge/sci-tech" class="enw-menuBlock"><div>Sci-tech</div></a></li>
+<li><a href="/lifestyle/travel" class="enw-menuBlock"><div>Путешествия</div></a></li>
+<li><a href="/video" class="enw-menuBlock"><div>Видео</div></a></li>
+<li><a href="/programs" class="enw-menuBlock"><div>Все программы</div></a></li>
+</ul>
+<section class="bottom-links"><ul class="bottom-links__list">
+<li><a class="bottom-links__icon weather-icon" href="/weather"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><style>.nav-weather--st0{fill:#f2a900}.nav-weather--st1{fill:#fff}</style>
+<path class="nav-weather--st0" d="M8.9 2.9h1v2.2h-1zM0 11.7h2.4v1H0zM2.265 6.082l.707-.707L4.6 7.002l-.708.707zM13.688 6.6l1.697-1.698.707.707-1.697 1.697zM5.2 15.2c.1-.2.2-.3.3-.5-.6-.8-.9-1.8-.9-2.8 0-2.6 2.1-4.8 4.8-4.8 1.7 0 3.2.9 4 2.2.1 0 .1 0 .2-.1.3 0 .6-.1.9-.1-1-1.9-2.9-3.1-5.1-3.1-3.2 0-5.8 2.6-5.8 5.8 0 1.4.5 2.8 1.4 3.8 0-.1.1-.2.2-.4z"></path><path class="nav-weather--st1" d="M24 17c-.2-2.5-2.3-4.4-4.8-4.2-.5-1.5-1.7-2.6-3.1-3.1-.8-.3-1.7-.4-2.5-.2-1.8.3-3.4 1.5-4 3.4h-.3c-1.8 0-3.3 1-4.1 2.5-.3.6-.5 1.3-.5 2 0 2.5 2 4.5 4.5 4.6h10.2c2.5 0 4.5-2 4.5-4.5.1-.4.1-.4.1-.5z"></path><path class="nav-weather--st0" d="M4.7 17.4l-.4-.4-1.6 1.6.7.7L4.8 18c-.1-.2-.1-.4-.1-.6z"></path></svg><span class="bottom-links__text">Погода</span></a></li>
+<li><a class="bottom-links__icon" href="/bulletin" title="Выпуск новостей"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewbox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><style type="text/css">
+	.icon-bulletin--st0{fill:#FFFFFF;}
+</style>
+<g><g><g><g><path class="icon-bulletin--st0" d="M20.8,4.5v39l22.8-7.3V11.8L20.8,4.5z M28.9,30.5v-13l8.1,6.5L28.9,30.5z"></path><path class="icon-bulletin--st0" d="M17.6,40.3l-4.9,1.6V6.1l4.9,1.6V40.3z"></path><path class="icon-bulletin--st0" d="M9.4,38.6l-4.9,1.6V7.8l4.9,1.6V38.6z"></path></g></g></g></g></svg><span class="bottom-links__text">Выпуск новостей</span></a></li>
+<li><a class="bottom-links__icon" href="/widgets"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><g><path fill="#FFFFFF" d="M40,12v24H8V12H40 M42,8H6c-1.1,0-2,0.9-2,2v28c0,1.1,0.9,2,2,2h36c1.1,0,2-0.9,2-2V10C44,8.9,43.1,8,42,8
+		L42,8z"></path></g><polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="39.917,12.083 24,24.029 7.917,11.917 "></polyline></svg><span class="bottom-links__text">Рассылка</span></a></li>
+<li><a class="bottom-links__icon flight-icon" href="//flights.euronews.com/ru-RU/flights"><svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 26 24"><path d="M25.1 16.9v-2.4L15 8.5V1.9c0-1-.8-1.8-1.9-1.8s-1.9.8-1.9 1.8v6.6l-10.1 6v2.4l10.1-3v6.6l-2.5 1.8v1.8l4.4-1.2 4.4 1.2v-1.8L15 20.5v-6.6l10.1 3z" fill="#fff"></path></svg><span class="bottom-links__text">Забронируйте ваш билет</span></a></li>
+</ul></section><section class="bottom-social-links"><span>Присоединяйтесь к нам!</span></section>
+</div></aside><div class="burger-menu__overlay"></div>
+<script type="x/template" id="search-form-template"><div class="c-search__input"><input v-model="inputSearch" class="awesomplete"
+           aria-label="Поиск"
+           placeholder="{{searchplaceholder}}"
+           type="search"
+           v-on:keyup="updateData | debounce 400"
+           v-on:keyup.enter="launchSearch"
+           v-bind:class="{'noResult': noResult}"><button class="c-search__button" v-on:click="launchSearch"><?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><path fill="#FFFFFF" d="M28.056,27.944L28.056,27.944c-0.779,0.777-0.78,2.05-0.003,2.828l8.163,8.18
+	c0.777,0.779,2.05,0.78,2.828,0.003l0,0c0.779-0.777,0.78-2.05,0.003-2.828l-8.163-8.18C30.108,27.169,28.835,27.167,28.056,27.944z
+	"/><g><path fill="#FFFFFF" d="M20.5,11c5.238,0,9.5,4.262,9.5,9.5S25.738,30,20.5,30S11,25.738,11,20.5S15.262,11,20.5,11 M20.5,7
+		C13.044,7,7,13.044,7,20.5S13.044,34,20.5,34S34,27.956,34,20.5S27.956,7,20.5,7L20.5,7z"/></g></svg></button><div class="enw-searchBar__loader" v-bind:class="{'loading': isLoading}"><svg class="loader" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 50 50"><path d="M43.935 25.145c0-10.318-8.364-18.683-18.683-18.683-10.318 0-18.683 8.365-18.683 18.683h4.067c0-8.07 6.543-14.615 14.615-14.615s14.615 6.543 14.615 14.615h4.068z"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/></path></svg></div></div></script><div id="banners" class="c-banners__wrapper"><div id="cookie_banner" class="cookies-banner">Пользуясь нашим сайтом, вы выражаете согласие с использованием cookies для оптимизации показателей и улучшения пользовательского опыта. Дополнительная информация - <a href="/cookie-policy">на странице "Политика Cookies".</a><button id="cookie_ok_link" class="c-button--negative cookies-banner__button">ok</button>
+</div></div>
+<div class="breakingNews-master-hidden"></div>
+<script src="//assets.adobedtm.com/f67419acc9b12918acb1885b9386ab3910b11c5d/satelliteLib-cc41ae5f3e64efecef040b7672bd47d7bdcf6c3e.js"></script><script>let AdobeEnum = {
+  PLATFORM_MOBILE: 'mobile',
+  PLATFORM_TABLET: 'tablet',
+  PLATFORM_DESKTOP: 'desktop'
+}
+
+/**
+ *  Detect platform and apply it to dataLayer
+ *  @return {Void}
+ */
+let sitePlatform = function () {
+  let width = document.body.clientWidth
+  if (width < 768) {
+    window.digitalData.site.platform = AdobeEnum.PLATFORM_MOBILE
+  } else if (width < 1280) {
+    window.digitalData.site.platform = AdobeEnum.PLATFORM_TABLET
+  } else {
+    window.digitalData.site.platform = AdobeEnum.PLATFORM_DESKTOP
+  }
+}
+
+/**
+ * Detect if page has been reloaded
+ * @return {Void}
+ */
+let pageIsreloaded = function () {
+    try {
+        window.digitalData.page.pagereload = (window.performance.navigation.type === 1);
+    }catch(e){
+        window.digitalData.page.pagereload = false;
+    }
+}
+
+// Execution
+sitePlatform()
+pageIsreloaded()
+</script><script>_satellite.pageBottom();</script><script data-item="main" src="/js/main-3b3ff6afea.js"></script><script data-item="app" defer async="true" src="/js/app-6f39d14cd7.js"></script><script>
+        var ff_is_active_stickyvideo = false;
+    </script><script src="/js/jwplayer-vyGTizER-6bb24e782f.js"></script><script>
+        var ff_is_active_stickyvideo = false;
+    </script><link rel="stylesheet" href="/css/selection-sharer-e2be1651ad.css">
+<script>
+        var ff_is_active_stickyvideo = false;
+    </script><script> var _min = {_publisher: "MIN-20200"}</script><script data-item="page" defer async="true" src="/js/sticky-kit-836c5df735.min.js"></script><script data-item="page" defer async="true" src="/js/article-872537b51b.js"></script><script data-item="back-to-top" defer async="true" src="/js/back-to-top-4f22e4c666.js"></script><script data-item="footer" data-nl-confirmation="true" src="/js/global_footer-39384213f8.js" defer></script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1612819098956034&amp;ev=PageView&amp;noscript=1"></noscript>
+<noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-8WySRT3MRSkuS.gif" border="0" height="1" width="1" alt="Quantcast"></div></noscript>
+<script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
+</body>
+</html>

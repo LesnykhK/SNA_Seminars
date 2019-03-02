@@ -1,0 +1,607 @@
+---
+title: "Seminar 6 and HW 4"
+author: "Lesnykh Kirill"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage[english, russian]{babel}
+- \usepackage[T1, OT2]{fontenc}
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(rmarkdown)
+library(RColorBrewer)
+library(NetData)
+library(network)
+library(sna)
+```
+
+```{r}
+data(kracknets, package="NetData")
+
+head(advice_data_frame)
+
+head(friendship_data_frame)
+
+head(reports_to_data_frame)
+```
+
+```{r}
+krack <- list(advice_data_frame,
+              friendship_data_frame,
+              reports_to_data_frame)
+
+krack <- list(advice_data_frame,
+friendship_data_frame,
+reports_to_data_frame)
+
+graphs <- c('advice','friendship','reports')
+names(krack) <- graphs
+
+length(krack)
+
+names(krack)
+```
+
+```{r}
+for (i in 1:length(krack)){
+krack[[i]] <- as.matrix(krack[[i]])
+}
+
+for(i in 1:3){
+krack[[i]] <- subset(krack[[i]],
+(krack[[i]][,3] > 0 ))
+}
+dim(krack[[1]])
+
+head(krack[[1]])
+```
+
+```{r}
+names(attributes)
+```
+
+```{r}
+for (i in 1:3){
+krack[[i]] <- network(krack[[i]],
+matrix.type = 'edgelist',
+vertex.attr = list(attributes[,1], attributes[,2],
+attributes[,3], attributes[,4]),
+vertex.attrnames = list("AGE","TENURE","LEVEL","DEPT"))
+}
+advice <- krack$advice
+friendship <- krack$friendship
+reports <- krack$reports
+
+print(advice)
+print(friendship)
+print(reports)
+```
+
+```{r}
+n<-network.size(advice)
+v1<-sample((0:(n-1))/n)
+v2<-sample(v1)
+x <- n/(2 * pi) * sin(2 * pi * v1)
+y <- n/(2 * pi) * cos(2 * pi * v2)
+mycoord <- cbind(x,y)
+
+par(mar=c(0,0,1,0))
+par(mfrow=c(1,3))
+plot(advice, edge.col='azure4', vertex.col='darkorange',
+vertex.border='azure4',vertex.cex=2,coord=mycoord,
+main ='Advice')
+plot(friendship, edge.col='azure4', vertex.col='darkorange',
+vertex.border='azure4',vertex.cex=2, coord=mycoord,
+main ='Friendship')
+plot(reports, edge.col='azure4', vertex.col='darkorange',
+vertex.border='azure4',vertex.cex=2, coord=mycoord,
+main='Direct Reports')
+```
+
+Assignment task. For the networks we???ve obtained, please calculate the following:
+1. Dyad census
+2. Different kinds of reciprocity
+3. Triad census
+4. Transitivity
+5. Paths
+6. Cycles
+7. Cliques
+
+
+```{r}
+dyad.census(advice)
+dyad.census(friendship)
+dyad.census(reports)
+
+grecip(advice)
+grecip(friendship)
+grecip(reports)
+
+triad.census(advice)
+triad.census(friendship)
+triad.census(reports)
+
+gtrans(advice)
+gtrans(friendship)
+gtrans(reports)
+
+kpath.census(advice)
+kpath.census(friendship)
+kpath.census(reports)
+
+kcycle.census(advice)
+kcycle.census(friendship)
+kcycle.census(reports)
+
+clique.census(advice)
+clique.census(friendship)
+clique.census(reports)
+```
+Assignment 1.
+
+Based on those measures we can make the following statements. The "Reports" network, comparing to the other ones has a much less ties and connections, so its transitivity, its connections among nodes is much weaker, than of the "Friendship" and of the "Advice". Moreover, the "Reports" has only directed ties, so, its paths and are also very low. In the analogical way, the connections of "Friendship" a less weaker than are of the "Advice".
+
+From all these three networks we can tell, that a much more common and popular thing is going for the advice, that the friendship and then the reporting. That is the range of oftennes that happens in that sampling working collective.
+
+
+```{r}
+formal<-as.matrix(read.csv("formal.csv", header = TRUE, row.names=1))
+roles<-read.csv("roles.csv", header=TRUE, row.names=1)
+
+formalnet <- network(formal)
+par(mar=c(0,0,2,0))
+indeg <- degree(formalnet, cmode = 'indegree')
+mycoord <- plot(formalnet, displaylabels=TRUE, edge.col='azure4',
+                  vertex.col="#E41A1C", vertex.border='azure4',
+                  vertex.cex = indeg + 1 , main ='Downton Abbey',
+                  label.cex=0.5, label.pos = 5)
+```
+
+```{r}
+plot(formalnet)
+
+orRule <- symmetrize(formalnet, rule='weak')
+class(orRule)
+```
+
+```{r}
+orRule <- network(symmetrize(formalnet, rule='weak'),
+directed = FALSE)
+class(orRule)
+
+andRule <- network(symmetrize(formalnet, rule='strong'),
+directed = FALSE)
+```
+
+```{r}
+par(mar=c(1,1,2,1))
+par(mfrow=c(1,3))
+plot(formalnet, main = 'Original', coord=mycoord, vertex.cex =3,
+      edge.col='azure4', vertex.col="#E41A1C", vertex.border='azure4',
+      label=seq(1:20),label.pos=5,label.cex=.5,label.col='gray15')
+plot(orRule, main = 'Or Rule', coord=mycoord, vertex.cex =3,
+      edge.col='azure4', vertex.col="#377EB8", vertex.border='azure4',
+      label=seq(1:20),label.pos=5,label.cex=.5,label.col='gray15')
+plot(andRule, main = 'And Rule', coord=mycoord, vertex.cex =3,
+      edge.col='azure4', vertex.col="#4DAF4A", vertex.border='azure4',
+      label=seq(1:20),label.pos=5,label.cex=.5,label.col='gray15')
+```
+
+```{r}
+
+snasymmformal <- orRule
+aprioriformal<-blockmodel(snasymmformal, roles$commdetect,
+                          block.content="density", mode="graph",
+                          diag=FALSE)
+
+heatmap(aprioriformal[[4]])
+```
+```{r}
+roles$commdetect
+```
+
+```{r}
+aprioriformal[[1]]
+
+aprioriformal[[2]]
+
+aprioriformal[[3]]
+
+aprioriformal[[4]]
+```
+
+```{r}
+library(RColorBrewer)
+par(mar=c(1,1,1,1),mfrow=c(2,3))
+col5 <- brewer.pal(5, 'Set1')
+cols <- ifelse(aprioriformal[[1]] == 1, col5[1],
+          ifelse(aprioriformal[[1]] == 2, col5[2],
+            ifelse(aprioriformal[[1]] == 3, col5[3],
+              ifelse(aprioriformal[[1]] == 4, col5[4], col5[5]))))
+
+par(mar=c(1,1,2,1),mfrow=c(1,1))
+plot(snasymmformal, main = 'Apriori Block Model', coord=mycoord,
+      vertex.cex =3, edge.col='azure4', vertex.col=cols,
+      vertex.border='azure4', label=seq(1:20), label.pos=5,
+      label.cex=.5, label.col='gray15')
+```
+
+```{r}
+
+distformal <- dist(snasymmformal, method="euclidian", diag=FALSE)
+thick <- as.vector(distformal)
+
+par(mar=c(0.5,0,2,0))
+plot(snasymmformal, main = 'Euclidean Distances', coord=mycoord,
+      vertex.cex =3, edge.col='azure4', vertex.col=col5[2],
+      vertex.border='azure4', label=seq(1:20),label.pos=5,
+      label.cex=.5,label.col='gray15', edge.lwd = thick^2)
+```
+
+```{r}
+formalclust <- hclust(distformal, method="complete")
+plot(formalclust)
+```
+
+
+```{r}
+
+exploratoryformal<-blockmodel(snasymmformal, formalclust, k=6,
+                              block.content="density", mode="graph",
+                              diag=FALSE)
+
+par(mar=c(0,0,2,0))
+plot.blockmodel(aprioriformal)
+plot.blockmodel(exploratoryformal)
+```
+
+Assignment task.
+1. Experiment with k. We???ve set it to 6, but would another number make more sense?
+2. Which of the two blockmodels appear to be more accurate to you? Why?
+
+```{r}
+exploratoryformal<-blockmodel(snasymmformal, formalclust, k=4,
+                              block.content="density", mode="graph",
+                              diag=FALSE)
+
+par(mar=c(0,0,2,0))
+plot.blockmodel(aprioriformal)
+plot.blockmodel(exploratoryformal)
+```
+
+
+```{r}
+exploratoryformal<-blockmodel(snasymmformal, formalclust, k=5,
+                              block.content="density", mode="graph",
+                              diag=FALSE)
+
+par(mar=c(0,0,2,0))
+plot.blockmodel(aprioriformal)
+plot.blockmodel(exploratoryformal)
+```
+Assignments:
+
+1. I have tried to build a k=4 and k=5 models, and but it doesn't bring a lot of differences. The point is that the other clusters that are made contain only one node, and it doesn't bring us a lot of sense in that way. In that parcitular case, the 4, 5 or 6 k models don't differ very much.
+
+2. The more accurate model is the second one (the 'exploratoryformal' one). It has a more accurate and contrast borders of clusters, moreover, the clusters are more differed and can be interpreted better.
+
+```{r}
+par(mar = c(1,1,4,1), mfrow = c(1,2))
+heatmap(aprioriformal[[4]], main ='Apriori Blockmodel')
+```
+
+```{r}
+heatmap(exploratoryformal[[4]], main ='Exploratory Blockmodel')
+```
+
+```{r}
+connectedformal<-formal[-20,-20]
+class(connectedformal)
+```
+
+```{r}
+CONCOR <- function(mat, max.iter=1000, epsilon=1e-10){
+  mat <- rbind(mat, t(mat)) # stack
+  colN <- ncol(mat) # width
+  X <- matrix(rep(0, times=colN*colN), nrow=colN, ncol=colN)
+  target.abs.value <- colN * colN - epsilon # convergence target
+  for (iter in 1:max.iter){
+    for(i in 1:colN){
+      for(j in i:colN){
+        X[i,j]<-cor(mat[,i], mat[,j], method=c("pearson"))
+      } # end for j
+    } # end for i
+    mat <- X+(t(X)-diag(diag((X))))
+    if (sum(abs(mat)) > target.abs.value) { # test convergence
+      #Finished before max.iter iterations
+      return(mat)
+      } # end if
+  } # end for iterations
+  return(mat) # return matrix
+} # end function
+```
+
+```{r}
+rownames(connectedformal) <- row.names(roles)[1:19]
+colnames(connectedformal) <- row.names(roles)[1:19]
+
+CONCORFORMAL<-CONCOR(connectedformal)
+
+heatmap(CONCORFORMAL)
+```
+
+```{r}
+part1 <- connectedformal[14:19,14:19]
+colnames(part1)
+
+concor1 <- CONCOR(part1)
+heatmap(concor1)
+```
+
+```{r}
+part2 <- connectedformal[1:13,1:13]
+
+concor2 <- CONCOR(part2)
+heatmap(concor2)
+```
+
+```{r}
+part3<-c(1,3,8,9,12,13)
+part3.1<-part2[part3,part3]
+colnames(part3.1)
+```
+
+```{r}
+part3.2 <- part2[-part3,-part3]
+concor3.2 <- CONCOR(part3.2)
+heatmap(concor3.2)
+```
+
+```{r}
+colnames(part3.2[1:2,1:2])
+colnames(part3.2[3:7,3:7])
+```
+
+```{r}
+part3.2.2 <- part3.2[3:7,3:7]
+
+##concor3.2.2<-CONCOR(part3.2.2)
+```
+
+Assignment task. Try not to get lost in all the partitions! Please list all the finite block-partitions that we have generated and the names of all people that ended up in every block
+
+```{r}
+#part1
+colnames(part1)
+```
+
+```{r}
+#part3.1
+colnames(part3.1)
+```
+
+```{r}
+#part3.2
+colnames(part3.2[1:2,1:2])
+```
+
+
+```{r}
+#part3.2.2
+colnames(part3.2.2)
+```
+
+
+Homework 3
+
+1. Choose a dataset from one of our previous labs.
+2. Apply the same routines we did for the exploratory blockmodel here (it???s just copy/paste and then
+explore the k option). Make a heatmap for your model, vary the k, make a heatmap again. . . ..etc.,
+until you select a k.
+3. Apply the CONCOR function to the dataset you selected and plot its heatmap side by side with the
+heatmap for your exploratory blockmodel.
+
+
+```{r}
+load('flo.Rdata')
+flo.marriage.net <- as.network(as.matrix(flo.marriage), directed=FALSE)
+flo.biz.net <- as.network(as.matrix(flo.biz), directed=FALSE)
+```
+
+I have decided to run all the codes on two sets of data:
+
+- Florentine marriages
+- Florentine bisnesses
+
+First of all, I will do everything on the set of Florentine marriages
+
+```{r}
+snasymm.flomar <- flo.marriage.net
+apriori.flomar<-blockmodel(flo.marriage.net, flo.att[[4]],
+                          block.content="density", mode="graph",
+                          diag=FALSE)
+
+heatmap(apriori.flomar[[4]])
+
+```
+
+```{r}
+dist.flomar <- dist(snasymm.flomar, method="euclidian", diag=FALSE)
+thick <- as.vector(dist.flomar)
+
+clust.flomar <- hclust(dist.flomar, method="complete")
+
+exploratory.flomar<-blockmodel(snasymm.flomar, clust.flomar, k=7,
+block.content="density", mode="graph",
+diag=FALSE)
+
+par(mar=c(0,0,2,0))
+plot.blockmodel(exploratory.flomar)
+```
+
+```{r}
+par(mar = c(1,1,4,1), mfrow = c(1,2))
+heatmap(apriori.flomar[[4]], main ='Apriori Blockmodel')
+```
+
+```{r}
+heatmap(exploratory.flomar[[4]], main ='Exploratory Blockmodel')
+```
+
+According to the "exploratory blockmodel", that is the way, in which it is possible to cluster the marriages. k=7 model is the most optimal one. Moreover, it will let us to work with the block 14, 1, 3, 16, 2, 8 separetly, in case, there are any other analysises can be made.
+
+```{r}
+CONCOR <- function(mat, max.iter=1000, epsilon=1e-10){
+  mat <- rbind(mat, t(mat)) # stack
+  colN <- ncol(mat) # width
+  X <- matrix(rep(0, times=colN*colN), nrow=colN, ncol=colN)
+  target.abs.value <- colN * colN - epsilon # convergence target
+  for (iter in 1:max.iter){
+    for(i in 1:colN){
+      for(j in i:colN){
+        X[i,j]<-cor(mat[,i], mat[,j], method=c("pearson"))
+      } # end for j
+    } # end for i
+    mat <- X+(t(X)-diag(diag((X))))
+    if (sum(abs(mat)) > target.abs.value) { # test convergence
+      #Finished before max.iter iterations
+      return(mat)
+      } # end if
+  } # end for iterations
+  return(mat) # return matrix
+} # end function
+```
+
+
+```{r}
+connected.flomar<-flo.marriage.net[-12,-12]
+class(connected.flomar)
+
+rownames(connected.flomar) <- row.names(flo.marriage)[c(1,2,3,4,5,6,7,8,9,10,11,13,14,15,16)]
+colnames(connected.flomar) <- row.names(flo.marriage)[c(1,2,3,4,5,6,7,8,9,10,11,13,14,15,16)]
+
+CONCOR.flomar <- CONCOR(connected.flomar)
+
+heatmap(CONCOR.flomar)
+```
+
+```{r}
+part1 <- connectedformal[14:19,14:19]
+
+part1 <- connected.flomar[c(5, 6, 7, 9, 10, 11, 14), c(5, 6, 7, 9, 10, 11, 14)]
+part2 <- connected.flomar[c(1, 2, 3, 4, 8, 12, 13, 15), c(1, 2, 3, 4, 8, 12, 13, 15)]
+part1
+part2
+##concor1 <- CONCOR(part1)
+##concor2 <- CONCOR(part2)
+```
+
+```{r}
+colnames(part1)
+colnames(part2)
+```
+
+According to the CONCOR analysis, there is anly two blocks that can be separated. The further analysis isn't possible. It can be explaines b ythe fact, that there are not a lot of mariages connections, and based on the characteristics of network it is not possbile to make a more deeper analysis.
+
+Now, I will explore the data of Florentine bisnesses
+
+```{r}
+snasymm.flobiz <- flo.biz.net
+apriori.flobiz<-blockmodel(flo.biz.net, flo.att[[2]],
+                          block.content="density", mode="graph",
+                          diag=FALSE)
+
+heatmap(apriori.flobiz[[4]])
+```
+
+```{r}
+dist.flobiz <- dist(snasymm.flobiz, method="euclidian", diag=FALSE)
+thick <- as.vector(dist.flobiz)
+
+clust.flobiz <- hclust(dist.flobiz, method="complete")
+
+exploratory.flobiz<-blockmodel(snasymm.flobiz, clust.flobiz, k=7,
+block.content="density", mode="graph",
+diag=FALSE)
+
+par(mar=c(0,0,2,0))
+plot.blockmodel(exploratory.flobiz)
+```
+
+```{r}
+par(mar = c(1,1,4,1), mfrow = c(1,2))
+heatmap(apriori.flobiz[[4]], main ='Apriori Blockmodel')
+
+```
+
+According to the "exploratory blockmodel", that is the way, in which it is possible to cluster the businesses. k=7 model is the most optimal one. Moreover, it will let us to work with the block 1, 2, 12, 13, 15 separetly, in case, there are any other analysises can be made.
+
+
+```{r}
+connected.flobiz<-flo.biz.net[c(3,4,5,6,7,8,9,10,11,14,16), c(3,4,5,6,7,8,9,10,11,14,16)]
+
+class(connected.flomar)
+
+rownames(connected.flobiz) <- row.names(flo.biz)[c(3,4,5,6,7,8,9,10,11,14,16)]
+colnames(connected.flobiz) <- row.names(flo.biz)[c(3,4,5,6,7,8,9,10,11,14,16)]
+
+CONCOR.flobiz <- CONCOR(connected.flobiz)
+
+heatmap(CONCOR.flobiz)
+```
+
+```{r}
+part1 <- connected.flobiz[c(2,3,5,6,9), c(2,3,5,6,9)]
+part2 <- connected.flobiz[c(1,4,7,8,10,11), c(1,4,7,8,10,11)]
+part1
+part2
+concor1 <- CONCOR(part1)
+concor2 <- CONCOR(part2)
+
+heatmap(concor1)
+heatmap(concor2)
+```
+
+
+```{r}
+part3<-c(1, 2)
+part3.1<-part1[part3,part3]
+colnames(part3.1)
+##concor3 <- CONCOR(part3.1)
+
+part3.2
+part3.2<-part1[-part3,-part3]
+colnames(part3.2)
+concor3.1 <- CONCOR(part3.2)
+heatmap(concor3.1)
+
+part3.2.1 <- part3.2[-2, -2]
+colnames(part3.2.1)
+##concor3.1.1 <- CONCOR(part3.2.1)
+```
+
+
+```{r}
+part4<-c(1, 2, 4, 5, 6)
+part4.1<-part2[part4,part4]
+colnames(part4.1)
+##concor4 <- CONCOR(part4.1)
+```
+
+```{r}
+colnames(part3.1)
+colnames(part3.2)[2]
+colnames(part2)[3]
+colnames(part3.2.1)
+colnames(part4.1)
+```
+
+The clustreing of businesses turned out to be able to conduct a more deeper anaysis. There are 5 groups I have been able to separate that data. It is not completely possible to tell, on what basis the separations by the CONCOR was made. I can suggest that is was done based on the amount of ties with other families or on the basis of wealth. To explain the results, a deeper thepretical research should be made.

@@ -1,0 +1,163 @@
+---
+title: "Lab 5. Networks on Texts. Part 2"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+
+\begin{center}
+National Research University Higher School of Economics,  
+Faculty of Social Sciences
+
+
+{\Large Introduction to Network Analysis, Spring 2019 \par}
+
+
+\large \textbf{Seminar 5, Part II, 15/02/2019}
+
+Dmitry Zaytsev, PhD and Valentina Kuskova, PhD 
+
+\small{(with deep appreciation to all used sources; references available in text and upon request)}
+
+\end{center}
+
+#2. Parsing and Text Mining for English texts: example of the Protests in Venezuela 2019:
+## First, Get links from the GOOGLE search results **protests in venezuela 2019**:
+```{r}
+library(rvest)
+page_use <- read_html("https://www.google.com/search?q=protests+in+venezuela+2019&num=100&newwindow=1&rlz=1C1CHBD_ruRU822RU822&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjy9KXXxbjgAhWp5KYKHWWbDxQQ_AUIDygC&biw=1440&bih=790")
+links <- page_use %>% html_nodes(xpath='//h3/a') %>% html_attr('href')
+gsub('/url\\?q=','',sapply(strsplit(links[as.vector(grep('url',links))],split='&'),'[',1))
+
+```
+## Second, Download in working environment the vector of first 10 links:
+```{r}
+links2 <- c ("https://www.theguardian.com/world/2019/feb/12/venezuela-guaido-maduro-protest",
+"https://ru.euronews.com/2019/02/12/ru-venezuela-protests",
+"https://www.cnn.com/americas/live-news/venezuela-protests-2019/index.html",
+"https://www.theguardian.com/world/2019/feb/08/venezuela-juan-guaido-central-university-speech-maduro-protests",
+"https://www.cnn.com/2019/02/02/americas/venezuela-unrest/index.html",
+"https://www.cnn.com/2019/01/29/americas/venezuela-protests-deaths/index.html",
+"https://www.theguardian.com/world/video/2019/feb/03/tens-of-thousands-protest-in-venezuela-to-urge-nicolas-maduro-to-resign-video",
+"https://www.theguardian.com/world/2019/feb/10/venezuela-maduro-chavez-guaido-protests",
+"https://www.cnn.com/2019/01/28/americas/venezuela-unrest-maduro-accusations-guaido/index.html",
+"https://montreal.citynews.ca/video/2019/02/12/venezuela-protesters-call-for-emergency-aid/")
+
+```
+## Third, Download .html files in the working directory:
+```{r}
+for(i in 1:length(links2)){
+  html_object  <- read_html(links2[i])
+  somefilename <- paste0("filenameVE_", i, ".html")
+  write_xml(html_object, file = somefilename)
+}
+
+```
+## Fourth, convert html to text
+```{r}
+html <- list.files(pattern="\\.(htm|html)$") # get just .htm and .html files
+library(tm)
+library(RCurl)
+library(XML)
+htmlToText <- function(input, ...) {
+  ###---PACKAGES ---###
+  require(RCurl)
+  require(XML)
+  
+  
+  ###--- LOCAL FUNCTIONS ---###
+  # Determine how to grab html for a single input element
+  evaluate_input <- function(input) {    
+    # if input is a .html file
+    if(file.exists(input)) {
+      char.vec <- readLines(input, warn = FALSE)
+      return(paste(char.vec, collapse = ""))
+    }
+    
+    # if input is html text
+    if(grepl("</html>", input, fixed = TRUE)) return(input)
+    
+    # if input is a URL, probably should use a regex here instead?
+    if(!grepl(" ", input)) {
+      # downolad SSL certificate in case of https problem
+      if(!file.exists("cacert.perm")) download.file(url="http://curl.haxx.se/ca/cacert.pem", destfile="cacert.perm")
+      return(getURL(input, followlocation = TRUE, cainfo = "cacert.perm"))
+    }
+    
+    # return NULL if none of the conditions above apply
+    return(NULL)
+  }
+  
+  # convert HTML to plain text
+  convert_html_to_text <- function(html) {
+    doc <- htmlParse(html, asText = TRUE)
+    text <- xpathSApply(doc, "//text()[not(ancestor::script)][not(ancestor::style)][not(ancestor::noscript)][not(ancestor::form)]", xmlValue)
+    return(text)
+  }
+  
+  # format text vector into one character string
+  collapse_text <- function(txt) {
+    return(paste(txt, collapse = " "))
+  }
+  
+  ###--- MAIN ---###
+  # STEP 1: Evaluate input
+  html.list <- lapply(input, evaluate_input)
+  
+  # STEP 2: Extract text from HTML
+  text.list <- lapply(html.list, convert_html_to_text)
+  
+  # STEP 3: Return text
+  text.vector <- sapply(text.list, collapse_text)
+  return(text.vector)
+}
+html2txt <- lapply(html, htmlToText)
+```
+## Fifth, clean out non-ASCII characters
+```{r}
+html2txtclean <- sapply(html2txt, function(x) iconv(x, "latin1", "ASCII", sub=""))
+```
+## Sixth, make corpus for text mining
+```{r}
+corpus <- Corpus(VectorSource(html2txtclean))
+```
+## Seventh, Let’s check the corpus we recived:
+```{r}
+tdm_matrix<-TermDocumentMatrix(corpus)
+VE_tdm<-as.matrix(tdm_matrix)
+dim(VE_tdm)
+```
+
+## Eighth, Let's clean put data:
+Better to do it in excel:
+```{r}
+write.csv(VE_tdm, file = "VE.csv")
+```
+In Excel you can clean the data, and cut not important terms (I chose to cut words with frequencies less than 9, so I leave with 217 most frequent words out of 3677). I cut terms - can not read col.names - I cut them, by multiplication of matrices create TermToTerm matrix. Write it in working directory.
+
+```{r}
+library(readxl)
+VE_noterms <- read_excel("VE_noterms.xlsx")
+VE<-as.matrix(VE_noterms)%*%t(as.matrix(VE_noterms))
+dim(VE)
+write.csv(VE, file = "VE_matrixwithNOterms.csv")
+```
+Then, I add terms back, and read it again:
+```{r}
+library(readr)
+VE_matrixwithterms <- read_csv("VE_matrixWITHterms.csv")
+dim(VE_matrixwithterms)
+```
+
+```{r}
+library(network)
+net <- as.network(VE_matrixwithterms)
+plot(net)
+```
+
+
+
+
+
+
